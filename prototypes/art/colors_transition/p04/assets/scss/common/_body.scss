@@ -1,0 +1,57 @@
+@include for-size(phone) {
+    html {overflow-x: hidden; }
+    body{
+
+    }
+}
+
+@include for-size(desktop) {
+    body{
+
+    }
+}
+
+body{
+
+    margin: 0 !important;
+    overflow-x: hidden;
+    background-color: #999;
+}
+
+////////////////
+/// The grid //
+//////////////
+
+
+/* Settings */
+:root {
+  --offset: 1.5rem;
+  --max_width: 72rem;
+  --columns: 2;
+  --gutter: .5rem;
+  --baseline: 15px;
+  --baseline-shift: 2rem;
+  --color: hsla(204, 80%, 72%, 0.25);
+  --media-query: 'base';
+}
+
+/* Helper variables */
+:root {
+  --repeating-width: calc(100% / var(--columns));
+  --column-width: calc((100% / var(--columns)) - var(--gutter));
+  --background-width: calc(100% + var(--gutter));
+  --background-columns: repeating-linear-gradient(
+    to right,
+    var(--color),
+    var(--color) var(--column-width),
+    transparent var(--column-width),
+    transparent var(--repeating-width)
+  );
+  --background-baseline: repeating-linear-gradient(
+    to bottom,
+    black,
+    var(--color) 1px,
+    transparent 1px,
+    transparent var(--baseline)
+  );
+}

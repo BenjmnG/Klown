@@ -1,0 +1,21 @@
+@font-face {
+	font-family:'Inria Serif';
+	src:	url('InriaSerif-Regular.eot');
+	src:	url('InriaSerif-Regular.eot?#iefix') format('embedded-opentype'),
+			url('InriaSerif-Regular.woff2') format('woff2'),
+			url('InriaSerif-Regular.woff') format('woff'),
+			url('InriaSerif-Regular.svg') format('svg');
+	font-weight: 400;
+	font-style: normal;
+}
+
+@font-face {
+	font-family:'Inria Serif';
+	src:	url('InriaSerif-Italic.eot');
+	src:	url('InriaSerif-Italic.eot?#iefix') format('embedded-opentype'),
+			url('InriaSerif-Italic.woff2') format('woff2'),
+			url('InriaSerif-Italic.woff') format('woff'),
+			url('InriaSerif-Italic.svg') format('svg');
+	font-weight: 400;
+	font-style: italic;
+}

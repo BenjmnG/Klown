@@ -1,0 +1,5 @@
+prototypes/export/recherche
+prototypes/src/*
+prototypes/art/video/**/frames
+_corpus_src/
+ffmpeg.txt
