@@ -9,14 +9,17 @@
 
 <body class="bgk motion">
 	<main>
-		<video autoplay loop>
-			<source src="assets/video/T310a--15H35.mp4" type="video/mp4">
-		</video>
 		<ul>
 			<li><button data-→="w" data-←="k">Abstraction</button></li>
 			<li><button data-→="r" data-←="w">Instantanés</button></li>
 			<li><button data-→="k" data-←="r">Séquences vidéos</button></li>
 		</ul>
+		<video playsinline autoplay muted loop>
+			<source src="assets/video/T322a--14H56.mp4" type="video/mp4">
+		</video>
+		<video playsinline autoplay muted loop>
+			<source src="assets/video/T324a--17H30.mp4" type="video/mp4">
+		</video>
 	</main>
 	<!-- Calling Specific -->
 	<script src="assets/js/tools.js" type="text/javascript"></script>

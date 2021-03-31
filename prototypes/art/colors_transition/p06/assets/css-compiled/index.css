@@ -592,16 +592,12 @@ body.bgw→k, body.bgk→r, body.bgw→r, body.bgk→w, body.bgr→k, body.bgr�
 body.bgw→k h1, body.bgk→r h1, body.bgw→r h1, body.bgk→w h1, body.bgr→k h1, body.bgr→w h1 {
   text-shadow: currentColor 0 0 60px;
 }
-body.bgw→k button, body.bgk→r button, body.bgw→r button, body.bgk→w button, body.bgr→k button, body.bgr→w button {
-  text-shadow: currentColor 0 0 15px;
-  box-shadow: 0 0 15px currentColor;
-}
 body main {
   height: 100%;
   width: 100%;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: left;
   box-sizing: border-box;
   margin: 45px 25px;
   width: calc(100vw - 50px);
@@ -617,25 +613,35 @@ body main h1 {
 body main ul {
   width: 500px;
   width: clamp(500px, 50%, 800px);
+  margin: 50px;
   display: flex;
-  justify-content: space-around;
+  flex-direction: column;
+  z-index: 2;
 }
 body main ul button {
   background: none;
   font-family: sans-serif;
   font-weight: 200;
-  font-size: 1rem;
+  font-size: 3rem;
   color: currentColor;
   cursor: pointer;
   padding: 5px 10px;
-  border: 1px solid currentColor;
 }
 body main video {
   position: absolute;
   height: 100vh;
   width: 100vw;
   object-fit: cover;
-  mix-blend-mode: overlay;
+  mix-blend-mode: lighten;
+}
+body main video:nth-of-type(2) {
+  display: none;
+}
+body main ul:hover + video {
+  display: none;
+}
+body main ul:hover + video + video {
+  display: inline-block;
 }
 
 /*# sourceMappingURL=index.css.map */
