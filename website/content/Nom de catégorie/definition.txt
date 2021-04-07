@@ -1,0 +1,6 @@
+---
+publiable: true
+titre : Nom de la catégorie
+---
+
+Un texte à propos de cette catégorie

@@ -1,0 +1,46 @@
+---
+publiable: true
+date:  
+categorie: absraction
+titre: titre du projet
+medium: 
+	- Acrylique
+	- 120x200
+
+
+---
+
+Ce qui figure au dessus entre les deux --- est un *frontmatter*.
+Il regroupe toutes des informations sérialisées (à traiter comme des données tant pour le lecteur que l'ordinateur).
+
+Tout texte peut être agrémenté d'*italic* ou de **gras**.
+
+> Une citation peut être facilement mis en page
+
+Tout comme une liste
++ Une
++ petite
++ liste
+
+Il est possible d'inclure des notes de bas de pages[^1].
+
+Les titres sont numéroté de 1 à 6 et se convoquent par l'utilisation, en début de ligne, de caractère # (dièse) répétés autant de fois que l'importance du titre décroit. 
+
+# Un grand titre
+
+###### Un titre de sixième niveau
+
+Trois * (étoile) équivalent à un changement de section
+
+***
+
+
+Toutes images commençant par 01-, 02-, ... seront intégrées au carrousel de chaque projet. La première image numérotée, ici 01-exemple.png, sera notre photo de couverture.
+
+Toutes autres images ne sera pas intégré automatiquement. Destinées à être intégré dans le texte d'"explication", il convient de les appeller avec l'expression : 
+
+![Titre de l'image](_image_processus.png)
+
+Remplacer ce texte de démo par Contenu / Ref / Explication
+
+[^1]: C'est peut être la balise la moins pratique...
