@@ -1,0 +1,46 @@
+En prévision de ce moment, nous aurons besoin de nous appuyer sur un contenu structuré.
+Il y a plusieurs façons de te permettre de structurer ce contenu toutes avec avantages et inconvénients.
+J'aimerais te proposer la méthode la plus directe et la plus fiable, peut être la plus intimidante.
+
+Il s'agit de la même méthode que nous utiliserons avec Paul. Un service nommé Github, sorte de Google Drive plus poussé, vers lequel nous pourrons synchroniser nos ouvrages.
+
+En bref,
+
+🔧     Installation
+📥    Tu synchronises un répertoire distant sur ton ordinateur via un logiciel GitHub Desktop.
+📝    Tu édites, modifies et organises ce répertoire sur ton ordinateur avec le Finder et TextEdit
+📤    Tu envoies tes mises à jour sur le répertoire distant grâce à GitHub Desktop
+
+
+Tu trouveras en fin de ce mail les étapes pour initier les deux premières étapes. 🔧📥.
+Nous pourrons durant le prochain atelier passer en revue ton installation dé-brumer les interrogations sur l'étape 3. 📝
+Si nous réalisons que cette méthode t'es inconfortable (aucun souci) nous construirons une alternative avec Paul (par exemple une interface simplifiée type Wordpress reposant sur un service tiers).
+
+Bien à toi,
+Benjamin
+
+
+*** Tuto ***
+
+
+Créer un compte sur Github.com
+
+Github est entre :
++ le cloud (stocker une version de travail à un instant T)
++ le document collaboratif (travailler à plusieurs sur un projet)
++ le serveur (servir un contenu à l'internaute)
+
+A ce stade, communique moi ton pseudo sur Github pour que je puisse te donner un accès au projet : https://github.com/BenjmnG/Klown
+
+Télécharger Github Desktop (desktop.github.com) et l'ouvrir.
+
+Se connecter via son compte Github
+
+"Cloner" le répertoire distant dans ses dossiers.
+
+Et voilà pour le moment !
+Le reste on verra ensemble
+
+
+
+
