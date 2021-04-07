@@ -6,6 +6,7 @@ titre: titre du projet
 medium: 
 	- Acrylique
 	- 120x200
+description: 
 
 
 ---
