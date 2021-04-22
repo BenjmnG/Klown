@@ -1,0 +1,31 @@
+/*#carrousel{
+	@for $i from 0  through 30{
+		#i-s-#{$i}:checked ~ #s-#{$i + 1}{	left: 100vw; 	z-index: 2;	}			
+		#i-s-#{$i}:checked ~ #s-#{$i}{			left: 0;			z-index: 3; }
+		#i-s-#{$i}:checked ~ #s-#{$i - 1}{	left: -100vw;	z-index: 2; }
+		#i-s-#{$i}:checked ~ .controls{
+			label[for="i-s-#{$i - 1}"]{display: inline-block; left: 0; cursor: url('/static/svg/arrow-L.svg') 50 50, auto;}
+			label[for="i-s-#{$i + 1}"]{display: inline-block; right: 0; cursor: url('/static/svg/arrow-R.svg') 50 50, auto;}
+		}
+	}	
+
+	nav{
+		position: absolute;
+		height: 100%;
+		width: 100%;
+		label{
+			position: absolute;
+			height: 100%;
+			width: 33.333%;
+			display: none;
+			z-index: 4;
+		}
+	}
+	figure{
+		position: absolute;
+		width: 100%;
+		top: 50%;
+		transform: translateY(-50%);
+		transition: .25s ease-in-out;
+	}
+}*/

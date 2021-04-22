@@ -1,0 +1,29 @@
+#topbar{
+	@include flex();
+	@include justify-content(space-between);
+	margin-top: $baseline*2;
+	margin-bottom: $baseline*2;
+	@include for-size(desktop){
+		margin-top: $baseline*3;
+		margin-bottom: $baseline*3; 
+	}
+
+	*{ @include f1-s1(); font-weight: $bold; }
+
+	nav{
+		ul li{
+			display: inline-block;
+			text-transform: capitalize;
+			margin-right: 5px;
+
+			> ul {
+				&:after{
+					content: "";
+					border-right: 1px solid currentColor;
+					margin-right: $unite/4;
+					padding-left: $unite/4;
+				}
+			}
+		}
+	}
+}

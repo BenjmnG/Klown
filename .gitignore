@@ -3,3 +3,5 @@ prototypes/src/*
 prototypes/art/video/**/frames
 _corpus_src/
 ffmpeg.txt
+.DS_Store
+

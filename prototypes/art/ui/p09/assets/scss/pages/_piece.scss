@@ -1,0 +1,117 @@
+body#piece{
+
+	// Carrousel
+	#carrousel{
+		height: calc(100vh - #{$baseline*5});
+		width: 100vw;
+		left: -$unite;
+		box-sizing: border-box;
+		@include for-size(desktop){ 
+			height: calc(100vh - #{$baseline*8});
+			padding: $baseline*2 0;
+			left: $unite*-4;
+		}
+
+		// special figma
+		div{height: 100%;}
+
+		button{
+			position: absolute;
+			height: 100%;
+			width: 33.333%;
+			top: 0;
+			background: transparent;
+			z-index: 3;
+			&.prev{left: 0;cursor: url('/static/svg/arrow-L.svg') 50 50, auto;}
+			&.next{right: 0;cursor: url('/static/svg/arrow-R.svg') 50 50, auto;}
+		}
+		figure{
+			top: 50%;
+			transform:translateY(-60%);
+			text-align: center;
+			img{ width: 66vw; max-width: 1000px; object-fit: contain;	}
+		}
+
+		a#to-details{
+			position: absolute;
+			bottom: $baseline;
+			left: 50%;
+			transform: translateX(-50%);
+			@include f1-s0();
+			text-align: center;
+			padding: $baseline/4 2px;
+			border-bottom: .5px solid currentColor;
+		}
+	}
+
+	// details / content
+	#details, #content{
+		max-width: 960px;
+		width: 100%;
+		margin-left: auto; 
+		margin-right: auto; 
+	}
+
+	// details
+	#details{
+		padding: calc(clamp(#{$baseline*6}, 25vh, 300px)) 0  calc(clamp(#{$baseline*4}, 10vh, 100px)) 0; 
+		p:first-of-type{}
+		h1{
+			@include f1-s3();
+			@include for-size(desktop){ 
+				@include f1-s5();
+			}
+		}
+		ul{
+			@include flex();
+			li{ width: 20%; min-width: 75px }
+		}
+	}	
+
+	// content
+	#content{
+		> * {max-width: 600px;}
+		p{
+			@include f1-s1();
+			margin-bottom: $baseline;
+		}
+
+		h1, h2{
+			@include f1-s2();
+			margin-bottom: $baseline * 2;
+		}
+		figure{
+			left: $unite*2;
+			margin: $baseline*2 0;
+			figcaption{
+				@include f1-s0();
+				margin: $baseline 0;
+			}
+		}
+	}
+
+	#related{
+		height: calc(100vh - #{$baseline*5});
+		@include for-size(desktop){ 		
+			height: calc(100vh - #{$baseline*8});
+			@include grid(repeat(8, 1fr), auto,  $baseline $unite/2, null, end);
+		}
+		@include for-size(desktop-1200){
+			@include grid(repeat(9, 1fr), auto,  $baseline $unite/2, null, end);
+			padding: $baseline*2 0;
+			box-sizing: border-box;
+			h2{grid-column: 2/ span 6; -ms-grid-column: 2/ span 6;}
+		}
+
+		h2{
+			@include f1-s2();
+			@include for-size(desktop){ 
+				@include f1-s4();
+				margin-left: calc(clamp())
+			}
+			line-height: 90% !important;
+			position: absolute;
+			bottom: $baseline*2;						
+		}		
+	}
+}

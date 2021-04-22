@@ -1,0 +1,40 @@
+body#categorie{
+	
+	main{
+		header{
+			/*Fallback */ margin-top: calc(100vh - #{$baseline*5} - 4rem);
+			margin-top: calc(100vh - #{$baseline*3} - clamp(4rem, 15vw, 200px) );
+			@include for-size(desktop){ 
+				/*Fallback */ margin-top: calc(100vh - #{$baseline*5} - 150px);
+				margin-top: calc(100vh - #{$baseline*4} - clamp(4rem, 15vw, 200px) );
+			}
+
+			h1{
+				font-family: $font-1;
+				line-height: 80%;
+				font-size: 4rem;
+				font-weight: $bold;
+				@include for-size(desktop){
+					font-size: 150px;
+					font-size: calc(clamp(4rem, 15vw, 200px));
+				}
+			}
+
+			.exp{
+				position: absolute;
+				top: $baseline*-1;
+			}
+		}
+
+		.content{
+			max-width: 400px;
+			/*Fallback */ margin: #{$baseline*6} 0 #{$baseline*12} 0;
+			margin: calc(clamp(#{$baseline*6}, 25vh, 300px)) 0 calc(clamp(#{$baseline*6}, 50vh, 600px)) 0;
+		}
+
+		#on-sideNav{
+			min-height: 100vh;
+			background: salmon
+		}
+	}	
+}

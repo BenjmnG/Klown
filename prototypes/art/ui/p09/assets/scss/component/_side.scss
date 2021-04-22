@@ -1,0 +1,109 @@
+/*
+    SideNav
+            */  
+
+nav#sideNav{
+
+  // container 
+  position: fixed;
+  transition: .15s ease;
+  box-sizing: border-box;
+  overflow: visible scroll;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  &::-webkit-scrollbar {display: none;}
+  scroll-snap-type: y mandatory;
+  z-index: 5;
+  @include for-size(phone){
+    width: 90vw;
+    height: 100vh;
+    top: 0;
+    left: calc(-90vw + #{$unite*2});
+    padding: $baseline*2 $unite $baseline*2 $unite*2;
+    &:hover{
+      border-right: 1px solid currentColor;
+      background: white;
+    }
+  }
+  @include for-size(desktop){
+    width: $unite*10;
+    height: 100vh;
+    height: calc(100vh - #{$baseline*7});
+    left: $unite*-8;
+    padding: 0 $unite $baseline*2 $unite; // Incluse lateral space as inside otherwise hover bug
+  }
+
+  // Toggle Button
+  &:not(.inline) label[for="toggle-sideNav"]{
+    content: "Pièces";
+    @include f1-s0();
+    transform: rotate(90deg);
+    position: absolute;
+    opacity: 1;
+
+    right: 0;
+    top: $baseline*5;
+    border-bottom: 1px solid currentColor;
+    padding: .5rem $unite/2 .5rem 0;
+    cursor: pointer;
+
+    @include for-size(desktop){top: $baseline*1.75;}
+  }
+
+  // Items
+  li.cat{
+    margin: 0 0 $baseline*2 0;
+    //scroll-snap-align: start;
+    overflow: hidden;
+
+    h1{@include f1-s0();}
+    ul{
+      li.item{
+        margin: $baseline/2 0;
+        scroll-snap-align: start;
+        transition: .25s ease;
+        max-height: 150px;
+        cursor: pointer;
+        
+        img.cover{
+          width: 100px;
+          height: 75px;
+          max-height: 150px;
+          transition: .25s ease;
+          object-fit: cover;
+
+          &:hover{
+            width: 175px;
+            height: 150px;
+          } 
+        }
+
+      }
+    }
+  }
+
+  // Inline
+  &.inline{
+    width: 100vw;
+    > ul li{
+      display: inline-block;
+    }
+    li.cat ul li.item{
+      max-height: inherit;
+      img.cover{
+        width: 300px;
+        height: 225px;
+        max-height: inherit;
+        &:hover{
+          width: 25vw;
+          height: 25vh;
+        }           
+      }
+    }
+  }
+}
+
+// Open / Close
+nav#sideNav:hover, nav#sideNav:focus, input#toggle-sideNav:checked + nav{
+  left: 0;
+}

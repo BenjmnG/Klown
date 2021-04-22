@@ -1,0 +1,90 @@
+:root{
+	--c0: hsl(5, 80%, 50%); // r
+	--c00: hsl(15, 80%, 50%);
+	--c000: hsl(30, 80%, 50%);
+	--c1: hsl(0, 0%, 100%); // w
+	--c11: hsl(0, 0%, 97.5%);
+	--c111: hsl(0, 0%, 95%);
+	--c2: hsl(0, 0%, 0%); // b
+	--c22: hsl(0, 0%, 15%);
+	--c222: hsl(0, 0%, 30%);
+	
+	--dur: 15s;
+	--rot: -45deg;
+}
+
+body{
+
+	&.bgr{ --bg: var(--c0); --cc: var(--c1) ; background: var(--bg); color: var(--cc); }
+	&.bgw{ --bg: var(--c1); --cc: var(--c22) ; background: var(--bg); color: var(--cc); }
+	&.bgk{ --bg: var(--c22); --cc: var(--c1) ; background: var(--bg); color: var(--cc); }
+
+	&.bgr.motion{
+		animation: rulse 3s steps(8) infinite;		
+		@keyframes rulse {
+			0% { background-color: var(--c0); }
+			33% { background-color: var(--c00); }
+			66% { background-color: var(--c000); }
+			100% { background-color: var(--c00); }
+		}
+	}
+
+	&.bgw.motion{
+		animation: wulse 3s steps(8) infinite;
+		@keyframes wulse {
+			0% { background-color: var(--c1); }
+			33% { background-color: var(--c11); }
+			66% { background-color: var(--c111); }
+			100% { background-color: var(--c1); }
+		}
+	}
+
+	&.bgk.motion{
+		animation: kulse 3s steps(8) infinite;		
+		@keyframes kulse {
+			0% { background-color: var(--c2); }
+			33% { background-color: var(--c22); }
+			66% { background-color: var(--c222); }
+			100% { background-color: var(--c22); }
+		}
+	}
+
+
+	&.bgw, &.bgk, &.bgw, 
+	&.bgw→k, &.bgk→r, &.bgw→r, 
+	&.bgk→w, &.bgr→k, &.bgr→w{
+		background-size: 100%;
+	}
+
+	&.bgw→k, &.bgk→w{
+		color: var(--c1);
+		animation: wyochi .1s steps(2) infinite;
+		@keyframes wyochi {
+			0% { background-color: var(--c1); }
+			100% { background-color: var(--c2); }
+		}	
+	}
+	&.bgk→r, &.bgr→k{
+		color: var(--c0);
+		animation: kyochi .1s steps(2) infinite;
+		@keyframes kyochi {
+			0% { background-color: var(--c2); }
+			100% { background-color: var(--c0); }
+		}	
+	}
+	&.bgw→r, &.bgr→w{
+		color: var(--c1);
+		animation: ryochi .1s steps(2) infinite;		
+		@keyframes ryochi {
+			0% { background-color: var(--c1); }
+			100% { background-color: var(--c0); }
+		}
+	}
+
+	&.bgw→k, &.bgk→r, &.bgw→r, 
+	&.bgk→w, &.bgr→k, &.bgr→w{
+		h1{text-shadow: currentColor 0 0 60px;}
+		//button{text-shadow: currentColor 0 0 15px; box-shadow: 0 0 15px currentColor}
+		border-bottom-color: currentColor;
+	}
+}
