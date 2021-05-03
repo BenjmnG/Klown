@@ -505,16 +505,41 @@ body {
   letter-spacing: 0px;
   font-weight: 400;
 }
-#topbar nav ul li {
+#topbar nav > ul {
+  top: -0.25rem;
+}
+#topbar nav > ul > li {
   display: inline-block;
   text-transform: capitalize;
-  margin-right: 5px;
 }
-#topbar nav ul li > ul:after {
+#topbar nav > ul > li:first-of-type {
+  cursor: pointer;
+  max-height: 1.25rem;
+  text-align: right;
+  overflow: hidden;
+  top: 0.5rem;
+}
+#topbar nav > ul > li:first-of-type > * {
+  top: -0.25rem;
+  transform: translateY(0);
+  transition: transform 0.25s ease;
+}
+#topbar nav > ul > li:first-of-type span {
+  display: inline-block;
+}
+#topbar nav > ul > li:first-of-type:hover > * {
+  transform: translateY(-1.25rem);
+}
+#topbar nav > ul > li:first-of-type > ul > li {
+  display: inline-block;
+  padding-left: 12.5px;
+}
+#topbar nav > ul > li:last-of-type:before {
   content: "";
-  border-right: 1px solid currentColor;
-  margin-right: 6.25px;
-  padding-left: 6.25px;
+  border-left: 1px solid currentColor;
+  padding-right: 12.5px;
+  margin-left: 12.5px;
+  height: 1.25rem;
 }
 
 body > footer nav li {
@@ -691,6 +716,11 @@ body > footer .mentions {
   --c222: hsl(0, 0%, 30%);
   --dur: 15s;
   --rot: -45deg;
+}
+
+::-moz-selection, ::selection {
+  color: var(--bg);
+  background-color: var(--cc);
 }
 
 body.bgr {
@@ -873,36 +903,65 @@ input.on-off:checked::before {
             */
 nav#sideNav {
   position: fixed;
-  transition: 0.15s ease;
+  transition: all 0s, transform 0.25s ease-in-out;
   box-sizing: border-box;
   overflow: visible scroll;
   -ms-overflow-style: none;
   scrollbar-width: none;
-  scroll-snap-type: y mandatory;
   z-index: 5;
+  /*
+      row
+          */
+  /*
+      Inline
+              */
 }
 nav#sideNav::-webkit-scrollbar {
   display: none;
 }
-@media (max-width: 700px) {
+@media (min-width: 700px) {
   nav#sideNav {
+    transform: translateX(-200px);
+    left: 0;
+  }
+}
+nav#sideNav li.cat h1 {
+  font-family: "GeneralSans", sans-serif;
+  font-size: 0.75rem;
+  line-height: 0.9375rem;
+  font-weight: 300;
+  letter-spacing: 0px;
+}
+nav#sideNav li.cat li.item img.cover {
+  object-fit: contain;
+  transition: all 0s, transform 0.25s ease;
+}
+nav#sideNav li.cat li.item img.cover:hover {
+  transform: scale(1.25);
+}
+nav#sideNav:not(.inline) {
+  position: fixed;
+  overflow: visible scroll;
+  scroll-snap-type: y mandatory;
+}
+@media (max-width: 700px) {
+  nav#sideNav:not(.inline) {
     width: 90vw;
     height: 100vh;
     top: 0;
     left: calc(-90vw + 50px);
     padding: 2.5rem 25px 2.5rem 50px;
   }
-  nav#sideNav:hover {
+  nav#sideNav:not(.inline):hover {
     border-right: 1px solid currentColor;
     background: white;
   }
 }
 @media (min-width: 700px) {
-  nav#sideNav {
+  nav#sideNav:not(.inline) {
     width: 250px;
     height: 100vh;
     height: calc(100vh - 8.75rem);
-    left: -200px;
     padding: 0 25px 2.5rem 25px;
   }
 }
@@ -913,70 +972,147 @@ nav#sideNav:not(.inline) label[for=toggle-sideNav] {
   line-height: 0.9375rem;
   font-weight: 300;
   letter-spacing: 0px;
-  transform: rotate(90deg);
-  position: absolute;
-  opacity: 1;
-  right: 0;
-  top: 6.25rem;
-  border-bottom: 1px solid currentColor;
-  padding: 0.5rem 12.5px 0.5rem 0;
   cursor: pointer;
+  position: absolute;
+  top: 6.25rem;
+  right: 0;
+  padding: 0.5rem 12.5px 0.5rem 0;
+  opacity: 1;
+  border-bottom: 1px solid currentColor;
+  transform: rotate(90deg);
+  transition: opacity 0.25s ease-in-out;
 }
 @media (min-width: 700px) {
   nav#sideNav:not(.inline) label[for=toggle-sideNav] {
     top: 2.1875rem;
   }
 }
-nav#sideNav li.cat {
+nav#sideNav:not(.inline) ul.cat-container li.cat {
   margin: 0 0 2.5rem 0;
   overflow: hidden;
 }
-nav#sideNav li.cat h1 {
-  font-family: "GeneralSans", sans-serif;
-  font-size: 0.75rem;
-  line-height: 0.9375rem;
-  font-weight: 300;
-  letter-spacing: 0px;
-}
-nav#sideNav li.cat ul li.item {
+nav#sideNav:not(.inline) ul.cat-container li.cat ul.item-container li.item {
   margin: 0.625rem 0;
   scroll-snap-align: start;
-  transition: 0.25s ease;
+  transition: all 0.25s ease, max-height 0.5s ease-in-out, margin 0s;
   max-height: 150px;
   cursor: pointer;
 }
-nav#sideNav li.cat ul li.item img.cover {
-  width: 100px;
+nav#sideNav:not(.inline) ul.cat-container li.cat ul.item-container li.item img.cover {
   height: 75px;
   max-height: 150px;
-  transition: 0.25s ease;
-  object-fit: cover;
-}
-nav#sideNav li.cat ul li.item img.cover:hover {
-  width: 175px;
-  height: 150px;
+  transform-origin: left;
 }
 nav#sideNav.inline {
+  position: absolute;
   width: 100vw;
 }
-nav#sideNav.inline > ul li {
+@media (min-width: 700px) {
+  nav#sideNav.inline {
+    height: 33vh;
+    max-height: 300px;
+    left: 100px;
+  }
+}
+nav#sideNav.inline > label {
+  opacity: 0;
+  position: absolute;
+}
+nav#sideNav.inline * {
+  user-select: none;
+}
+nav#sideNav.inline > ul.cat-container {
+  width: auto;
+  height: 100%;
+  padding: 0 100px;
+  scrollbar-width: none;
+  overflow: scroll hidden;
+  white-space: nowrap;
+}
+nav#sideNav.inline > ul.cat-container.active li.item a {
+  cursor: grab !important;
+}
+nav#sideNav.inline > ul.cat-container li.cat {
   display: inline-block;
+  padding-right: 100px;
+  /*input[name="toggle-c"]:checked ~*/
 }
-nav#sideNav.inline li.cat ul li.item {
+nav#sideNav.inline > ul.cat-container li.cat label {
+  position: sticky;
+  top: 0;
+  left: 0;
+  margin: 2.5rem 0;
+}
+nav#sideNav.inline > ul.cat-container li.cat ul.item-container li.item {
+  display: inline-block;
+  white-space: nowrap;
+  margin: 1.25rem 12.5px 1.25rem 0;
+}
+nav#sideNav.inline > ul.cat-container li.cat ul.item-container li.item img.cover {
+  width: 200px;
   max-height: inherit;
+  transform-origin: center;
 }
-nav#sideNav.inline li.cat ul li.item img.cover {
-  width: 300px;
-  height: 225px;
-  max-height: inherit;
+nav#sideNav.inline > ul.cat-container li.cat ul.item-container li.item img.cover:hover {
+  transform: inherit;
 }
-nav#sideNav.inline li.cat ul li.item img.cover:hover {
-  width: 25vw;
-  height: 25vh;
+nav#sideNav nav#sideNav:not(.inline) input[name=toggle-c]:not(:checked) ~ ul li.item {
+  max-height: 0;
+  overflow: hidden;
+  margin: 0;
 }
 
-nav#sideNav:hover, nav#sideNav:focus, input#toggle-sideNav:checked + nav {
-  left: 0;
+nav#sideNav:not(.inline):hover,
+nav#sideNav:not(.inline):focus,
+input#toggle-sideNav:checked + nav:not(.inline) {
+  transform: translateX(0);
+}
+
+body#index main {
+  height: calc(100vh - 6.25rem);
+}
+body#index main nav {
+  font-family: "GeneralSans", sans-serif;
+  font-size: 2rem;
+  line-height: 2.5rem;
+  font-weight: 300;
+  letter-spacing: 0px;
+  line-height: 150% !important;
+  transform: translateY(-50%);
+  top: 40%;
+  position: absolute;
+  transition: 0.25s ease;
+}
+body#index main nav:hover + video {
+  visibility: hidden;
+}
+body#index main nav:hover + video + video {
+  visibility: visible;
+}
+body#index main video {
+  position: fixed;
+  left: 50%;
+  bottom: 0;
+  transform: translateX(-50%);
+  min-width: 100vw;
+  min-height: 100vh;
+  mix-blend-mode: lighten;
+  z-index: -1;
+}
+body#index main video:nth-of-type(2) {
+  visibility: hidden;
+}
+@media (min-width: 700px) {
+  body#index main {
+    min-height: calc(100vh - 10rem);
+  }
+  body#index main nav {
+    font-family: "GeneralSans", sans-serif;
+    font-size: 4rem;
+    line-height: 5rem;
+    font-weight: 300;
+    letter-spacing: -0.3px;
+  }
 }
 
 body#categorie main header {
@@ -1011,25 +1147,68 @@ body#categorie main .content {
   max-width: 400px;
   /*Fallback */
   margin: 7.5rem 0 15rem 0;
-  margin: calc(clamp(7.5rem, 25vh, 300px)) 0 calc(clamp(7.5rem, 50vh, 600px)) 0;
+  margin: calc(clamp(7.5rem, 25vh, 300px)) 0 calc(clamp(7.5rem, 25vh, 300px)) 0;
 }
-body#categorie main #on-sideNav {
-  min-height: 100vh;
-  background: salmon;
+body#categorie main #pièces {
+  height: 33vh;
+  max-height: 300px;
+  margin: 20vh 0 20vh;
+}
+body#categorie #sideNav.inline {
+  bottom: 250px;
+  /*Fallback */
+  margin: 7.5rem 0 15rem 0;
+  margin: 0 0 calc(clamp(7.5rem, 20vh, 600px)) 0;
 }
 
 body#piece #carrousel {
   height: calc(100vh - 6.25rem);
-  width: 100vw;
-  left: -25px;
   box-sizing: border-box;
 }
 @media (min-width: 700px) {
   body#piece #carrousel {
     height: calc(100vh - 10rem);
     padding: 2.5rem 0;
+  }
+}
+body#piece #carrousel:not(.single) {
+  width: 100vw;
+  left: -25px;
+}
+@media (min-width: 700px) {
+  body#piece #carrousel:not(.single) {
     left: -100px;
   }
+}
+body#piece #carrousel.single {
+  width: 100%;
+  display: -webkit-box;
+  /* OLD - iOS 6-, Safari 3.1-6 */
+  display: -moz-box;
+  /* OLD - Firefox 19- (buggy but mostly works) */
+  display: -ms-flexbox;
+  /* TWEENER - IE 10 */
+  display: -webkit-flex;
+  /* NEW - Chrome */
+  display: flex;
+  /* NEW, Spec - Opera 12.1, Firefox 20+ */
+  -webkit-box-pack: center;
+  -moz-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -moz-box-align: center;
+  -ms-flex-align: center;
+  -webkit-align-items: center;
+  align-items: center;
+}
+body#piece #carrousel.single > video, body#piece #carrousel.single > figure {
+  width: 100%;
+  padding-bottom: 10vh;
+}
+body#piece #carrousel.single > video {
+  max-width: 1080px;
 }
 body#piece #carrousel div {
   height: 100%;
@@ -1110,6 +1289,7 @@ body#piece #details ul {
   /* NEW - Chrome */
   display: flex;
   /* NEW, Spec - Opera 12.1, Firefox 20+ */
+  gap: 12.5px;
 }
 body#piece #details ul li {
   width: 20%;
@@ -1129,7 +1309,7 @@ body#piece #content p {
 body#piece #content h1, body#piece #content h2 {
   font-family: "GeneralSans", sans-serif;
   font-size: 2rem;
-  line-height: 1.5625rem;
+  line-height: 2.5rem;
   font-weight: 300;
   letter-spacing: 0px;
   margin-bottom: 2.5rem;
@@ -1185,7 +1365,7 @@ body#piece #related {
 body#piece #related h2 {
   font-family: "GeneralSans", sans-serif;
   font-size: 2rem;
-  line-height: 1.5625rem;
+  line-height: 2.5rem;
   font-weight: 300;
   letter-spacing: 0px;
   line-height: 90% !important;
@@ -1200,6 +1380,87 @@ body#piece #related h2 {
     font-weight: 300;
     letter-spacing: -0.3px;
     margin-left: calc(clamp());
+  }
+}
+
+body#info main {
+  min-height: calc(100vh - 6.25rem);
+  margin-bottom: 12.5rem;
+}
+body#info main > * {
+  margin-bottom: 2.5rem;
+}
+body#info main #texte_presentation {
+  font-family: "GeneralSans", sans-serif;
+  font-size: 2rem;
+  line-height: 2.5rem;
+  font-weight: 300;
+  letter-spacing: 0px;
+  font-weight: 400;
+  width: 100%;
+  max-width: 800px;
+}
+body#info main #texte_presentation em, body#info main #texte_presentation i {
+  opacity: 0.5;
+  font-style: normal;
+}
+body#info main .details {
+  grid-row: 2;
+  display: -webkit-box;
+  /* OLD - iOS 6-, Safari 3.1-6 */
+  display: -moz-box;
+  /* OLD - Firefox 19- (buggy but mostly works) */
+  display: -ms-flexbox;
+  /* TWEENER - IE 10 */
+  display: -webkit-flex;
+  /* NEW - Chrome */
+  display: flex;
+  /* NEW, Spec - Opera 12.1, Firefox 20+ */
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  gap: 12.5px;
+}
+body#info main .details li {
+  width: 20%;
+  min-width: 125px;
+}
+body#info main > figure {
+  grid-column: 2/3;
+  grid-row: 1/span 2;
+  width: 100%;
+  max-width: 600px;
+  justify-self: end;
+}
+@media (min-width: 700px) {
+  body#info main {
+    min-height: calc(100vh - 10rem);
+  }
+  body#info main #texte_presentation {
+    font-family: "GeneralSans", sans-serif;
+    font-size: 4rem;
+    line-height: 5rem;
+    font-weight: 300;
+    letter-spacing: -0.3px;
+    font-weight: 400;
+  }
+}
+@media (min-width: 700px) and (min-width: 1200px) {
+  body#info main {
+    margin-bottom: 2.5rem;
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: 2fr 1fr;
+    -ms-template-rows: 1fr 1fr;
+    -ms-grid-gap: 1.25rem 12.5px;
+    grid-template-columns: 2fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    grid-gap: 1.25rem 12.5px;
+  }
+  @supports (display: grid) {
+    body#info main > * {
+      margin-bottom: 0;
+    }
   }
 }
 

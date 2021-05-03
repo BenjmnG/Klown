@@ -29,12 +29,20 @@ body#categorie{
 		.content{
 			max-width: 400px;
 			/*Fallback */ margin: #{$baseline*6} 0 #{$baseline*12} 0;
-			margin: calc(clamp(#{$baseline*6}, 25vh, 300px)) 0 calc(clamp(#{$baseline*6}, 50vh, 600px)) 0;
+			margin: calc(clamp(#{$baseline*6}, 25vh, 300px)) 0 calc(clamp(#{$baseline*6}, 25vh, 300px)) 0;
 		}
 
-		#on-sideNav{
-			min-height: 100vh;
-			background: salmon
+		#pièces{
+			height: 33vh;
+			max-height: 300px;
+			margin: 20vh 0 20vh;
 		}
 	}	
+
+	#sideNav.inline{
+		bottom: 250px;
+		/*Fallback */ margin: #{$baseline*6} 0 #{$baseline*12} 0;
+		margin: 0 0 calc(clamp(#{$baseline*6}, 20vh, 600px)) 0;
+
+	}
 }

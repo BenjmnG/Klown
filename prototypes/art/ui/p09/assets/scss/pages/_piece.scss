@@ -3,16 +3,32 @@ body#piece{
 	// Carrousel
 	#carrousel{
 		height: calc(100vh - #{$baseline*5});
-		width: 100vw;
-		left: -$unite;
 		box-sizing: border-box;
 		@include for-size(desktop){ 
 			height: calc(100vh - #{$baseline*8});
 			padding: $baseline*2 0;
-			left: $unite*-4;
 		}
 
-		// special figma
+		&:not(.single){
+			width: 100vw;
+			left: -$unite;
+			@include for-size(desktop){left: $unite*-4;}
+		}
+
+		// if single Media
+		&.single{
+			width: 100%;
+			@include flex();
+			@include justify-content(center);
+			@include align-items(center);
+			> video, > figure{
+				width: 100%;
+				padding-bottom: 10vh;
+			}
+			> video{ max-width: 1080px; }
+		}
+
+		// special Siema
 		div{height: 100%;}
 
 		button{
@@ -64,6 +80,7 @@ body#piece{
 		}
 		ul{
 			@include flex();
+			gap: $unite/2;
 			li{ width: 20%; min-width: 75px }
 		}
 	}	

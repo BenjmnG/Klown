@@ -5,32 +5,27 @@
 	<?php include('partials/topbar.php') ?>
 	<?php include('partials/side.php') ?>
 	<main>
-		<section id="carrousel">
+		<section id="carrousel" class="">
 			<h2 class="sr-only">Carrousel</h2>
-			<!--<input type="radio" name="i-s" id="i-s-1" hidden checked>
-			<input type="radio" name="i-s" id="i-s-2" hidden>
-			<input type="radio" name="i-s" id="i-s-3" hidden>
-	
-			<nav class="controls">
-				<label for="i-s-1"></label>
-				<label for="i-s-2"></label>
-				<label for="i-s-3"></label>
-			</nav>-->
 
 			<div class="siema">
 				<figure id=s-1>
-					<img src="assets/svg/example.svg">
+					<img src="assets/svg/example.svg" loading="lazy">
 				</figure>
 				<figure id=s-2>
-					<img src="assets/svg/example2.svg">
+					<img src="assets/svg/example2.svg" loading="lazy">
 				</figure>
 				<figure id=s-3>
-					<img src="assets/svg/example.svg">
+					<img src="assets/svg/example.svg" loading="lazy">
 				</figure>
 			</div>
 			
 			<button class="prev"></button>
-			<button class="next"></button>
+			<button class="next"></button>			
+
+			<!--<video>
+				<source src="assets/video/example.mp4" type="video/mp4" autoplay>
+			</video>-->
 			
 			<a id="to-details" href ="#details">Plus d'information ⋁</a>
 

@@ -6,104 +6,171 @@ nav#sideNav{
 
   // container 
   position: fixed;
-  transition: .15s ease;
+  transition: all 0s, transform .25s ease-in-out;
   box-sizing: border-box;
   overflow: visible scroll;
   -ms-overflow-style: none;
   scrollbar-width: none;
   &::-webkit-scrollbar {display: none;}
-  scroll-snap-type: y mandatory;
-  z-index: 5;
-  @include for-size(phone){
-    width: 90vw;
-    height: 100vh;
-    top: 0;
-    left: calc(-90vw + #{$unite*2});
-    padding: $baseline*2 $unite $baseline*2 $unite*2;
-    &:hover{
-      border-right: 1px solid currentColor;
-      background: white;
+  z-index: 5;  
+
+  @include for-size(desktop){
+    transform: translateX(#{$unite*-8});
+    left: 0;
+  }
+
+  li.cat{
+    h1{@include f1-s0();}
+    li.item{
+      img.cover{
+        object-fit: contain;
+        transition: all 0s, transform .25s ease;
+        &:hover{
+          transform: scale(1.25);
+        }        
+      }
     }
   }
-  @include for-size(desktop){
-    width: $unite*10;
-    height: 100vh;
-    height: calc(100vh - #{$baseline*7});
-    left: $unite*-8;
-    padding: 0 $unite $baseline*2 $unite; // Incluse lateral space as inside otherwise hover bug
-  }
 
-  // Toggle Button
-  &:not(.inline) label[for="toggle-sideNav"]{
-    content: "Pièces";
-    @include f1-s0();
-    transform: rotate(90deg);
+  /*
+      row
+          */
+  &:not(.inline){
+    position: fixed;
+    overflow: visible scroll;
+    scroll-snap-type: y mandatory;
+    @include for-size(phone){
+      width: 90vw;
+      height: 100vh;
+      top: 0;
+      left: calc(-90vw + #{$unite*2});
+      padding: $baseline*2 $unite $baseline*2 $unite*2;
+      &:hover{
+        border-right: 1px solid currentColor;
+        background: white;
+      }    
+    }    
+    @include for-size(desktop){
+      width: $unite*10;
+      height: 100vh;
+      height: calc(100vh - #{$baseline*7});
+      padding: 0 $unite $baseline*2 $unite; // Incluse lateral space as inside otherwise hover bug
+    }
+
+    // Toggle Button
+    label[for="toggle-sideNav"]{
+      content: "Pièces";
+      @include f1-s0();
+      cursor: pointer;
+      position: absolute;
+      top: $baseline*5;
+      right: 0;
+      padding: .5rem $unite/2 .5rem 0;
+      opacity: 1;
+      border-bottom: 1px solid currentColor;
+      transform: rotate(90deg);
+      transition: opacity .25s ease-in-out;
+
+      @include for-size(desktop){top: $baseline*1.75;}
+    }
+
+    // inside behavior
+    ul.cat-container{      
+      li.cat{
+        margin: 0 0 $baseline*2 0;
+        //scroll-snap-align: start;
+        overflow: hidden;
+        ul.item-container{      
+          li.item{
+            margin: $baseline/2 0;
+            scroll-snap-align: start;
+            transition: all .25s ease, max-height .5s ease-in-out, margin 0s;
+            max-height: 150px;
+            cursor: pointer;
+            
+            img.cover{
+              height: 75px;
+              max-height: 150px;
+              transform-origin: left; 
+            }
+          }
+        }
+      }
+    }    
+  }
+  
+  /*
+      Inline
+              */
+  &.inline{
     position: absolute;
-    opacity: 1;
+    width: 100vw;
 
-    right: 0;
-    top: $baseline*5;
-    border-bottom: 1px solid currentColor;
-    padding: .5rem $unite/2 .5rem 0;
-    cursor: pointer;
+    @include for-size(desktop){
+      height: 33vh;
+      max-height: 300px;   
+      left: $unite*4;
+    }
 
-    @include for-size(desktop){top: $baseline*1.75;}
-  }
+    > label{ opacity: 0; position: absolute;}
 
-  // Items
-  li.cat{
-    margin: 0 0 $baseline*2 0;
-    //scroll-snap-align: start;
-    overflow: hidden;
+    *{user-select: none;}
 
-    h1{@include f1-s0();}
-    ul{
-      li.item{
-        margin: $baseline/2 0;
-        scroll-snap-align: start;
-        transition: .25s ease;
-        max-height: 150px;
-        cursor: pointer;
-        
-        img.cover{
-          width: 100px;
-          height: 75px;
-          max-height: 150px;
-          transition: .25s ease;
-          object-fit: cover;
+    > ul.cat-container{
+      width: auto;
+      height: 100%;
+      padding: 0 #{$unite*4}; // trick the transition
+        scrollbar-width: none;
+      overflow: scroll hidden;
+      white-space: nowrap;
 
-          &:hover{
-            width: 175px;
-            height: 150px;
-          } 
+      &.active li.item a{
+        cursor: grab !important; 
+      }
+      li.cat{
+        display: inline-block;
+        padding-right: $unite*4;
+        label{
+          position: sticky;
+          top: 0;
+          left: 0;
+          margin: $baseline*2 0; 
+
         }
 
+        /*input[name="toggle-c"]:checked ~*/ 
+        ul.item-container {
+
+          li.item{
+            display: inline-block;
+            white-space: nowrap;
+            margin: $baseline $unite/2 $baseline 0;
+
+            img.cover{
+              width: 200px;
+              max-height: inherit;
+              transform-origin: center;
+              &:hover{
+                transform: inherit;
+                //transform: scale(1.25);
+              }           
+            }
+          }
+        }
       }
     }
   }
 
-  // Inline
-  &.inline{
-    width: 100vw;
-    > ul li{
-      display: inline-block;
-    }
-    li.cat ul li.item{
-      max-height: inherit;
-      img.cover{
-        width: 300px;
-        height: 225px;
-        max-height: inherit;
-        &:hover{
-          width: 25vw;
-          height: 25vh;
-        }           
-      }
-    }
+  // Collapse unecessary Category
+  nav#sideNav:not(.inline) input[name="toggle-c"]:not(:checked) ~ ul li.item{
+    max-height: 0; overflow: hidden; margin: 0;
+
   }
 }
 
 // Open / Close
-nav#sideNav:hover, nav#sideNav:focus, input#toggle-sideNav:checked + nav{
-  left: 0;
+nav#sideNav:not(.inline):hover, 
+nav#sideNav:not(.inline):focus, 
+input#toggle-sideNav:checked + nav:not(.inline){
+  transform: translateX(0);
 }

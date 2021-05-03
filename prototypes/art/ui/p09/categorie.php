@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html lang="fr">
 <?php include('partials/head.php') ?>
-<body id="categorie" class="bgw">
+<body id="categorie" class="bgw" 
+			data-categorie="categorie-a">
 	<?php include('partials/topbar.php') ?>
 	<?php include('partials/side.php') ?>
 	<main>
@@ -16,11 +17,12 @@
 
 		<!-- SideNav appear at this scrollpoint -->
 		<!-- Or autoload first project -->
-		<div id="on-sideNav"></div>
+		<div id="pièces"></div>
 	</main>
 	<?php include('partials/footer.php') ?>
 	<script src="assets/js/utilities.js" type="text/javascript"></script>
 	<script src="assets/js/global.js" type="text/javascript"></script>
+	<script src="assets/js/_cat.js" type="text/javascript"></script>
 </body>
 </html>
 

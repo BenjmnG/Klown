@@ -170,7 +170,7 @@
 //
 // Grid
 //
-@mixin grid($col, $row, $gap, $justify: null, $align: null){
+@mixin grid($col, $row, $gap: $baseline $unite/2, $justify: null, $align: null){
   display:-ms-grid;
   display: grid;
   -ms-grid-columns: $col;

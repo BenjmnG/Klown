@@ -7,12 +7,13 @@
 	<nav>
 		<ul>
 			<li>
+				<span class="parent">Menu</span>
 				<ul>
 					<li><a href="categorie.php">Catégorie A</a></li>
 					<li><a href="categorie.php">Catégorie B</a></li>
 				</ul>
 			</li>
-			<li><a href="/info">Info</a></li>
+			<li><a href="/info.php">Info</a></li>
 		</ul>
 	</nav>	
 </header>

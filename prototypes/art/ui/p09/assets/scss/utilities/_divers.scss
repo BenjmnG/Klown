@@ -23,15 +23,6 @@ $border-light: 0.5px solid #efefef;
 	overflow: hidden;
 }
 
-
-@mixin grid($value: 6){
-  @supports (display: grid) {
-    display: grid;
-    grid-template-columns: repeat($value, 1fr);
-    grid-column-gap: $unite;
-  }
-}
-
 @mixin trans01 ($time: .25s, $timing: cubic-bezier(.5,0,.1,1)){
   transition: left, right, margin, padding, width, height;
   transition-duration: $time;

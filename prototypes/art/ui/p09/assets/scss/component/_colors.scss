@@ -13,6 +13,11 @@
 	--rot: -45deg;
 }
 
+::-moz-selection, ::selection {
+	color: var(--bg);
+  background-color: var(--cc);
+}
+
 body{
 
 	&.bgr{ --bg: var(--c0); --cc: var(--c1) ; background: var(--bg); color: var(--cc); }

@@ -35,7 +35,7 @@ html{
   @include f1(3, 3, 300, -.2,  $color);
 }
 @mixin f1-s2($color: var(--color3)){
-  @include f1(2, 1.25, 300, 0,  $color);
+  @include f1(2, 2, 300, 0,  $color);
 }
 @mixin f1-s1($color: var(--color3)){
   @include f1(1, 1, 300, 0,  $color);

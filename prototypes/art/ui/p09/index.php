@@ -10,7 +10,11 @@
 				<li><a href="/categorie.php">Catégorie B</a></li>
 			</ul>
 		</nav>
-		<video>
+		<video id="video-blanc" mute autoplay loop >
+			<source src="assets/video/blanc.webm" type="video/webm">
+		</video>
+		<video id="video-rouge" mute autoplay loop >
+			<source src="assets/video/rouge.webm" type="video/webm">
 		</video>
 	</main>
 	<?php include('partials/footer.php') ?>

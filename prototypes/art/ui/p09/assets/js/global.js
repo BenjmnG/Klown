@@ -46,3 +46,39 @@ toggleStrobos();
 strobos.addEventListener("change", function(e) {
 	toggleStrobos();
 });
+
+
+/* 
+		Open Side Nav 
+									*/
+function openSideNav(zone, callOn, callOff){
+  let zoneEl = document.querySelector(zone)
+  let toggle_sideNav = document.querySelector('#toggle-sideNav')
+
+  if(!!window.IntersectionObserver){
+
+    let observer = new IntersectionObserver((entries, observer) => { 
+
+      entries.forEach(entry => {
+
+        if(entry.isIntersecting){
+          (entry.target).scrollIntoView(
+          	{block: "end"}
+          );
+          toggle_sideNav.checked = true;
+          if(callOn){callOn()}
+        } else{
+          toggle_sideNav.checked = false;
+          if(callOff){callOff()}
+        }
+
+      });
+
+    }, {threshold: 0.5});
+
+    if(zoneEl){
+      observer.observe(zoneEl);
+    }
+  }
+
+}

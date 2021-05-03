@@ -11,17 +11,46 @@
 	*{ @include f1-s1(); font-weight: $bold; }
 
 	nav{
-		ul li{
-			display: inline-block;
-			text-transform: capitalize;
-			margin-right: 5px;
+		> ul {
+			top: -.25rem;
+			> li{
+				display: inline-block;
+				text-transform: capitalize;
 
-			> ul {
-				&:after{
+				&:first-of-type{
+					cursor: pointer;
+					max-height: $baseline;
+					//overflow: hidden;
+					text-align: right;
+					overflow: hidden;
+					top: .5rem;
+
+					> *{ 
+						top: -.25rem; 
+						transform: translateY(0); 
+						transition: transform .25s ease;
+					}
+
+					span{display: inline-block;}
+
+					&:hover{
+						> *{transform: translateY(-$baseline);}
+					}
+
+					> ul {
+						> li{
+							display: inline-block;
+							padding-left: $unite/2;
+						}
+					}
+
+				}
+				&:last-of-type:before{
 					content: "";
-					border-right: 1px solid currentColor;
-					margin-right: $unite/4;
-					padding-left: $unite/4;
+					border-left: 1px solid currentColor;
+					padding-right: $unite/2;
+					margin-left: $unite/2;
+					height: $baseline;					
 				}
 			}
 		}
