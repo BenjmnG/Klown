@@ -1,0 +1,56 @@
+html, body{
+//width: 100vw;
+height: auto;
+box-sizing: border-box;
+margin: 0 !important;
+background: lightgrey;
+z-index: -1
+}
+body{overflow-x: visible;}
+hr{ border: none; }
+
+#pages{
+
+	text-align: center;
+
+	.safe{ display: inline-block; }
+	
+	.crop{
+		display: inline-block;
+		box-sizing: content-box;
+	
+		.page{
+			background: white;
+			box-sizing: border-box;
+			margin-top: 20mm;
+			margin-bottom: 20mm;
+		}
+	}
+	/////////////////
+	/// GLobal RUles
+	///////////////
+	hr{ border: none; height: 0; }
+
+}
+ 
+@media print {
+ 
+	// Roots element qui ne servent à rien.
+	html, body, #pages, .page{
+		padding: 0;
+		margin: 0 !important; 
+		background: none;
+	}
+
+	#pages{
+
+		.safe:first-of-type{ 	
+			margin: 1mm !important;
+			page-break-after: always !important;
+		}
+		.crop{ border-color: white; margin: 0 !important;}
+
+		.page {}
+	}
+
+}

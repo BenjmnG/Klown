@@ -1,0 +1,164 @@
+@import 'common';
+//@import 'parts/print/_print_base.scss';
+//@import 'parts/print/_print.scss';
+
+html{font-size: 18px;background: #fff;}
+
+:root{
+	--c0: hsl(5, 80%, 50%); // r
+	--c00: hsl(15, 80%, 50%);
+	--c000: hsl(30, 80%, 50%);
+	--c1: hsl(0, 0%, 100%); // w
+	--c11: hsl(0, 0%, 95%);
+	--c111: hsl(0, 0%, 90%);
+	--c2: hsl(0, 0%, 0%); // b
+	--c22: hsl(0, 0%, 15%);
+	--c222: hsl(0, 0%, 30%);
+	
+	--dur: 15s;
+	--rot: -45deg;
+}
+
+body{
+
+	// dirty trick... Chrome. mix blend
+	width: 100vw;
+	height: 100vh;
+	position: fixed;
+
+	&.bgr{ background: var(--c0); color: var(--c2);}
+	&.bgw{ background: var(--c1); color: var(--c0);}
+	&.bgk{ background: var(--c2); color: var(--c1);}
+
+	&.bgr.motion{
+		animation: rulse 2s steps(4) infinite;		
+		@keyframes rulse {
+			0% { background-color: var(--c0); }
+			33% { background-color: var(--c00); }
+			66% { background-color: var(--c000); }
+			100% { background-color: var(--c00); }
+		}
+	}
+
+	&.bgw.motion{
+		animation: wulse 2s steps(4) infinite;
+		@keyframes wulse {
+			0% { background-color: var(--c1); }
+			33% { background-color: var(--c11); }
+			66% { background-color: var(--c111); }
+			100% { background-color: var(--c1); }
+		}
+	}
+
+	&.bgk.motion{
+		animation: kulse 2s steps(4) infinite;		
+		@keyframes kulse {
+			0% { background-color: var(--c2); }
+			33% { background-color: var(--c22); }
+			66% { background-color: var(--c222); }
+			100% { background-color: var(--c22); }
+		}
+	}
+
+
+	&.bgw, &.bgk, &.bgw, 
+	&.bgw→k, &.bgk→r, &.bgw→r, 
+	&.bgk→w, &.bgr→k, &.bgr→w{
+		background-size: 100%;
+	}
+
+	&.bgw→k, &.bgk→w{
+		color: var(--c1);
+		animation: wyochi .1s steps(2) infinite;
+		@keyframes wyochi {
+			0% { background-color: var(--c1); }
+			100% { background-color: var(--c2); }
+		}	
+	}
+	&.bgk→r, &.bgr→k{
+		color: var(--c0);
+		animation: kyochi .1s steps(2) infinite;
+		@keyframes kyochi {
+			0% { background-color: var(--c2); }
+			100% { background-color: var(--c0); }
+		}	
+	}
+	&.bgw→r, &.bgr→w{
+		color: var(--c1);
+		animation: ryochi .1s steps(2) infinite;		
+		@keyframes ryochi {
+			0% { background-color: var(--c1); }
+			100% { background-color: var(--c0); }
+		}
+	}
+
+	&.bgw→k, &.bgk→r, &.bgw→r, 
+	&.bgk→w, &.bgr→k, &.bgr→w{
+		h1{text-shadow: currentColor 0 0 60px;}
+		//button{text-shadow: currentColor 0 0 15px; box-shadow: 0 0 15px currentColor}
+		border-bottom-color: currentColor;
+	}
+	main{
+		height: 100%;
+		width: 100%;
+		display: flex;
+		align-items: center;
+		justify-content: left;
+
+		box-sizing: border-box;
+		margin: $baseline*3 $unite;
+		width: calc(100vw - #{$unite*2});
+		height: calc(100vh - #{$baseline*6});
+		border-bottom: 1px solid currentColor;
+
+		h1{
+			position: absolute;
+			top: 50%;
+			transform: translateY(-100%);
+			font-size: clamp(100px, 25vw, 20vh);
+		}
+		
+		ul{
+			width: 500px;
+			width: clamp(500px, 50%, 800px);
+			margin: $unite*2;
+			display: flex;
+			flex-direction: column;
+			z-index: 2;
+
+			button{
+				background: none;
+				font-family: sans-serif;
+				font-weight: 200;
+				font-size: 3rem;
+				color: currentColor;			
+
+				cursor: pointer;
+
+				padding: 5px 10px;
+
+				//border: 1px solid currentColor;
+
+			}
+		}
+
+		video{
+			position: absolute;
+			//top: $baseline*-4;
+			//left: -$unite;
+			height: 100vh;
+			width: 100vw;
+			object-fit: cover;
+			mix-blend-mode: lighten;
+		}
+
+		video:nth-of-type(2){
+			display: none;
+		}
+
+		ul:hover {
+			& + video{display: none;}
+			& + video + video{display: inline-block;}
+		}
+	}
+}

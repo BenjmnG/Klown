@@ -1,3 +1,0 @@
-http: php -S 127.0.0.1:8000
-browser-sync: browser-sync start --proxy="localhost:8000" -f "" --no-notify --no-open
-sass: sass --watch assets/scss:assets/css-compiled

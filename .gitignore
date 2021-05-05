@@ -1,6 +1,6 @@
-prototypes/export/recherche
-prototypes/src/*
-prototypes/art/video/**/frames
+prototypes/video/src
+prototypes/video/export/
+prototypes/video/art/**/frames
 _corpus_src/
 ffmpeg.txt
 .DS_Store

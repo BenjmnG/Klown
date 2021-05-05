@@ -1,0 +1,95 @@
+@import 'common';
+//@import 'parts/print/_print_base.scss';
+//@import 'parts/print/_print.scss';
+
+html{font-size: 18px;}
+
+:root{
+	--c0: hsl(5, 80%, 50%); // r
+	--c00: hsl(30, 80%, 50%);
+	--c1: hsl(0, 0%, 100%); // w
+	--c11: hsl(0, 0%, 80%);
+	--c2: hsl(0, 0%, 0%); // b
+	--c22: hsl(0, 0%, 30%);
+	
+	--dur: 15s;
+	--rot: -45deg;
+}
+
+body{
+
+	&.bgr{ background: var(--c0); color: var(--c2);}
+	&.bgw{ background: var(--c1); color: var(--c0);}
+	&.bgk{ background: var(--c2); color: var(--c1);}
+
+	&.bgr.motion{ background: linear-gradient(var(--rot), var(--c00), var(--c0), var(--c00)); }
+	&.bgw.motion{ background: linear-gradient(var(--rot), var(--c11), var(--c1), var(--c11)); }
+	&.bgk.motion{ background: linear-gradient(var(--rot), var(--c22), var(--c2), var(--c22)); }
+
+	&.bgr.motion, &.bgw.motion, &.bgk.motion{
+		background-size: 600% 600%;
+		animation: gradient var(--dur) ease infinite;
+
+		@keyframes gradient {
+			0% { background-position: 0% 50%; }
+			50% { background-position: 100% 50%; }
+			100% { background-position: 0% 50%; }
+		}
+	}
+
+	&.bgw→k, &.bgk→r, &.bgw→r, 
+	&.bgk→w, &.bgk→r, &.bgr→w{
+		background-size: 100%;
+	}
+
+	&.bgw→k, &.bgk→w{
+		animation: wyochi .1s steps(2) infinite;
+		@keyframes wyochi {
+			0% { background-color: var(--c1); }
+			100% { background-color: var(--c2); }
+		}	
+	}
+	&.bgk→r, &.bgr→k{
+		animation: kyochi .1s steps(2) infinite;
+		@keyframes kyochi {
+			0% { background-color: var(--c2); }
+			100% { background-color: var(--c0); }
+		}	
+	}
+	&.bgw→r, &.bgr→w{
+		animation: ryochi .1s steps(2) infinite;		
+		@keyframes ryochi {
+			0% { background-color: var(--c1); }
+			100% { background-color: var(--c0); }
+		}	
+	}
+
+	main{
+		height: 100%;
+		width: 100%;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		
+		ul{
+			width: 500px;
+			width: clamp(500px, 50%, 800px);
+			display: flex;
+			justify-content: space-around;
+
+			button{
+				background: none;
+				font-family: sans-serif;
+				font-weight: 200;
+				font-size: 1rem;
+				color: currentColor;			
+
+				cursor: pointer;
+
+				padding: 5px 10px;
+				border: 1px solid currentColor;
+
+			}
+		}
+	}
+}

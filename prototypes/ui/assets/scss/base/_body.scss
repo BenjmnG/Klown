@@ -1,0 +1,63 @@
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap; /* added line */
+  border: 0;
+}
+
+
+// margin
+body{
+  overflow-x: hidden;
+  margin-left: $unite;
+  margin-right: $unite;
+  @include for-size(desktop){ 
+    margin-left: $unite*4;
+    margin-right: $unite*4;
+  }
+}
+
+////////////////
+/// The grid //
+//////////////
+
+/*
+
+// Settings
+:root {
+  --offset: 1.5rem;
+  --max_width: 72rem;
+  --columns: 2;
+  --gutter: .5rem;
+  --baseline: 15px;
+  --baseline-shift: 2rem;
+  --color: hsla(204, 80%, 72%, 0.25);
+  --media-query: 'base';
+}
+
+// Helper variables
+:root {
+  --repeating-width: calc(100% / var(--columns));
+  --column-width: calc((100% / var(--columns)) - var(--gutter));
+  --background-width: calc(100% + var(--gutter));
+  --background-columns: repeating-linear-gradient(
+    to right,
+    var(--color),
+    var(--color) var(--column-width),
+    transparent var(--column-width),
+    transparent var(--repeating-width)
+  );
+  --background-baseline: repeating-linear-gradient(
+    to bottom,
+    black,
+    var(--color) 1px,
+    transparent 1px,
+    transparent var(--baseline)
+  );
+}
+*/

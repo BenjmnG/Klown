@@ -1,0 +1,38 @@
+/* desktop */
+$unite: 25px;
+$margins-desktop: $unite;
+
+/*  bordures  */
+$border: 0.5px solid $text-color;
+$border-light: 0.5px solid #efefef;
+
+/*  autre */
+::selection, ::-moz-selection{
+    background: $color;
+    color: $background-site;
+} 
+
+@mixin text-overflow($value: ellipsis) {
+    @if $value == clip {
+		text-overflow: clip;
+	}
+	@else {
+		text-overflow: $value;
+	}
+	white-space: nowrap;
+	overflow: hidden;
+}
+
+@mixin trans01 ($time: .25s, $timing: cubic-bezier(.5,0,.1,1)){
+  transition: left, right, margin, padding, width, height;
+  transition-duration: $time;
+  transition-timing-function: $timing;
+
+  -webkit-transition: left, right, margin, padding, width, height;
+  -webkit-transition-duration: $time;
+  -webkit-transition-timing-function: $timing;
+
+  -o-transition: left, right, margin, padding, width, height;
+  -o-transition-duration: $time;
+  -o-transition-timing-function: $timing;
+} 

@@ -1,0 +1,49 @@
+body#info{
+
+	main{
+		min-height: calc(100vh - #{$baseline*5});
+		margin-bottom: $baseline*10;
+		> *{margin-bottom: $baseline*2}
+
+		#texte_presentation{
+			@include f1-s2();
+			font-weight: $bold;
+			em, i{opacity: .5; font-style: normal; }
+			width: 100%;
+			//max-width: 800px;
+		}
+
+		.details{
+			grid-row: 2;
+			@include flex();
+			@include flex-wrap(wrap);
+			gap: $unite/2;
+			li{ width: 20%; min-width: $unite*5 }
+		}
+
+		> figure{
+			grid-column: 2 / 3;
+			grid-row: 1 /span 2;
+			width: 100%;			
+			max-width: 600px;
+			justify-self: end;
+		}
+
+		@include for-size(desktop){ 
+			
+			min-height: calc(100vh - #{$baseline*8});
+			#texte_presentation{@include f1-s4();font-weight: $bold;}
+			
+			@include for-size(desktop-1200){ 
+				@include grid(2fr 1fr, 1fr 1fr, $baseline*2 $unite);
+				margin-bottom: $baseline*2;
+				@supports(display: grid){
+					> *{margin-bottom: 0}
+				}
+			}
+			@include for-size(desktop-1800){ 
+				#texte_presentation{@include f1-s5();font-weight: $bold;}
+			}
+		}
+	}
+}
