@@ -1,3 +1,5 @@
+$h: $baseline*20;
+
 body#categorie{
 	
 	main{
@@ -33,14 +35,13 @@ body#categorie{
 		}
 
 		#pièces{
-			height: 33vh;
-			max-height: 300px;
+			height: $h;
 			margin: 20vh 0 20vh;
 		}
 	}	
 
 	#sideNav.inline{
-		bottom: 250px;
+		bottom: $h/2;
 		/*Fallback */ margin: #{$baseline*6} 0 #{$baseline*12} 0;
 		margin: 0 0 calc(clamp(#{$baseline*6}, 20vh, 600px)) 0;
 

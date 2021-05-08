@@ -6,7 +6,7 @@ nav#sideNav{
 
   // container 
   position: fixed;
-  transition: all 0s, transform .25s ease-in-out;
+  transition: all 0.5s ease-in-out, width 0s, margin 0s, padding 0s, left 0s;
   box-sizing: border-box;
   overflow: visible scroll;
   -ms-overflow-style: none;
@@ -19,21 +19,22 @@ nav#sideNav{
     left: 0;
   }
 
+  *{border: 1px solid;}
   li.cat{
-    h1{@include f1-s0();}
-    li.item{
-      img.cover{
-        object-fit: contain;
-        transition: all 0s, transform .25s ease;
-        &:hover{
-          transform: scale(2);
-        }        
+    ul.item-container{
+      @include flex();
+      h1{@include f1-s0();}
+      li.item{
+        img.cover{
+          transition: all .25s ease-in-out;//0s, height .25s ease, width .25s ease;   
+        }
       }
     }
   }
 
   /*
-      row
+      ☰ 
+      ↓
           */
   &:not(.inline){
     position: fixed;
@@ -80,9 +81,12 @@ nav#sideNav{
         margin: 0 0 $baseline*2 0;
         //scroll-snap-align: start;
         overflow: hidden;
-        ul.item-container{      
+        ul.item-container{
+          @include flex-direction(column);
+          @include align-items(flex-start);
+          gap: 0;
           li.item{
-            margin: $baseline/2 0;
+            margin: $baseline/6 0;
             scroll-snap-align: start;
             transition: all .25s ease, max-height .5s ease-in-out, margin 0s;
             max-height: 150px;
@@ -91,7 +95,8 @@ nav#sideNav{
             img.cover{
               height: 75px;
               max-height: 150px;
-              transform-origin: left; 
+              //transform-origin: left;
+              &:hover{height: 150px;}
             }
           }
         }
@@ -100,15 +105,13 @@ nav#sideNav{
   }
   
   /*
-      Inline
+      ||| →
               */
   &.inline{
     position: absolute;
     width: 100vw;
 
-    @include for-size(desktop){
-      height: 33vh;
-      max-height: 300px;   
+    @include for-size(desktop){ 
       left: $unite*4;
     }
 
@@ -120,7 +123,7 @@ nav#sideNav{
       width: auto;
       height: 100%;
       padding: 0 #{$unite*4}; // trick the transition
-        scrollbar-width: none;
+      scrollbar-width: none;
       overflow: scroll hidden;
       white-space: nowrap;
 
@@ -130,6 +133,7 @@ nav#sideNav{
       li.cat{
         display: inline-block;
         padding-right: $unite*4;
+        vertical-align: top;
         label{
           position: sticky;
           top: 0;
@@ -140,7 +144,8 @@ nav#sideNav{
 
         /*input[name="toggle-c"]:checked ~*/ 
         ul.item-container {
-
+          @include flex-direction(row);
+          @include align-items(center);
           li.item{
             display: inline-block;
             white-space: nowrap;
@@ -150,11 +155,11 @@ nav#sideNav{
 
             img.cover{
               width: 20vw;
-              max-height: inherit;
-              transform-origin: center;
+              max-width: 250px;
+              //max-height: $mh;
               &:hover{
-                transform: inherit;
-                //transform: scale(1.25);
+                //width: 25vw;
+                //max-width: 500px;                
               }           
             }
           }
