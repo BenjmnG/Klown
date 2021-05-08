@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="fr">
 <?php include('partials/head.php') ?>
-<body id="categorie" class="bgw" 
+<body id="categorie" class="bgW ccK" 
 			data-categorie="categorie-a">
 	<?php include('partials/topbar.php') ?>
 	<?php include('partials/side.php') ?>

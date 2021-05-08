@@ -35,9 +35,9 @@ els.forEach( function(el, i){
 let strobos = document.querySelector('#i-strobos');
 function toggleStrobos(){
 	if(strobos.checked == true){
-		body.classList.add('motion')
+		body.classList.add('pulse')
 	} else {
-		body.classList.remove('motion')	
+		body.classList.remove('pulse')	
 	}
 }
 

@@ -706,15 +706,15 @@ body > footer .mentions {
 }
 
 :root {
-  --c0: hsl(5, 80%, 50%);
-  --c00: hsl(15, 80%, 50%);
-  --c000: hsl(30, 80%, 50%);
-  --c1: hsl(0, 0%, 100%);
-  --c11: hsl(0, 0%, 97.5%);
-  --c111: hsl(0, 0%, 92.5%);
-  --c2: hsl(0, 0%, 0%);
-  --c22: hsl(0, 0%, 15%);
-  --c222: hsl(0, 0%, 30%);
+  --cR: hsl(5, 80%, 50%);
+  --cRR: hsl(15, 80%, 50%);
+  --cRRR: hsl(30, 80%, 50%);
+  --cW: hsl(0, 0%, 100%);
+  --cWW: hsl(0, 0%, 95%);
+  --cWWW: hsl(0, 0%, 90%);
+  --cK: hsl(0, 0%, 0%);
+  --cKK: hsl(0, 0%, 15%);
+  --cKKK: hsl(0, 0%, 30%);
   --dur: 15s;
   --rot: -45deg;
 }
@@ -724,119 +724,62 @@ body > footer .mentions {
   background-color: var(--cc);
 }
 
-body.bgr {
-  --bg: var(--c0);
-  --cc: var(--c1) ;
+body {
   background: var(--bg);
   color: var(--cc);
 }
-body.bgw {
-  --bg: var(--c1);
-  --cc: var(--c22) ;
-  background: var(--bg);
+body.ccR {
+  --cc: var(--cR);
+}
+body.ccW {
+  --cc: var(--cW);
+}
+body.ccK {
+  --cc: var(--cK);
+}
+body.bgR {
+  --bg: var(--cR);
+  --bgg: var(--cRR);
+  --bggg: var(--cRRR);
+}
+body.bgW {
+  --bg: var(--cW);
+  --bgg: var(--cWW);
+  --bggg: var(--cWWW);
+}
+body.bgK {
+  --bg: var(--cK);
+  --bgg: var(--cKK);
+  --bggg: var(--cKKK);
+}
+body.pulse {
+  animation: pulse 2s steps(4) infinite;
+}
+@keyframes pulse {
+  0% {
+    background-color: var(--bg);
+  }
+  33% {
+    background-color: var(--bgg);
+  }
+  66% {
+    background-color: var(--bggg);
+  }
+  100% {
+    background-color: var(--bg);
+  }
+}
+body.ryochi {
   color: var(--cc);
-}
-body.bgk {
-  --bg: var(--c22);
-  --cc: var(--c1) ;
-  background: var(--bg);
-  color: var(--cc);
-}
-body.bgr.motion {
-  animation: rulse 3s steps(8) infinite;
-}
-@keyframes rulse {
-  0% {
-    background-color: var(--c0);
-  }
-  33% {
-    background-color: var(--c00);
-  }
-  66% {
-    background-color: var(--c000);
-  }
-  100% {
-    background-color: var(--c00);
-  }
-}
-body.bgw.motion {
-  animation: wulse 3s steps(8) infinite;
-}
-@keyframes wulse {
-  0% {
-    background-color: var(--c1);
-  }
-  33% {
-    background-color: var(--c11);
-  }
-  66% {
-    background-color: var(--c111);
-  }
-  100% {
-    background-color: var(--c1);
-  }
-}
-body.bgk.motion {
-  animation: kulse 3s steps(8) infinite;
-}
-@keyframes kulse {
-  0% {
-    background-color: var(--c2);
-  }
-  33% {
-    background-color: var(--c22);
-  }
-  66% {
-    background-color: var(--c222);
-  }
-  100% {
-    background-color: var(--c22);
-  }
-}
-body.bgw, body.bgk, body.bgw, body.bgw→k, body.bgk→r, body.bgw→r, body.bgk→w, body.bgr→k, body.bgr→w {
-  background-size: 100%;
-}
-body.bgw→k, body.bgk→w {
-  color: var(--c1);
-  animation: wyochi 0.1s steps(2) infinite;
-}
-@keyframes wyochi {
-  0% {
-    background-color: var(--c1);
-  }
-  100% {
-    background-color: var(--c2);
-  }
-}
-body.bgk→r, body.bgr→k {
-  color: var(--c0);
-  animation: kyochi 0.1s steps(2) infinite;
-}
-@keyframes kyochi {
-  0% {
-    background-color: var(--c2);
-  }
-  100% {
-    background-color: var(--c0);
-  }
-}
-body.bgw→r, body.bgr→w {
-  color: var(--c1);
-  animation: ryochi 0.1s steps(2) infinite;
+  animation: ryochi 0.15s steps(2) infinite;
 }
 @keyframes ryochi {
   0% {
-    background-color: var(--c1);
+    background-color: var(--cc);
   }
   100% {
-    background-color: var(--c0);
+    background-color: var(--bg);
   }
-}
-body.bgw→k, body.bgk→r, body.bgw→r, body.bgk→w, body.bgr→k, body.bgr→w {
-  border-bottom-color: currentColor;
-}
-body.bgw→k h1, body.bgk→r h1, body.bgw→r h1, body.bgk→w h1, body.bgr→k h1, body.bgr→w h1 {
-  text-shadow: currentColor 0 0 60px;
 }
 
 /*
@@ -1079,46 +1022,67 @@ body#index main {
   height: calc(100vh - 6.25rem);
 }
 body#index main nav {
+  height: 66vh;
+  display: -webkit-box;
+  /* OLD - iOS 6-, Safari 3.1-6 */
+  display: -moz-box;
+  /* OLD - Firefox 19- (buggy but mostly works) */
+  display: -ms-flexbox;
+  /* TWEENER - IE 10 */
+  display: -webkit-flex;
+  /* NEW - Chrome */
+  display: flex;
+  /* NEW, Spec - Opera 12.1, Firefox 20+ */
+  -webkit-box-pack: center;
+  -moz-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -moz-box-align: center;
+  -ms-flex-align: center;
+  -webkit-align-items: center;
+  align-items: center;
+}
+body#index main nav ul {
+  width: 100%;
+  text-align: center;
+}
+body#index main nav ul li {
   font-family: "GeneralSans", sans-serif;
   font-size: 2rem;
   line-height: 2.5rem;
   font-weight: 300;
   letter-spacing: 0px;
+  font-size: 1.5rem;
   line-height: 180% !important;
-  text-shadow: 0 0 10px white;
-  transform: translateY(-50%);
-  top: 40%;
-  left: 0;
-  position: absolute;
-  transition: 0.25s ease;
+  text-shadow: 0 0 10px var(--cc);
+  display: inline-block;
 }
-body#index main nav:hover + video {
-  visibility: hidden;
+body#index main nav ul li a {
+  padding: 0.625rem 12.5px;
 }
-body#index main nav:hover + video + video {
-  visibility: visible;
-}
-body#index main video {
+body#index main nav ul li video {
   position: fixed;
   left: 50%;
   bottom: 0;
   transform: translateX(-50%);
   min-width: 100vw;
   min-height: 100vh;
-  mix-blend-mode: lighten;
+  mix-blend-mode: overlay;
+  visibility: hidden;
   z-index: -1;
 }
-body#index main video:nth-of-type(2) {
-  visibility: hidden;
+body#index main nav ul li:hover video {
+  visibility: visible;
 }
 @media (min-width: 700px) {
   body#index main {
     min-height: calc(100vh - 10rem);
   }
-}
-@media (min-width: 700px) and (min-width: 1200px) {
-  body#index main nav {
-    left: calc(clamp(0px, 10vw, 150px));
+  body#index main nav ul li a {
+    padding-left: 25px;
+    padding-right: 25px;
   }
 }
 

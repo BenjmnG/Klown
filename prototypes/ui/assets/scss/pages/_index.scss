@@ -1,40 +1,55 @@
 body#index{
-
+	
 	#topbar h1{ visibility: hidden;}
 	
 	main{
 		height: calc(100vh - #{$baseline*5});
-		
+
 		nav{
-			@include f1-s2();
-			line-height: 180% !important;
-			text-shadow: 0 0 10px white;
-			transform: translateY(-50%);
-			top: 40%;
-			left: 0;
-			position: absolute;
-			transition: .25s ease;
+			height: 66vh;
+			@include flex();
+			@include justify-content(center);
+			@include align-items(center);
 
-			&:hover + video{visibility: hidden;}
-			&:hover + video + video{visibility: visible;}
+			ul{
+				
+				width: 100%;
+				text-align: center;
+
+				li{
+					@include f1-s2();
+					font-size: $font-size*1.5;
+					line-height: 180% !important;
+					text-shadow: 0 0 10px var(--cc);
+					display: inline-block;
+					
+					a{
+						padding: $baseline/2 $unite/2;
+					}
+ 				
+					video{
+						position: fixed;
+					  left: 50%;
+					  bottom: 0;
+					  transform: translateX(-50%);
+					  min-width: 100vw;
+					  min-height: 100vh;
+						mix-blend-mode: overlay;
+						visibility: hidden;
+						z-index: -1;
+					}
+				
+					&:hover{
+	 					video{visibility: visible;}
+					}
+				}
+			}
 		}
 
-		video{
-			position: fixed;
-		  left: 50%;
-		  bottom: 0;
-		  transform: translateX(-50%);
-		  min-width: 100vw;
-		  min-height: 100vh;
-			mix-blend-mode: lighten;
-			z-index: -1;
-
-			&:nth-of-type(2){visibility: hidden;}
-		}
 
 		@include for-size(desktop){
 			min-height: calc(100vh - #{$baseline*8});
-			@include for-size(desktop-1200){ nav{left: calc(clamp(0px, 10vw, 150px));} }
+			nav ul li a{padding-left: $unite; padding-right: $unite;}
 		}
 	}
 }

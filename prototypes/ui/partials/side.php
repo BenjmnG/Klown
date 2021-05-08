@@ -7,62 +7,40 @@
 	<ul class="cat-container">
 		<li class="cat show" data-color="w" data-for="categorie-a">
 			<input id="toggle-c1" name="toggle-c" type="radio" hidden checked>
-			<label for="toggle-c1">Catégorie A</label>
+			<label for="toggle-c1">Intériorisation</label>
 			<ul class="item-container">
-				<li class="item">
-					<!-- Allow href if noJs, else REPLACE main content with transition -->
-					<a href="/piece.php" data-target="/piece.php" data-color-target="w">
-						<img class="cover" src="assets/svg/example.svg">
-					</a>
-				</li>
-				<li class="item">
-					<!-- Allow href if noJs, else REPLACE main content with transition -->
-					<a href="#" data-target="/piece.php" data-color-target="w">
-						<img class="cover" src="assets/svg/example.svg">
-					</a>
-				</li>
-				<li class="item">
-					<!-- Allow href if noJs, else REPLACE main content with transition -->
-					<a href="#" data-target="/piece.php" data-color-target="w">
-						<img class="cover" src="assets/svg/example.svg">
-					</a>
-				</li>
-				<li class="item">
-					<!-- Allow href if noJs, else REPLACE main content with transition -->
-					<a href="#" data-target="/piece.php" data-color-target="w">
-						<img class="cover" src="assets/svg/example.svg">
-					</a>
-				</li>
-				<li class="item">
-					<!-- Allow href if noJs, else REPLACE main content with transition -->
-					<a href="#" data-target="/piece.php" data-color-target="w">
-						<img class="cover" src="assets/svg/example.svg">
-					</a>
-				</li>
+				<?php
+					$img = array( 2, 3, 4, 5);
+					for ($i = 0; $i < 6; $i++){
+						shuffle($img);
+						echo '
+						<li class="item">
+							<!-- Allow href if noJs, else REPLACE main content with transition -->
+							<a href="/piece.php" data-target="/piece.php" data-color-target="w">
+								<img class="cover" src="assets/svg/example'.$img[0].'.svg">
+							</a>
+						</li>';
+					}
+				?>
 			</ul>
 		</li>
 		<li class="cat show" data-color="w" data-for="categorie-b">
 			<input id="toggle-c2" name="toggle-c" type="radio" hidden>
-			<label for="toggle-c2">Catégorie B</label>
+			<label for="toggle-c2">Extériorisation</label>
 			<ul class="item-container">
-				<li class="item">
-					<!-- Allow href if noJs, else REPLACE main content with transition -->
-					<a href="/piece.php" data-target="/piece.php" data-color-target="w">
-						<img class="cover" src="assets/svg/example.svg">
-					</a>
-				</li>
-				<li class="item">
-					<!-- Allow href if noJs, else REPLACE main content with transition -->
-					<a href="#" data-target="/piece.php" data-color-target="w">
-						<img class="cover" src="assets/svg/example.svg">
-					</a>
-				</li>
-				<li class="item">
-					<!-- Allow href if noJs, else REPLACE main content with transition -->
-					<a href="#" data-target="/piece.php" data-color-target="w">
-						<img class="cover" src="assets/svg/example.svg">
-					</a>
-				</li>
+				<?php
+					$img = array( 2, 3, 4, 5);
+					for ($i = 0; $i < 6; $i++){
+						shuffle($img);
+						echo '
+						<li class="item">
+							<!-- Allow href if noJs, else REPLACE main content with transition -->
+							<a href="/piece.php" data-target="/piece.php" data-color-target="w">
+								<img class="cover" src="assets/svg/example'.$img[0].'.svg">
+							</a>
+						</li>';
+					}
+				?>
 			</ul>
 		</li>
 	</ul>

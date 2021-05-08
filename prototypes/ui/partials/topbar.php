@@ -9,8 +9,8 @@
 			<li>
 				<span class="parent">Menu</span>
 				<ul>
-					<li><a href="categorie.php">Catégorie A</a></li>
-					<li><a href="categorie.php">Catégorie B</a></li>
+					<li><a href="categorie.php">Intériorisation</a></li>
+					<li><a href="categorie.php">Extériorisation</a></li>
 				</ul>
 			</li>
 			<li><a href="/info.php">Info</a></li>

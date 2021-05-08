@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="fr">
 <?php include('partials/head.php') ?>
-<body id="info" class="bgk">
+<body id="info" class="bgK ccW">
 
 	<?php include('partials/topbar.php') ?>
 	<?php include('partials/side.php') ?>
