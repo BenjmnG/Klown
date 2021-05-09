@@ -867,7 +867,7 @@ body#categorie nav#sideNav {
 }
 @media (min-width: 700px) {
   body#categorie nav#sideNav {
-    left: 100px;
+    left: -100px;
   }
 }
 body#categorie nav#sideNav > label {

@@ -2,7 +2,7 @@ let cat = body.getAttribute("data-for");
 /*
 	Catégorie
 				*/
-const mySiema = new Siema({
+/*const mySiema = new Siema({
   selector: '#sideNav .item-container:first-of-type',
   duration: 500,
   easing: 'ease-in-out',
@@ -13,9 +13,15 @@ const mySiema = new Siema({
   threshold: 20,
   loop: true,
   rtl: false,
-  onInit: () => {sideNav.classList.add('siema')},
+  onInit: () => {
+    sideNav.classList.add('siema')
+  },
   onChange: () => {},
 });
+
+window.addEventListener("resize", function(){
+  mySiema.resizeHandler()
+});*/
 
 
 /*

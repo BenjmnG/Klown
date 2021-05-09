@@ -30,10 +30,7 @@ body#categorie{
   nav#sideNav{
 
     width: 100vw;
-
-    @include for-size(desktop){ 
-      left: $unite*4;
-    }
+    @include for-size(desktop){ left: $unite*-4;}
 
     > label{ opacity: 0; position: absolute;}
 
