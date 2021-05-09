@@ -8,7 +8,7 @@ nav#sideNav{
   //transition: all 0.5s ease-in-out, width 0s, margin 0s, padding 0s, left 0s;
   box-sizing: border-box;
   z-index: 5;  
-  *{border: 1px solid;}
+  //*{border: 1px solid;}
   li.cat{
     ul.item-container{
       h1{@include f1-s0();}
@@ -90,7 +90,12 @@ body#categorie{
     > ul.cat-container{
       width: auto;
       height: 100%;
+      
+      overflow: scroll hidden;
+      white-space: nowrap;      
       @include for-size(desktop){ padding: 0 #{$unite*4};}
+  
+      #scrollContainer{display: none;}
 
       li.cat{
         display: inline-block;
@@ -105,55 +110,40 @@ body#categorie{
         }
 
         ul.item-container {
+          @include flex();
+          @include flex-direction(row);
+          @include align-items(center);          
           li.item{
             display: inline-block;
+            white-space: nowrap;
             margin: $baseline $unite/2 $baseline 0;
 
             img.cover{
               width: 20vw;
               
-              &:hover{ transform: scale(1.25); }           
+              &:hover{ transform: scale(1.5); }           
             }
           }
         }
       }
     }
 
-    &.siema{
-      cursor: grab !important;
-      > ul.cat-container{
-        li.cat{
-          ul.item-container {
-            overflow: visible !important;
-            > div{
-              @include flex;
-              @include align-items(center);
-            }
-          }
-        }
+    > ul.cat-container:not(.noJS){
+      scrollbar-width: none;
+      // Scroll Button
+      &~#scrollContainer{
+        display: inline-block;
+        position: absolute;
+        bottom: $baseline*-3;
+        right: $unite;
+        padding: $baseline $unite/2;
+        background: transparent;
+        cursor: pointer;
       }
+
     }
     
-    //
-    // falback not Siema
-    //
-    &:not(.siema){
-      > ul.cat-container{
-        //scrollbar-width: none;
-        overflow: scroll hidden;
-        white-space: nowrap;
-        li.cat{
-          ul.item-container {
-            @include flex();
-            @include flex-direction(row);
-            @include align-items(center);
-            li.item{          
-              white-space: nowrap;
-            }
-          }
-        }
-      }
-    }
+
   }
  
   &[data-categorie="1"] nav#sideNav li.cat:not([data-categorie="1"]){display: none;}

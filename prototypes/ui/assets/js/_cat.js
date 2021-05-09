@@ -1,4 +1,5 @@
 let cat = body.getAttribute("data-for");
+let Width = window.screen.width;
 /*
 	Catégorie
 				*/
@@ -22,6 +23,24 @@ let cat = body.getAttribute("data-for");
 window.addEventListener("resize", function(){
   mySiema.resizeHandler()
 });*/
+
+
+
+let scrollContainer =  document.querySelector('.cat-container'),
+    scrollTrigger = scrollContainer.querySelector('#scrollContainer'),
+    step = (document.body.clientWidth)*.9,
+    delta = step/4;
+
+scrollContainer.classList.remove('noJS');
+
+window.addEventListener("click", function(){
+  if (scrollContainer.offsetWidth + scrollContainer.scrollLeft + delta >= scrollContainer.scrollWidth) {
+    scrollContainer.scrollLeft = 0    
+  } else{
+    scrollContainer.scrollBy(step ,0)
+  }
+});
+
 
 
 /*

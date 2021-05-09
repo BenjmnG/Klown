@@ -7,6 +7,7 @@
 	</label>
 
 	<!-- Sort Options-->
+	<!-- Sort Options Can be remove on Piece Pages -->
 	<input id="c1-sort-0" type="radio" name="c1-sort-medium" hidden checked>
 	<input id="c1-sort-1" type="radio" name="c1-sort-medium" hidden>
 	<input id="c1-sort-2" type="radio" name="c1-sort-medium" hidden>
@@ -19,10 +20,10 @@
 			<li data-for="sort-2"><label for="c1-sort-2">Peinture</label></li>
 			<li data-for="sort-3"><label for="c1-sort-3">Photo</label></li>
 		</ul>
-	</div>	
+	</div>
 	
 	<!-- First Cat Container-->
-	<ul class="cat-container">
+	<ul class="cat-container noJS">
 		<li class="cat" data-categorie="1" data-bg="w" data-cc="k">
 			<input id="toggle-c1" name="toggle-c" type="radio" hidden checked>
 			<label for="toggle-c1">Intériorisation</label>
@@ -63,4 +64,7 @@
 			</ul>
 		</li>
 	</ul>
+
+	<!-- Following Can be remove on Piece Pages -->
+	<button id="scrollContainer">></button>
 </nav>
