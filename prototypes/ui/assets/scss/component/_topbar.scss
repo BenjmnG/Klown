@@ -12,18 +12,15 @@
 
 	nav{
 		> ul {
-			top: -.25rem;
 			> li{
 				display: inline-block;
 				text-transform: capitalize;
 
 				&:first-of-type{
 					cursor: pointer;
-					max-height: $baseline;
-					//overflow: hidden;
+					max-height: $font-size*.75;
 					text-align: right;
 					overflow: hidden;
-					top: .5rem;
 
 					> *{ 
 						top: -.25rem; 

@@ -506,19 +506,15 @@ body {
   letter-spacing: 0px;
   font-weight: 400;
 }
-#topbar nav > ul {
-  top: -0.25rem;
-}
 #topbar nav > ul > li {
   display: inline-block;
   text-transform: capitalize;
 }
 #topbar nav > ul > li:first-of-type {
   cursor: pointer;
-  max-height: 1.25rem;
+  max-height: 0.75rem;
   text-align: right;
   overflow: hidden;
-  top: 0.5rem;
 }
 #topbar nav > ul > li:first-of-type > * {
   top: -0.25rem;
