@@ -842,44 +842,11 @@ input.on-off:checked::before {
     SideNav
             */
 nav#sideNav {
-  position: fixed;
-  transition: all 0.5s ease-in-out, width 0s, margin 0s, padding 0s, left 0s;
   box-sizing: border-box;
-  overflow: visible scroll;
-  -ms-overflow-style: none;
-  scrollbar-width: none;
   z-index: 5;
-  /*
-      ☰ 
-      ↓
-          */
-  /*
-      ||| →
-              */
-}
-nav#sideNav::-webkit-scrollbar {
-  display: none;
-}
-@media (min-width: 700px) {
-  nav#sideNav {
-    transform: translateX(-200px);
-    left: 0;
-  }
 }
 nav#sideNav * {
   border: 1px solid;
-}
-nav#sideNav li.cat ul.item-container {
-  display: -webkit-box;
-  /* OLD - iOS 6-, Safari 3.1-6 */
-  display: -moz-box;
-  /* OLD - Firefox 19- (buggy but mostly works) */
-  display: -ms-flexbox;
-  /* TWEENER - IE 10 */
-  display: -webkit-flex;
-  /* NEW - Chrome */
-  display: flex;
-  /* NEW, Spec - Opera 12.1, Firefox 20+ */
 }
 nav#sideNav li.cat ul.item-container h1 {
   font-family: "GeneralSans", sans-serif;
@@ -891,33 +858,253 @@ nav#sideNav li.cat ul.item-container h1 {
 nav#sideNav li.cat ul.item-container li.item img.cover {
   transition: all 0.25s ease-in-out;
 }
-nav#sideNav:not(.inline) {
+
+body#categorie nav#sideNav {
+  width: 100vw;
+  /*
+    Sort
+          */
+}
+@media (min-width: 700px) {
+  body#categorie nav#sideNav {
+    left: 100px;
+  }
+}
+body#categorie nav#sideNav > label {
+  opacity: 0;
+  position: absolute;
+}
+body#categorie nav#sideNav * {
+  user-select: none;
+}
+body#categorie nav#sideNav input[id$=sort-0]:checked ~ .sort-options li[data-for=sort-0] {
+  order: 1;
+  font-weight: 400;
+}
+body#categorie nav#sideNav input[id$=sort-1]:checked ~ .sort-options li[data-for=sort-1] {
+  order: 1;
+  font-weight: 400;
+}
+body#categorie nav#sideNav input[id$=sort-2]:checked ~ .sort-options li[data-for=sort-2] {
+  order: 1;
+  font-weight: 400;
+}
+body#categorie nav#sideNav input[id$=sort-3]:checked ~ .sort-options li[data-for=sort-3] {
+  order: 1;
+  font-weight: 400;
+}
+body#categorie nav#sideNav input[id$=sort-4]:checked ~ .sort-options li[data-for=sort-4] {
+  order: 1;
+  font-weight: 400;
+}
+body#categorie nav#sideNav input[id$=sort-5]:checked ~ .sort-options li[data-for=sort-5] {
+  order: 1;
+  font-weight: 400;
+}
+body#categorie nav#sideNav input[id$=sort-6]:checked ~ .sort-options li[data-for=sort-6] {
+  order: 1;
+  font-weight: 400;
+}
+body#categorie nav#sideNav input[id$=sort-7]:checked ~ .sort-options li[data-for=sort-7] {
+  order: 1;
+  font-weight: 400;
+}
+body#categorie nav#sideNav input[id$=sort-8]:checked ~ .sort-options li[data-for=sort-8] {
+  order: 1;
+  font-weight: 400;
+}
+body#categorie nav#sideNav input[id$=sort-9]:checked ~ .sort-options li[data-for=sort-9] {
+  order: 1;
+  font-weight: 400;
+}
+body#categorie nav#sideNav input[id$=sort-10]:checked ~ .sort-options li[data-for=sort-10] {
+  order: 1;
+  font-weight: 400;
+}
+body#categorie nav#sideNav input[id$=sort-0]:checked ~ .sort-options:not(:hover) p {
+  right: 0;
+}
+body#categorie nav#sideNav .sort-options {
+  position: absolute;
+  right: 25px;
+  top: 0;
+  z-index: 5;
+  background: var(--bg);
+}
+body#categorie nav#sideNav .sort-options * {
+  transition: 0.25s ease-in-out;
+}
+body#categorie nav#sideNav .sort-options p {
+  position: absolute;
+  right: 100%;
+}
+body#categorie nav#sideNav .sort-options ul {
+  overflow: hidden;
+  max-height: 1rem;
+  display: -webkit-box;
+  /* OLD - iOS 6-, Safari 3.1-6 */
+  display: -moz-box;
+  /* OLD - Firefox 19- (buggy but mostly works) */
+  display: -ms-flexbox;
+  /* TWEENER - IE 10 */
+  display: -webkit-flex;
+  /* NEW - Chrome */
+  display: flex;
+  /* NEW, Spec - Opera 12.1, Firefox 20+ */
+  -webkit-box-direction: normal;
+  -webkit-box-orient: vertical;
+  -webkit-flex-direction: column;
+  -moz-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+body#categorie nav#sideNav .sort-options ul li {
+  padding: 0 6.25px 0.625rem 6.25px;
+  order: 2;
+}
+body#categorie nav#sideNav .sort-options ul li:first-of-type {
+  opacity: 0;
+}
+body#categorie nav#sideNav .sort-options ul li label {
+  cursor: pointer;
+}
+body#categorie nav#sideNav .sort-options:hover ul {
+  max-height: 12.5rem;
+}
+body#categorie nav#sideNav .sort-options:hover ul li:first-of-type {
+  opacity: 1;
+}
+body#categorie nav#sideNav > ul.cat-container {
+  width: auto;
+  height: 100%;
+}
+@media (min-width: 700px) {
+  body#categorie nav#sideNav > ul.cat-container {
+    padding: 0 100px;
+  }
+}
+body#categorie nav#sideNav > ul.cat-container li.cat {
+  display: inline-block;
+  padding-right: 100px;
+  vertical-align: top;
+}
+body#categorie nav#sideNav > ul.cat-container li.cat label {
+  position: sticky;
+  top: 0;
+  left: 0;
+  margin: 2.5rem 0;
+}
+body#categorie nav#sideNav > ul.cat-container li.cat ul.item-container li.item {
+  display: inline-block;
+  margin: 1.25rem 12.5px 1.25rem 0;
+}
+body#categorie nav#sideNav > ul.cat-container li.cat ul.item-container li.item img.cover {
+  width: 20vw;
+}
+body#categorie nav#sideNav > ul.cat-container li.cat ul.item-container li.item img.cover:hover {
+  transform: scale(1.25);
+}
+body#categorie nav#sideNav.siema {
+  cursor: grab !important;
+}
+body#categorie nav#sideNav.siema > ul.cat-container li.cat ul.item-container {
+  overflow: visible !important;
+}
+body#categorie nav#sideNav.siema > ul.cat-container li.cat ul.item-container > div {
+  display: -webkit-box;
+  /* OLD - iOS 6-, Safari 3.1-6 */
+  display: -moz-box;
+  /* OLD - Firefox 19- (buggy but mostly works) */
+  display: -ms-flexbox;
+  /* TWEENER - IE 10 */
+  display: -webkit-flex;
+  /* NEW - Chrome */
+  display: flex;
+  /* NEW, Spec - Opera 12.1, Firefox 20+ */
+  -webkit-box-align: center;
+  -moz-box-align: center;
+  -ms-flex-align: center;
+  -webkit-align-items: center;
+  align-items: center;
+}
+body#categorie nav#sideNav:not(.siema) > ul.cat-container {
+  overflow: scroll hidden;
+  white-space: nowrap;
+}
+body#categorie nav#sideNav:not(.siema) > ul.cat-container li.cat ul.item-container {
+  display: -webkit-box;
+  /* OLD - iOS 6-, Safari 3.1-6 */
+  display: -moz-box;
+  /* OLD - Firefox 19- (buggy but mostly works) */
+  display: -ms-flexbox;
+  /* TWEENER - IE 10 */
+  display: -webkit-flex;
+  /* NEW - Chrome */
+  display: flex;
+  /* NEW, Spec - Opera 12.1, Firefox 20+ */
+  -webkit-box-direction: normal;
+  -webkit-box-orient: horizontal;
+  -webkit-flex-direction: row;
+  -moz-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-box-align: center;
+  -moz-box-align: center;
+  -ms-flex-align: center;
+  -webkit-align-items: center;
+  align-items: center;
+}
+body#categorie nav#sideNav:not(.siema) > ul.cat-container li.cat ul.item-container li.item {
+  white-space: nowrap;
+}
+body#categorie[data-categorie="1"] nav#sideNav li.cat:not([data-categorie="1"]) {
+  display: none;
+}
+body#categorie[data-categorie="2"] nav#sideNav li.cat:not([data-categorie="2"]) {
+  display: none;
+}
+body#categorie[data-categorie="3"] nav#sideNav li.cat:not([data-categorie="3"]) {
+  display: none;
+}
+
+body#piece nav#sideNav {
   position: fixed;
   overflow: visible scroll;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
   scroll-snap-type: y mandatory;
+  transition: transform 0.25s ease-in-out;
+}
+body#piece nav#sideNav::-webkit-scrollbar {
+  display: none;
 }
 @media (max-width: 700px) {
-  nav#sideNav:not(.inline) {
+  body#piece nav#sideNav {
     width: 90vw;
     height: 100vh;
     top: 0;
     left: calc(-90vw + 50px);
     padding: 2.5rem 25px 2.5rem 50px;
   }
-  nav#sideNav:not(.inline):hover {
+  body#piece nav#sideNav:hover {
     border-right: 1px solid currentColor;
     background: white;
   }
 }
 @media (min-width: 700px) {
-  nav#sideNav:not(.inline) {
+  body#piece nav#sideNav {
     width: 250px;
     height: 100vh;
     height: calc(100vh - 8.75rem);
+    transform: translateX(-200px);
+    left: 0;
     padding: 0 25px 2.5rem 25px;
   }
 }
-nav#sideNav:not(.inline) label[for=toggle-sideNav] {
+body#piece nav#sideNav .sort-options {
+  display: none;
+}
+body#piece nav#sideNav label[for=toggle-sideNav] {
   content: "Pièces";
   font-family: "GeneralSans", sans-serif;
   font-size: 0.75rem;
@@ -935,15 +1122,25 @@ nav#sideNav:not(.inline) label[for=toggle-sideNav] {
   transition: opacity 0.25s ease-in-out;
 }
 @media (min-width: 700px) {
-  nav#sideNav:not(.inline) label[for=toggle-sideNav] {
+  body#piece nav#sideNav label[for=toggle-sideNav] {
     top: 2.1875rem;
   }
 }
-nav#sideNav:not(.inline) ul.cat-container li.cat {
+body#piece nav#sideNav ul.cat-container li.cat {
   margin: 0 0 2.5rem 0;
   overflow: hidden;
 }
-nav#sideNav:not(.inline) ul.cat-container li.cat ul.item-container {
+body#piece nav#sideNav ul.cat-container li.cat ul.item-container {
+  display: -webkit-box;
+  /* OLD - iOS 6-, Safari 3.1-6 */
+  display: -moz-box;
+  /* OLD - Firefox 19- (buggy but mostly works) */
+  display: -ms-flexbox;
+  /* TWEENER - IE 10 */
+  display: -webkit-flex;
+  /* NEW - Chrome */
+  display: flex;
+  /* NEW, Spec - Opera 12.1, Firefox 20+ */
   -webkit-box-direction: normal;
   -webkit-box-orient: vertical;
   -webkit-flex-direction: column;
@@ -957,93 +1154,28 @@ nav#sideNav:not(.inline) ul.cat-container li.cat ul.item-container {
   align-items: flex-start;
   gap: 0;
 }
-nav#sideNav:not(.inline) ul.cat-container li.cat ul.item-container li.item {
+body#piece nav#sideNav ul.cat-container li.cat ul.item-container li.item {
   margin: 0.2083333333rem 0;
   scroll-snap-align: start;
   transition: all 0.25s ease, max-height 0.5s ease-in-out, margin 0s;
   max-height: 150px;
   cursor: pointer;
 }
-nav#sideNav:not(.inline) ul.cat-container li.cat ul.item-container li.item img.cover {
+body#piece nav#sideNav ul.cat-container li.cat ul.item-container li.item img.cover {
   height: 75px;
   max-height: 150px;
 }
-nav#sideNav:not(.inline) ul.cat-container li.cat ul.item-container li.item img.cover:hover {
+body#piece nav#sideNav ul.cat-container li.cat ul.item-container li.item img.cover:hover {
   height: 150px;
 }
-nav#sideNav.inline {
-  position: absolute;
-  width: 100vw;
-}
-@media (min-width: 700px) {
-  nav#sideNav.inline {
-    left: 100px;
-  }
-}
-nav#sideNav.inline > label {
-  opacity: 0;
-  position: absolute;
-}
-nav#sideNav.inline * {
-  user-select: none;
-}
-nav#sideNav.inline > ul.cat-container {
-  width: auto;
-  height: 100%;
-  padding: 0 100px;
-  scrollbar-width: none;
-  overflow: scroll hidden;
-  white-space: nowrap;
-}
-nav#sideNav.inline > ul.cat-container.active li.item a {
-  cursor: grab !important;
-}
-nav#sideNav.inline > ul.cat-container li.cat {
-  display: inline-block;
-  padding-right: 100px;
-  vertical-align: top;
-  /*input[name="toggle-c"]:checked ~*/
-}
-nav#sideNav.inline > ul.cat-container li.cat label {
-  position: sticky;
-  top: 0;
-  left: 0;
-  margin: 2.5rem 0;
-}
-nav#sideNav.inline > ul.cat-container li.cat ul.item-container {
-  -webkit-box-direction: normal;
-  -webkit-box-orient: horizontal;
-  -webkit-flex-direction: row;
-  -moz-flex-direction: row;
-  -ms-flex-direction: row;
-  flex-direction: row;
-  -webkit-box-align: center;
-  -moz-box-align: center;
-  -ms-flex-align: center;
-  -webkit-align-items: center;
-  align-items: center;
-}
-nav#sideNav.inline > ul.cat-container li.cat ul.item-container li.item {
-  display: inline-block;
-  white-space: nowrap;
-  margin: 1.25rem 12.5px 1.25rem 0;
-}
-nav#sideNav.inline > ul.cat-container li.cat ul.item-container li.item a {
-  display: inline-block;
-}
-nav#sideNav.inline > ul.cat-container li.cat ul.item-container li.item img.cover {
-  width: 20vw;
-  max-width: 250px;
-}
-nav#sideNav nav#sideNav:not(.inline) input[name=toggle-c]:not(:checked) ~ ul li.item {
+body#piece nav#sideNav input[name=toggle-c]:not(:checked) ~ ul li.item {
   max-height: 0;
   overflow: hidden;
   margin: 0;
 }
-
-nav#sideNav:not(.inline):hover,
-nav#sideNav:not(.inline):focus,
-input#toggle-sideNav:checked + nav:not(.inline) {
+body#piece nav#sideNav:hover,
+body#piece nav#sideNav:focus,
+body#piece input#toggle-sideNav:checked + nav#sideNav {
   transform: translateX(0);
 }
 
@@ -1149,18 +1281,13 @@ body#categorie main header .exp {
 body#categorie main .content {
   max-width: 400px;
   /*Fallback */
-  margin: 7.5rem 0 15rem 0;
-  margin: calc(clamp(7.5rem, 25vh, 300px)) 0 calc(clamp(7.5rem, 25vh, 300px)) 0;
+  margin: 7.5rem 0 6.25rem 0;
+  margin: calc(clamp(7.5rem, 25vh, 250px)) 0 6.25rem 0;
 }
-body#categorie main #pièces {
-  height: 25rem;
-  margin: 20vh 0 20vh;
-}
-body#categorie #sideNav.inline {
-  bottom: 12.5rem;
+body#categorie main nav#sideNav {
   /*Fallback */
-  margin: 7.5rem 0 15rem 0;
-  margin: 0 0 calc(clamp(7.5rem, 20vh, 600px)) 0;
+  margin: 3.75rem 0 7.5rem 0;
+  margin: calc(clamp(3.75rem, 10vh, 150px)) 0 calc(clamp(3.75rem, 10vh, 150px)) 0;
 }
 
 body#piece #carrousel {

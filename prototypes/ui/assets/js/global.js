@@ -1,4 +1,6 @@
 body = document.querySelector('body');
+toggleSideNav = document.querySelector('#toggle-sideNav');
+sideNav = document.querySelector('#sideNav');
 
 /* 
 		Side 

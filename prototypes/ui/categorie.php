@@ -2,9 +2,8 @@
 <html lang="fr">
 <?php include('partials/head.php') ?>
 <body id="categorie" class="bgW ccK" 
-			data-categorie="categorie-a">
+			data-categorie="1">
 	<?php include('partials/topbar.php') ?>
-	<?php include('partials/side.php') ?>
 	<main>
 		<header>
 			<h1>Catégorie</h1>
@@ -14,12 +13,10 @@
 			<!-- Description catégorie -->
 			Lorem ipsum dolor sit amet, consectetur adipiscing elit. Auctor pharetra ac montes, id sit in tortor. Hendrerit fames cras urna augue magna  purus viverra. Feugiat ornare nec nunc, elit. Purus molestie lectus convallis ac. Rhoncus, non vivamus facilisi cras dolor lacus velit. Nisl eu sed fames et interdum 
 		</div>
-
-		<!-- SideNav appear at this scrollpoint -->
-		<!-- Or autoload first project -->
-		<div id="pièces"></div>
+		<?php include('partials/side.php') ?>
 	</main>
 	<?php include('partials/footer.php') ?>
+	<script src="static/js/siema.min.js" type="text/javascript"></script>
 	<script src="assets/js/utilities.js" type="text/javascript"></script>
 	<script src="assets/js/global.js" type="text/javascript"></script>
 	<script src="assets/js/_cat.js" type="text/javascript"></script>

@@ -24,8 +24,10 @@ if(document.querySelector('#carrousel .siema')){
 /*
   Related 
           */
-function relatedWith(){
+function relatedWith(){  
   console.log('This Piece is related to other')
 }
+
+  
 
 openSideNav('#related', relatedWith)

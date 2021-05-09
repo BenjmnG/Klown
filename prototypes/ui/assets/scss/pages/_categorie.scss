@@ -30,20 +30,13 @@ body#categorie{
 
 		.content{
 			max-width: 400px;
-			/*Fallback */ margin: #{$baseline*6} 0 #{$baseline*12} 0;
-			margin: calc(clamp(#{$baseline*6}, 25vh, 300px)) 0 calc(clamp(#{$baseline*6}, 25vh, 300px)) 0;
+			/*Fallback */ margin: #{$baseline*6} 0 #{$baseline*5} 0;
+			margin: calc(clamp(#{$baseline*6}, 25vh, 250px)) 0 #{$baseline*5}  0;
 		}
 
-		#pièces{
-			height: $h;
-			margin: 20vh 0 20vh;
+		nav#sideNav{
+			/*Fallback */ margin: #{$baseline*3} 0 #{$baseline*6} 0;
+			margin: calc(clamp(#{$baseline*3}, 10vh, 150px)) 0 calc(clamp(#{$baseline*3}, 10vh, 150px)) 0;		
 		}
 	}	
-
-	#sideNav.inline{
-		bottom: $h/2;
-		/*Fallback */ margin: #{$baseline*6} 0 #{$baseline*12} 0;
-		margin: 0 0 calc(clamp(#{$baseline*6}, 20vh, 600px)) 0;
-
-	}
 }

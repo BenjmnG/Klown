@@ -5,24 +5,12 @@
 nav#sideNav{
 
   // container 
-  position: fixed;
-  transition: all 0.5s ease-in-out, width 0s, margin 0s, padding 0s, left 0s;
+  //transition: all 0.5s ease-in-out, width 0s, margin 0s, padding 0s, left 0s;
   box-sizing: border-box;
-  overflow: visible scroll;
-  -ms-overflow-style: none;
-  scrollbar-width: none;
-  &::-webkit-scrollbar {display: none;}
   z-index: 5;  
-
-  @include for-size(desktop){
-    transform: translateX(#{$unite*-8});
-    left: 0;
-  }
-
   *{border: 1px solid;}
   li.cat{
     ul.item-container{
-      @include flex();
       h1{@include f1-s0();}
       li.item{
         img.cover{
@@ -31,15 +19,166 @@ nav#sideNav{
       }
     }
   }
+}
 
-  /*
-      ☰ 
-      ↓
-          */
-  &:not(.inline){
+  
+//
+//    ||| →            
+//
+body#categorie{
+
+  nav#sideNav{
+
+    width: 100vw;
+
+    @include for-size(desktop){ 
+      left: $unite*4;
+    }
+
+    > label{ opacity: 0; position: absolute;}
+
+    *{user-select: none;}
+
+
+    /*
+      Sort
+            */
+    @for $i from 0 through 10{
+      input[id$="sort-#{$i}"]:checked ~ .sort-options li[data-for="sort-#{$i}"]{
+        order: 1;
+        font-weight: $bold;
+      }
+    }
+
+    input[id$="sort-0"]:checked ~ .sort-options:not(:hover) p{right: 0;}
+
+    // Sort Options
+    .sort-options{
+      position: absolute;
+      right: $unite;
+      top: 0;
+      z-index: 5;
+      background: var(--bg);
+
+      *{transition: .25s ease-in-out;}
+
+      p{
+        position: absolute;
+        right: 100%;
+        
+      }
+
+      ul{
+        overflow: hidden;
+        max-height: $font-size;
+        @include flex();
+        @include flex-direction(column);
+
+        li{
+          padding: 0 $unite/4 $baseline/2 $unite/4;
+          order: 2;
+          &:first-of-type{opacity: 0;}
+          label{cursor: pointer;}
+        }
+      }
+
+      &:hover{
+        ul{
+          max-height: $baseline*10;
+          li:first-of-type{opacity: 1;}
+        }
+      }
+    }
+
+    > ul.cat-container{
+      width: auto;
+      height: 100%;
+      @include for-size(desktop){ padding: 0 #{$unite*4};}
+
+      li.cat{
+        display: inline-block;
+        padding-right: $unite*4;
+        vertical-align: top;
+        label{
+          position: sticky;
+          top: 0;
+          left: 0;
+          margin: $baseline*2 0; 
+
+        }
+
+        ul.item-container {
+          li.item{
+            display: inline-block;
+            margin: $baseline $unite/2 $baseline 0;
+
+            img.cover{
+              width: 20vw;
+              
+              &:hover{ transform: scale(1.25); }           
+            }
+          }
+        }
+      }
+    }
+
+    &.siema{
+      cursor: grab !important;
+      > ul.cat-container{
+        li.cat{
+          ul.item-container {
+            overflow: visible !important;
+            > div{
+              @include flex;
+              @include align-items(center);
+            }
+          }
+        }
+      }
+    }
+    
+    //
+    // falback not Siema
+    //
+    &:not(.siema){
+      > ul.cat-container{
+        //scrollbar-width: none;
+        overflow: scroll hidden;
+        white-space: nowrap;
+        li.cat{
+          ul.item-container {
+            @include flex();
+            @include flex-direction(row);
+            @include align-items(center);
+            li.item{          
+              white-space: nowrap;
+            }
+          }
+        }
+      }
+    }
+  }
+ 
+  &[data-categorie="1"] nav#sideNav li.cat:not([data-categorie="1"]){display: none;}
+  &[data-categorie="2"] nav#sideNav li.cat:not([data-categorie="2"]){display: none;}
+  &[data-categorie="3"] nav#sideNav li.cat:not([data-categorie="3"]){display: none;}
+
+}
+
+
+//
+//    ☰ 
+//    ↓
+body#piece{
+
+  nav#sideNav{
     position: fixed;
     overflow: visible scroll;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    &::-webkit-scrollbar {display: none;}    
     scroll-snap-type: y mandatory;
+    transition:  transform .25s ease-in-out;
     @include for-size(phone){
       width: 90vw;
       height: 100vh;
@@ -50,13 +189,19 @@ nav#sideNav{
         border-right: 1px solid currentColor;
         background: white;
       }    
-    }    
+    }
+
     @include for-size(desktop){
       width: $unite*10;
       height: 100vh;
       height: calc(100vh - #{$baseline*7});
+      transform: translateX(#{$unite*-8});
+      left: 0;
       padding: 0 $unite $baseline*2 $unite; // Incluse lateral space as inside otherwise hover bug
     }
+
+    // Sort Options
+    .sort-options{display: none;}
 
     // Toggle Button
     label[for="toggle-sideNav"]{
@@ -76,12 +221,13 @@ nav#sideNav{
     }
 
     // inside behavior
-    ul.cat-container{      
+    ul.cat-container{   
       li.cat{
         margin: 0 0 $baseline*2 0;
         //scroll-snap-align: start;
         overflow: hidden;
         ul.item-container{
+          @include flex();
           @include flex-direction(column);
           @include align-items(flex-start);
           gap: 0;
@@ -102,82 +248,16 @@ nav#sideNav{
         }
       }
     }
-  }
-  
-  /*
-      ||| →
-              */
-  &.inline{
-    position: absolute;
-    width: 100vw;
 
-    @include for-size(desktop){ 
-      left: $unite*4;
-    }
-
-    > label{ opacity: 0; position: absolute;}
-
-    *{user-select: none;}
-
-    > ul.cat-container{
-      width: auto;
-      height: 100%;
-      padding: 0 #{$unite*4}; // trick the transition
-      scrollbar-width: none;
-      overflow: scroll hidden;
-      white-space: nowrap;
-
-      &.active li.item a{
-        cursor: grab !important; 
-      }
-      li.cat{
-        display: inline-block;
-        padding-right: $unite*4;
-        vertical-align: top;
-        label{
-          position: sticky;
-          top: 0;
-          left: 0;
-          margin: $baseline*2 0; 
-
-        }
-
-        /*input[name="toggle-c"]:checked ~*/ 
-        ul.item-container {
-          @include flex-direction(row);
-          @include align-items(center);
-          li.item{
-            display: inline-block;
-            white-space: nowrap;
-            margin: $baseline $unite/2 $baseline 0;
-
-            a{display: inline-block;}
-
-            img.cover{
-              width: 20vw;
-              max-width: 250px;
-              //max-height: $mh;
-              &:hover{
-                //width: 25vw;
-                //max-width: 500px;                
-              }           
-            }
-          }
-        }
-      }
+    // Collapse unecessary Category
+    input[name="toggle-c"]:not(:checked) ~ ul li.item{
+      max-height: 0; overflow: hidden; margin: 0;
     }
   }
-
-  // Collapse unecessary Category
-  nav#sideNav:not(.inline) input[name="toggle-c"]:not(:checked) ~ ul li.item{
-    max-height: 0; overflow: hidden; margin: 0;
-
-  }
-}
-
-// Open / Close
-nav#sideNav:not(.inline):hover, 
-nav#sideNav:not(.inline):focus, 
-input#toggle-sideNav:checked + nav:not(.inline){
-  transform: translateX(0);
+  // Open / Close
+  nav#sideNav:hover, 
+  nav#sideNav:focus, 
+  input#toggle-sideNav:checked + nav#sideNav{
+    transform: translateX(0);
+  }  
 }
