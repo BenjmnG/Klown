@@ -34,14 +34,20 @@ body#index{
 					  transform: translateX(-50%);
 					  min-width: 100vw;
 					  min-height: 100vh;
-						mix-blend-mode: overlay;
-						visibility: hidden;
+						mix-blend-mode: color-dodge;//lighten;// overlay hard-light;
+						//visibility: hidden;
+						opacity: 0;
+						transition: opacity 0s;
 						z-index: -1;
+
+						&.wasActivate{opacity: .05;}
 					}
 				
 					&:hover{
-	 					video{visibility: visible;}
+	 					video{opacity: 1;}
 					}
+
+
 				}
 			}
 		}

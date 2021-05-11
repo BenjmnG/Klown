@@ -1,19 +1,19 @@
 <!DOCTYPE html>
 <html lang="fr">
 <?php include('partials/head.php') ?>
-<body id="index" class="bgW ccR" data-bg="W" data-cc="R">
+<body id="index" class="bgK ccW" data-bg="K" data-cc="W">
 	<?php include('partials/topbar.php') ?>
 	<main>
 		<nav>
 			<ul>
 				<li>
-					<a href="/categorie.php" data-cc="w" data-bg="k" title="Accéder à la catégorie Intériorisation">Intériorisation</a>
+					<a href="/categorie.php" data-bg="k" data-cc="w" title="Accéder à la catégorie Intériorisation">Intériorisation</a>
 					<video muted autoplay loop aria-hidden>
 						<source src="assets/video/blanc.webm" type="video/webm">
 					</video>
 				</li>
 				<li>
-					<a href="/categorie.php" data-cc="w" data-bg="r" title="Accéder à la catégorie Extériorisation">Extériorisation</a>
+					<a href="/categorie.php" data-bg="r" data-cc="k" title="Accéder à la catégorie Extériorisation">Extériorisation</a>
 					<video muted autoplay loop aria-hidden>
 						<source src="assets/video/rouge.webm" type="video/webm">
 					</video>

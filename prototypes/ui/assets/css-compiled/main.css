@@ -702,12 +702,12 @@ body > footer .mentions {
 }
 
 :root {
-  --cR: hsl(5, 80%, 50%);
-  --cRR: hsl(15, 80%, 50%);
-  --cRRR: hsl(30, 80%, 50%);
+  --cR: hsl(10, 85%, 30%);
+  --cRR: hsl(10, 85%, 45%);
+  --cRRR: hsl(10, 85%, 55%);
   --cW: hsl(0, 0%, 100%);
   --cWW: hsl(0, 0%, 95%);
-  --cWWW: hsl(0, 0%, 90%);
+  --cWWW: hsl(0, 0%, 85%);
   --cK: hsl(0, 0%, 0%);
   --cKK: hsl(0, 0%, 15%);
   --cKKK: hsl(0, 0%, 30%);
@@ -725,7 +725,7 @@ body {
   color: var(--cc);
 }
 body.ccR {
-  --cc: var(--cR);
+  --cc: var(--cRRR);
 }
 body.ccW {
   --cc: var(--cW);
@@ -734,7 +734,7 @@ body.ccK {
   --cc: var(--cK);
 }
 body.bgR {
-  --bg: var(--cR);
+  --bg: var(--cRRR);
   --bgg: var(--cRR);
   --bggg: var(--cRRR);
 }
@@ -744,7 +744,7 @@ body.bgW {
   --bggg: var(--cWWW);
 }
 body.bgK {
-  --bg: var(--cK);
+  --bg: var(--cKK);
   --bgg: var(--cKK);
   --bggg: var(--cKKK);
 }
@@ -772,6 +772,12 @@ body.ryochi {
 @keyframes ryochi {
   0% {
     background-color: var(--cc);
+  }
+  50% {
+    background-color: var(--cc);
+  }
+  50.01% {
+    background-color: var(--bg);
   }
   100% {
     background-color: var(--bg);
@@ -1218,12 +1224,16 @@ body#index main nav ul li video {
   transform: translateX(-50%);
   min-width: 100vw;
   min-height: 100vh;
-  mix-blend-mode: overlay;
-  visibility: hidden;
+  mix-blend-mode: color-dodge;
+  opacity: 0;
+  transition: opacity 0s;
   z-index: -1;
 }
+body#index main nav ul li video.wasActivate {
+  opacity: 0.05;
+}
 body#index main nav ul li:hover video {
-  visibility: visible;
+  opacity: 1;
 }
 @media (min-width: 700px) {
   body#index main {

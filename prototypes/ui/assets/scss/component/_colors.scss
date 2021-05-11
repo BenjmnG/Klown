@@ -1,10 +1,10 @@
 :root{
-	--cR: hsl(5, 80%, 50%); // r
-	--cRR: hsl(15, 80%, 50%);
-	--cRRR: hsl(30, 80%, 50%);
+	--cR: hsl(10, 85%, 30%); // r
+	--cRR: hsl(10, 85%, 45%);
+	--cRRR: hsl(10, 85%, 55%);
 	--cW: hsl(0, 0%, 100%); // w
 	--cWW: hsl(0, 0%, 95%);
-	--cWWW: hsl(0, 0%, 90%);
+	--cWWW: hsl(0, 0%, 85%);
 	--cK: hsl(0, 0%, 0%); // b
 	--cKK: hsl(0, 0%, 15%);
 	--cKKK: hsl(0, 0%, 30%);
@@ -23,12 +23,12 @@ body{
 	background: var(--bg); 
 	color: var(--cc);
 	
-	&.ccR{ --cc: var(--cR); }
+	&.ccR{ --cc: var(--cRRR); }
 	&.ccW{ --cc: var(--cW); }
 	&.ccK{ --cc: var(--cK); }
-	&.bgR{ --bg: var(--cR); --bgg: var(--cRR); --bggg: var(--cRRR); }
+	&.bgR{ --bg: var(--cRRR); --bgg: var(--cRR); --bggg: var(--cRRR); }
 	&.bgW{ --bg: var(--cW); --bgg: var(--cWW); --bggg: var(--cWWW); }
-	&.bgK{ --bg: var(--cK); --bgg: var(--cKK); --bggg: var(--cKKK); }
+	&.bgK{ --bg: var(--cKK); --bgg: var(--cKK); --bggg: var(--cKKK); }
 
 	&.pulse{
 		animation: pulse 2s steps(4) infinite;		
@@ -42,9 +42,11 @@ body{
 
 	&.ryochi{
 		color: var(--cc);
-		animation: ryochi .15s steps(2) infinite;		
+		animation: ryochi .15s steps(2) infinite ;		
 		@keyframes ryochi {
 			0% { background-color: var(--cc); }
+			50% { background-color: var(--cc); }
+			50.01% { background-color: var(--bg); }
 			100% { background-color: var(--bg); }
 		}
 	}
