@@ -13,7 +13,7 @@
 					</video>
 				</li>
 				<li>
-					<a href="/categorie.php" data-bg="r" data-cc="k" title="Accéder à la catégorie Extériorisation">Extériorisation</a>
+					<a href="/categorie.php" data-bg="r" data-cc="w" title="Accéder à la catégorie Extériorisation">Extériorisation</a>
 					<video muted autoplay loop aria-hidden>
 						<source src="assets/video/rouge.webm" type="video/webm">
 					</video>

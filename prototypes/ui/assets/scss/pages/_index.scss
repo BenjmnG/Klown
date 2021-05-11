@@ -31,20 +31,20 @@ body#index{
 						position: fixed;
 					  left: 50%;
 					  bottom: 0;
-					  transform: translateX(-50%);
+					  transform: translateX(-50%) scale(1);
 					  min-width: 100vw;
 					  min-height: 100vh;
-						mix-blend-mode: color-dodge;//lighten;// overlay hard-light;
+						mix-blend-mode: lighten; //hard-light; //color-dodge;//lighten;// overlay hard-light;
 						//visibility: hidden;
 						opacity: 0;
 						transition: opacity 0s;
 						z-index: -1;
 
-						&.wasActivate{opacity: .05;}
+						//&.wasActivate{opacity: .05;}
 					}
 				
 					&:hover{
-	 					video{opacity: 1;}
+	 					video{opacity: 1; transform: translateX(-50%) scale(1.25); transition: all 0s transform 5s linear;}
 					}
 
 

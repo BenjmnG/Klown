@@ -12,16 +12,31 @@ els.forEach( function(el, i){
                      'cc' + cc.toUpperCase() + ' ' +
                      'ryochi';
 
-    videos.forEach( function(v, iv){ v.classList.remove('wasActivate')});
+    //videos.forEach( function(v, iv){ v.classList.remove('wasActivate')});
+    //speedUp();
   });
   el.addEventListener("mouseleave", function(e) {
     // Change color
     let cc = body.getAttribute('data-cc');
     let bg = body.getAttribute('data-bg');
     body.classList = 'bg' + bg.toUpperCase() + ' ' +
-                     'cc' + cc.toUpperCase() + ' ' +
-                     'pulse';
-    //body.classList.replace('ryochi', 'pulse')
-    (el.nextElementSibling).classList.add('wasActivate');
+                     'cc' + cc.toUpperCase() + ' ';
+    
+    toggleStrobos()                     
+    
+    //(el.nextElementSibling).classList.add('wasActivate');
+    body.removeAttribute('style');
   });
 });
+
+function speedUp(){
+    let duration = parseFloat(window.getComputedStyle(body).animationDuration);
+    if(duration > .15){
+      console.log(duration);
+       setTimeout(function(){
+       (document.querySelector("body.ryochi")).style.animationDuration = (duration - .3) + 's'
+       speedUp()
+      }, 300);    
+    }
+}
+
