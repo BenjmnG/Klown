@@ -1,7 +1,7 @@
 :root{
-	--cR: hsl(10, 85%, 30%); // r
-	--cRR: hsl(10, 85%, 45%);
-	--cRRR: hsl(10, 85%, 55%);
+	--cR: hsl(2, 95%, 44%); // r
+	--cRR: hsl(5, 92%, 30%);
+	--cRRR: hsl(8, 88%, 17%);  	
 	--cW: hsl(0, 0%, 100%); // w
 	--cWW: hsl(0, 0%, 95%);
 	--cWWW: hsl(0, 0%, 85%);
@@ -23,7 +23,7 @@ body{
 	background: var(--bg); 
 	color: var(--cc);
 	
-	&.ccR{ --cc: var(--cRRR); }
+	&.ccR{ --cc: var(--cR); }
 	&.ccW{ --cc: var(--cW); }
 	&.ccK{ --cc: var(--cK); }
 	&.bgR{ --bg: var(--cRRR); --bgg: var(--cRR); --bggg: var(--cRRR); }
@@ -40,15 +40,30 @@ body{
 		}
 	}
 
-	&.ryochi{
-		color: var(--cc);
-		animation: ryochi .15s steps(2) infinite ;		
-		@keyframes ryochi {
-			0% { background-color: var(--cc); }
-			50% { background-color: var(--cc); }
-			50.01% { background-color: var(--bg); }
-			100% { background-color: var(--bg); }
-		}
+	.ryochInit:after{
+	  content: '';
+	  position: absolute;
+	  top: 0;
+	  right: 0;
+	  bottom: 0;
+	  left: 0;
+		width: 100%;
+		height: 100%;
+		visibility: hidden;
 
+	}
+
+	&.ryochi{
+		color: var(--cc);		
+		.ryochInit:after{
+			visibility: visible;
+			animation: ryochi .15s steps(2) infinite ;		
+			@keyframes ryochi {
+				0% { background-color: transparent; }
+				66% { background-color: transparent; }
+				66.01% { background-color: var(--cW); }
+				100% { background-color: var(--cW); }
+			}
+		}
 	}
 }

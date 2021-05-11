@@ -702,9 +702,9 @@ body > footer .mentions {
 }
 
 :root {
-  --cR: hsl(10, 85%, 30%);
-  --cRR: hsl(10, 85%, 45%);
-  --cRRR: hsl(10, 85%, 55%);
+  --cR: hsl(2, 95%, 44%);
+  --cRR: hsl(5, 92%, 30%);
+  --cRRR: hsl(8, 88%, 17%);
   --cW: hsl(0, 0%, 100%);
   --cWW: hsl(0, 0%, 95%);
   --cWWW: hsl(0, 0%, 85%);
@@ -725,7 +725,7 @@ body {
   color: var(--cc);
 }
 body.ccR {
-  --cc: var(--cRRR);
+  --cc: var(--cR);
 }
 body.ccW {
   --cc: var(--cW);
@@ -765,22 +765,36 @@ body.pulse {
     background-color: var(--bg);
   }
 }
+body .ryochInit:after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  visibility: hidden;
+}
 body.ryochi {
   color: var(--cc);
+}
+body.ryochi .ryochInit:after {
+  visibility: visible;
   animation: ryochi 0.15s steps(2) infinite;
 }
 @keyframes ryochi {
   0% {
-    background-color: var(--cc);
+    background-color: transparent;
   }
-  50% {
-    background-color: var(--cc);
+  66% {
+    background-color: transparent;
   }
-  50.01% {
-    background-color: var(--bg);
+  66.01% {
+    background-color: var(--cW);
   }
   100% {
-    background-color: var(--bg);
+    background-color: var(--cW);
   }
 }
 
@@ -1216,21 +1230,35 @@ body#index main nav ul li {
 }
 body#index main nav ul li a {
   padding: 0.625rem 12.5px;
+  z-index: 1;
 }
-body#index main nav ul li video {
+body#index main nav ul li .videoWrapper {
   position: fixed;
-  left: 50%;
+  left: 0;
+  top: 0;
+  visibility: hidden;
+}
+body#index main nav ul li .videoWrapper:before {
+  content: "";
+  position: absolute;
+  background: var(--bg);
+  top: 0;
+  right: 0;
   bottom: 0;
+  left: 0;
+  mix-blend-mode: hard-light;
+}
+body#index main nav ul li .videoWrapper video {
+  left: 50%;
   transform: translateX(-50%) scale(1);
   min-width: 100vw;
   min-height: 100vh;
-  mix-blend-mode: lighten;
-  opacity: 0;
-  transition: opacity 0s;
   z-index: -1;
 }
-body#index main nav ul li:hover video {
-  opacity: 1;
+body#index main nav ul li:hover .videoWrapper {
+  visibility: visible;
+}
+body#index main nav ul li:hover .videoWrapper video {
   transform: translateX(-50%) scale(1.25);
   transition: all 0s transform 5s linear;
 }

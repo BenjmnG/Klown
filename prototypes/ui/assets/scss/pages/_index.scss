@@ -25,26 +25,47 @@ body#index{
 					
 					a{
 						padding: $baseline/2 $unite/2;
+						z-index: 1;
 					}
- 				
-					video{
+ 					
+ 					.videoWrapper{
+							
 						position: fixed;
-					  left: 50%;
-					  bottom: 0;
-					  transform: translateX(-50%) scale(1);
-					  min-width: 100vw;
-					  min-height: 100vh;
-						mix-blend-mode: lighten; //hard-light; //color-dodge;//lighten;// overlay hard-light;
-						//visibility: hidden;
-						opacity: 0;
-						transition: opacity 0s;
-						z-index: -1;
+						left: 0;
+						top: 	0;
+						visibility: hidden;
 
-						//&.wasActivate{opacity: .05;}
+						&:before{
+						  content: '';
+						  position: absolute;
+							background: var(--bg);	
+						  top: 0;
+						  right: 0;
+						  bottom: 0;
+						  left: 0;
+							mix-blend-mode: hard-light;
+						}
+
+
+						video{
+						  left: 50%;
+						  transform: translateX(-50%) scale(1);
+						  min-width: 100vw;
+						  min-height: 100vh;
+							//mix-blend-mode: lighten; //hard-light; //color-dodge;//lighten;// overlay hard-light;
+							z-index: -1;
+
+						}
 					}
 				
 					&:hover{
-	 					video{opacity: 1; transform: translateX(-50%) scale(1.25); transition: all 0s transform 5s linear;}
+	 					.videoWrapper{
+		 					visibility: visible;
+	 						video{
+		 						transform: translateX(-50%) scale(1.25); 
+		 						transition: all 0s transform 5s linear;
+		 					}
+		 				}
 					}
 
 

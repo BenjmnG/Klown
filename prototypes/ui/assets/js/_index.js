@@ -6,7 +6,7 @@ let videos = [...document.querySelectorAll('main videos')];
 els.forEach( function(el, i){
   el.addEventListener("mouseover", function(e) {
     // Change color
-    let cc = body.getAttribute('data-cc');
+    let cc = el.getAttribute('data-cc');
     let bg = el.getAttribute('data-bg');
     body.classList = 'bg' + bg.toUpperCase() + ' ' +
                      'cc' + cc.toUpperCase() + ' ' +

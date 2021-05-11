@@ -8,15 +8,20 @@
 			<ul>
 				<li>
 					<a href="/categorie.php" data-bg="k" data-cc="w" title="Accéder à la catégorie Intériorisation">Intériorisation</a>
-					<video muted autoplay loop aria-hidden>
-						<source src="assets/video/blanc.webm" type="video/webm">
-					</video>
+					<div class="videoWrapper ryochInit">
+						<video muted autoplay loop aria-hidden>
+							<source src="assets/video/blanc.webm" type="video/webm">
+						</video>
+					</div>
+					<div class="over" aria-hidden></div>
 				</li>
 				<li>
-					<a href="/categorie.php" data-bg="r" data-cc="w" title="Accéder à la catégorie Extériorisation">Extériorisation</a>
-					<video muted autoplay loop aria-hidden>
-						<source src="assets/video/rouge.webm" type="video/webm">
-					</video>
+					<a href="/categorie.php" data-bg="r" data-cc="r" title="Accéder à la catégorie Extériorisation">Extériorisation</a>
+					<div class="videoWrapper ryochInit">
+						<video muted autoplay loop aria-hidden>
+							<source src="assets/video/rouge.webm" type="video/webm">
+						</video>
+					</div>
 				</li>
 			</ul>
 		</nav>
