@@ -16,6 +16,7 @@
 		<?php include('partials/side.php') ?>
 	</main>
 	<?php include('partials/footer.php') ?>
+	<?php include('static/svg/inline.svg') ?>
 	<script src="assets/js/utilities.js" type="text/javascript"></script>
 	<script src="assets/js/global.js" type="text/javascript"></script>
 	<script src="assets/js/_cat.js" type="text/javascript"></script>

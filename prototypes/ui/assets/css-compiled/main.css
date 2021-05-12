@@ -1033,14 +1033,22 @@ body#categorie nav#sideNav > ul.cat-container li.cat ul.item-container li.item i
 body#categorie nav#sideNav > ul.cat-container:not(.noJS) {
   scrollbar-width: none;
 }
+body#categorie nav#sideNav > ul.cat-container:not(.noJS)::-webkit-scrollbar {
+  display: none;
+}
 body#categorie nav#sideNav > ul.cat-container:not(.noJS) ~ #scrollContainer {
   display: inline-block;
   position: absolute;
   bottom: -3.75rem;
-  right: 25px;
-  padding: 1.25rem 12.5px;
+  right: 18.75px;
+  width: 25px;
+  height: 100%;
+  padding: 1.25rem 0 1.25rem 12.5px;
   background: transparent;
   cursor: pointer;
+}
+body#categorie nav#sideNav > ul.cat-container:not(.noJS) ~ #scrollContainer svg {
+  transform: scaleY(200%);
 }
 body#categorie[data-categorie="1"] nav#sideNav li.cat:not([data-categorie="1"]) {
   display: none;

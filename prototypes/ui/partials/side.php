@@ -31,7 +31,7 @@
 				<?php
 					$img = array( 2, 3, 4, 5);
 					$medium = array( video, Peinture, Photo);
-					for ($i = 0; $i < 6; $i++){
+					for ($i = 0; $i < 20; $i++){
 						shuffle($img); shuffle($medium);
 						echo '
 						<li class="item" data-medium="'.$medium[0].'">
@@ -66,5 +66,7 @@
 	</ul>
 
 	<!-- Following Can be remove on Piece Pages -->
-	<button id="scrollContainer">></button>
+	<button id="scrollContainer">
+		<svg viewBox="0 0 60 60"><use href="#arrow-R"></svg>
+		</button>
 </nav>

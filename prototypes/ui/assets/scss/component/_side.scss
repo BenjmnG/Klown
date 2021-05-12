@@ -92,7 +92,8 @@ body#categorie{
       height: 100%;
       
       overflow: scroll hidden;
-      white-space: nowrap;      
+      white-space: nowrap;
+      //scroll-snap-type: x mandatory;   
       @include for-size(desktop){ padding: 0 #{$unite*4};}
   
       #scrollContainer{display: none;}
@@ -117,6 +118,7 @@ body#categorie{
             display: inline-block;
             white-space: nowrap;
             margin: $baseline $unite/2 $baseline 0;
+            //scroll-snap-align: start;
 
             img.cover{
               width: 20vw;
@@ -130,15 +132,20 @@ body#categorie{
 
     > ul.cat-container:not(.noJS){
       scrollbar-width: none;
+      &::-webkit-scrollbar{display: none;}
       // Scroll Button
       &~#scrollContainer{
         display: inline-block;
         position: absolute;
         bottom: $baseline*-3;
-        right: $unite;
-        padding: $baseline $unite/2;
+        right: $unite*.75;
+        width: $unite;
+        height: 100%;
+        padding: $baseline 0 $baseline $unite/2;
         background: transparent;
         cursor: pointer;
+
+        svg{transform: scaleY(200%);}
       }
 
     }

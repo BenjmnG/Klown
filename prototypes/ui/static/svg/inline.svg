@@ -1,0 +1,13 @@
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" class="sr-only"
+		  x="0" y="0" height="60" width="60" viewBox="0 0 60 60" 
+		  xml:space="preserve" preserveAspectRatio="xMinYMid meet">
+	<style type="text/css">
+		.stroke{fill:none; stroke: var(--cc);stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;}
+	</style>
+	<g id="arrow-L" class="stroke">
+		<path vector-effect="non-scaling-stroke" d="M45,0L15,30l30,30"/>
+	</g>
+	<g id="arrow-R" class="stroke">
+			<path vector-effect="non-scaling-stroke" d="M15,60,45,30,15,0"/>
+	</g>
+</svg>
