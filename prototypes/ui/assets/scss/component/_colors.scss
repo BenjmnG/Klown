@@ -1,10 +1,10 @@
 :root{
-	--cR: hsl(5, 80%, 50%); // r
-	--cRR: hsl(15, 80%, 50%);
-	--cRRR: hsl(30, 80%, 50%);
+	--cR: hsl(2, 95%, 44%); // r
+	--cRR: hsl(5, 92%, 30%);
+	--cRRR: hsl(8, 88%, 17%);  	
 	--cW: hsl(0, 0%, 100%); // w
 	--cWW: hsl(0, 0%, 95%);
-	--cWWW: hsl(0, 0%, 90%);
+	--cWWW: hsl(0, 0%, 85%);
 	--cK: hsl(0, 0%, 0%); // b
 	--cKK: hsl(0, 0%, 15%);
 	--cKKK: hsl(0, 0%, 30%);
@@ -23,29 +23,46 @@ body{
 	background: var(--bg); 
 	color: var(--cc);
 	
-	&.ccR{ --cc: var(--cR); }
-	&.ccW{ --cc: var(--cW); }
-	&.ccK{ --cc: var(--cK); }
-	&.bgR{ --bg: var(--cR); --bgg: var(--cRR); --bggg: var(--cRRR); }
-	&.bgW{ --bg: var(--cW); --bgg: var(--cWW); --bggg: var(--cWWW); }
-	&.bgK{ --bg: var(--cK); --bgg: var(--cKK); --bggg: var(--cKKK); }
+	&[data-cc="r"]{ --cc: var(--cR); }
+	&[data-cc="w"]{ --cc: var(--cW); }
+	&[data-cc="k"]{ --cc: var(--cK); }
+	&[data-bg="r"]{ --bg: var(--cR); --bgg: var(--cRR); --bggg: var(--cRRR); }
+	&[data-bg="w"]{ --bg: var(--cW); --bgg: var(--cWW); --bggg: var(--cWWW); }
+	&[data-bg="k"]{ --bg: var(--cKK); --bgg: var(--cKK); --bggg: var(--cKKK); }
 
 	&.pulse{
-		animation: pulse 2s steps(4) infinite;		
+		animation: pulse 2s steps(8) infinite;		
 		@keyframes pulse {
 			0% { background-color: var(--bg); }
-			33% { background-color: var(--bgg); }
 			66% { background-color: var(--bggg); }
 			100% { background-color: var(--bg); }
 		}
 	}
 
-	&.ryochi{
-		color: var(--cc);
-		animation: ryochi .15s steps(2) infinite;		
-		@keyframes ryochi {
-			0% { background-color: var(--cc); }
-			100% { background-color: var(--bg); }
-		}
+	.ryochInit:after{
+	  content: '';
+	  position: absolute;
+	  top: 0;
+	  right: 0;
+	  bottom: 0;
+	  left: 0;
+		width: 100%;
+		height: 100%;
+		visibility: hidden;
+
 	}
+
+	/*&.ryochi{
+		color: var(--cc);		
+		.ryochInit:after{
+			visibility: visible;
+			animation: ryochi .15s steps(2) infinite ;		
+			@keyframes ryochi {
+				0% { background-color: transparent; }
+				66% { background-color: transparent; }
+				66.01% { background-color: var(--cW); }
+				100% { background-color: var(--cW); }
+			}
+		}
+	}*/
 }

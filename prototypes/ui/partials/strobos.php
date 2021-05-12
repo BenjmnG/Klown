@@ -2,7 +2,7 @@
 
 <div id="strobos">
 	<label for="i-strobos">Strobos</label>
-	<input type="checkbox" class="on-off" id="i-strobos">
+	<input type="checkbox" class="on-off" id="i-strobos" checked>
 </div>
 
 <svg id="circles" class="sr-only" width="40" height="40" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
