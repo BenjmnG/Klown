@@ -1,7 +1,10 @@
 body#index{
 	
-	#topbar h1{ visibility: hidden;}
-	
+	#topbar nav > ul > li{
+		&:first-of-type{ visibility: hidden;}
+		&:last-of-type:before{ content: none;}
+	}
+
 	main{
 		height: calc(100vh - #{$baseline*5});
 
@@ -17,24 +20,35 @@ body#index{
 				text-align: center;
 
 				li{
-					@include f1-s2();
-					font-size: $font-size*1.5;
+					@include f1-s1();
+					font-size: $font-size*1.25;
+					font-weight: $bold;
 					line-height: 180% !important;
-					text-shadow: 0 0 10px var(--cc);
 					display: inline-block;
 					
 					a{
 						padding: $baseline/2 $unite/2;
 						z-index: 1;
-					}
-					
+
+			      &:after {
+			          content: "";
+			          display: block;
+			          margin: 0 auto;
+			          width: 0;
+			          height: 1px;
+			          left: $unite/2;
+			          background-color: var(--cc);
+			          transition: opacity .2s ease,width .2s ease;
+			      }
+					}	
+				
 
  					.videoWrapper{
 							
 						position: fixed;
 						left: 0;
 						top: 	0;
-						visibility: hidden;
+						opacity: 0;
 
 						&:before{
 						  content: '';
@@ -44,14 +58,12 @@ body#index{
 						  right: 0;
 						  bottom: 0;
 						  left: 0;
-							mix-blend-mode: hard-light;
+							mix-blend-mode: overlay;
 						}
-
-
 
 						video{
 						  left: 50%;
-						  transform: translateX(-50%) scale(1);
+						  transform: translateX(-50%);
 						  min-width: 100vw;
 						  min-height: 100vh;
 							//mix-blend-mode: lighten; //hard-light; //color-dodge;//lighten;// overlay hard-light;
@@ -62,13 +74,11 @@ body#index{
 				
 					&:first-of-type .videoWrapper:before{ mix-blend-mode: lighten; }
 
-					&:hover{
-	 					.videoWrapper{
-		 					visibility: visible;
-	 						video{
-		 						transform: translateX(-50%) scale(1.25); 
-		 						transition: all 0s, transform 5s linear;
-		 					}
+					a:hover{
+						&:after {width: 66%; transition: opacity .3s ease,width .3s ease;}
+						& + .videoWrapper{
+		 					opacity: 1;
+	 						video{transition: all 0s, transform 5s linear;}
 		 				}
 					}
 
@@ -83,4 +93,18 @@ body#index{
 			nav ul li a{padding-left: $unite; padding-right: $unite;}
 		}
 	}
+
+	&.fadeVideo1 main nav > ul > li:nth-of-type(1),
+	&.fadeVideo2 main nav > ul > li:nth-of-type(2),
+	&.fadeVideo3 main nav > ul > li:nth-of-type(3){
+		 .videoWrapper{
+			animation: fade 7s linear;
+			@keyframes fade {
+				0% { opacity: 1 }
+				10% { opacity: .1 }
+				100% { opacity: 0; }
+			}
+		}
+	}	
+
 }

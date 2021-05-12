@@ -23,18 +23,17 @@ body{
 	background: var(--bg); 
 	color: var(--cc);
 	
-	&.ccR{ --cc: var(--cR); }
-	&.ccW{ --cc: var(--cW); }
-	&.ccK{ --cc: var(--cK); }
-	&.bgR{ --bg: var(--cRRR); --bgg: var(--cRR); --bggg: var(--cRRR); }
-	&.bgW{ --bg: var(--cW); --bgg: var(--cWW); --bggg: var(--cWWW); }
-	&.bgK{ --bg: var(--cKK); --bgg: var(--cKK); --bggg: var(--cKKK); }
+	&[data-cc="r"]{ --cc: var(--cR); }
+	&[data-cc="w"]{ --cc: var(--cW); }
+	&[data-cc="k"]{ --cc: var(--cK); }
+	&[data-bg="r"]{ --bg: var(--cR); --bgg: var(--cRR); --bggg: var(--cRRR); }
+	&[data-bg="w"]{ --bg: var(--cW); --bgg: var(--cWW); --bggg: var(--cWWW); }
+	&[data-bg="k"]{ --bg: var(--cKK); --bgg: var(--cKK); --bggg: var(--cKKK); }
 
 	&.pulse{
-		animation: pulse 2s steps(4) infinite;		
+		animation: pulse 2s steps(8) infinite;		
 		@keyframes pulse {
 			0% { background-color: var(--bg); }
-			33% { background-color: var(--bgg); }
 			66% { background-color: var(--bggg); }
 			100% { background-color: var(--bg); }
 		}
@@ -53,7 +52,7 @@ body{
 
 	}
 
-	&.ryochi{
+	/*&.ryochi{
 		color: var(--cc);		
 		.ryochInit:after{
 			visibility: visible;
@@ -65,5 +64,5 @@ body{
 				100% { background-color: var(--cW); }
 			}
 		}
-	}
+	}*/
 }

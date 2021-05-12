@@ -2,30 +2,17 @@
 	Index
 				*/
 let els = [...document.querySelectorAll('main nav a')]
-let videos = [...document.querySelectorAll('main videos')];
 els.forEach( function(el, i){
   el.addEventListener("mouseover", function(e) {
     // Change color
-    let cc = el.getAttribute('data-cc');
-    let bg = el.getAttribute('data-bg');
-    body.classList = 'bg' + bg.toUpperCase() + ' ' +
-                     'cc' + cc.toUpperCase() + ' ' +
-                     'ryochi';
-
-    //videos.forEach( function(v, iv){ v.classList.remove('wasActivate')});
+   body.setAttribute('data-cc', el.getAttribute('data-cc') ); 
+   body.setAttribute('data-bg', el.getAttribute('data-bg') ); 
+   // Video history
+   removeClassByPrefix(body, 'fadeVideo')
     //speedUp();
   });
-  el.addEventListener("mouseleave", function(e) {
-    // Change color
-    let cc = body.getAttribute('data-cc');
-    let bg = body.getAttribute('data-bg');
-    body.classList = 'bg' + bg.toUpperCase() + ' ' +
-                     'cc' + cc.toUpperCase() + ' ';
-    
-    toggleStrobos()                     
-    
-    //(el.nextElementSibling).classList.add('wasActivate');
-    //body.removeAttribute('style');
+  el.addEventListener("mouseleave", function(e) {    
+    body.classList.add('fadeVideo' + (i+1));
   });
 });
 

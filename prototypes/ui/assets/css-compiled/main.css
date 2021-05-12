@@ -724,40 +724,50 @@ body > footer .mentions {
 body {
   background: var(--bg);
   color: var(--cc);
+  /*&.ryochi{
+  	color: var(--cc);		
+  	.ryochInit:after{
+  		visibility: visible;
+  		animation: ryochi .15s steps(2) infinite ;		
+  		@keyframes ryochi {
+  			0% { background-color: transparent; }
+  			66% { background-color: transparent; }
+  			66.01% { background-color: var(--cW); }
+  			100% { background-color: var(--cW); }
+  		}
+  	}
+  }*/
 }
-body.ccR {
+body[data-cc=r] {
   --cc: var(--cR);
 }
-body.ccW {
+body[data-cc=w] {
   --cc: var(--cW);
 }
-body.ccK {
+body[data-cc=k] {
   --cc: var(--cK);
 }
-body.bgR {
-  --bg: var(--cRRR);
+body[data-bg=r] {
+  --bg: var(--cR);
   --bgg: var(--cRR);
   --bggg: var(--cRRR);
 }
-body.bgW {
+body[data-bg=w] {
   --bg: var(--cW);
   --bgg: var(--cWW);
   --bggg: var(--cWWW);
 }
-body.bgK {
+body[data-bg=k] {
   --bg: var(--cKK);
   --bgg: var(--cKK);
   --bggg: var(--cKKK);
 }
 body.pulse {
-  animation: pulse 2s steps(4) infinite;
+  animation: pulse 2s steps(8) infinite;
 }
 @keyframes pulse {
   0% {
     background-color: var(--bg);
-  }
-  33% {
-    background-color: var(--bgg);
   }
   66% {
     background-color: var(--bggg);
@@ -776,27 +786,6 @@ body .ryochInit:after {
   width: 100%;
   height: 100%;
   visibility: hidden;
-}
-body.ryochi {
-  color: var(--cc);
-}
-body.ryochi .ryochInit:after {
-  visibility: visible;
-  animation: ryochi 0.15s steps(2) infinite;
-}
-@keyframes ryochi {
-  0% {
-    background-color: transparent;
-  }
-  66% {
-    background-color: transparent;
-  }
-  66.01% {
-    background-color: var(--cW);
-  }
-  100% {
-    background-color: var(--cW);
-  }
 }
 
 /*
@@ -1185,8 +1174,11 @@ body#piece input#toggle-sideNav:checked + nav#sideNav {
   transform: translateX(0);
 }
 
-body#index #topbar h1 {
+body#index #topbar nav > ul > li:first-of-type {
   visibility: hidden;
+}
+body#index #topbar nav > ul > li:last-of-type:before {
+  content: none;
 }
 body#index main {
   height: calc(100vh - 6.25rem);
@@ -1220,24 +1212,34 @@ body#index main nav ul {
 }
 body#index main nav ul li {
   font-family: "GeneralSans", sans-serif;
-  font-size: 2rem;
-  line-height: 2.5rem;
+  font-size: 1rem;
+  line-height: 1.25rem;
   font-weight: 300;
   letter-spacing: 0px;
-  font-size: 1.5rem;
+  font-size: 1.25rem;
+  font-weight: 400;
   line-height: 180% !important;
-  text-shadow: 0 0 10px var(--cc);
   display: inline-block;
 }
 body#index main nav ul li a {
   padding: 0.625rem 12.5px;
   z-index: 1;
 }
+body#index main nav ul li a:after {
+  content: "";
+  display: block;
+  margin: 0 auto;
+  width: 0;
+  height: 1px;
+  left: 12.5px;
+  background-color: var(--cc);
+  transition: opacity 0.2s ease, width 0.2s ease;
+}
 body#index main nav ul li .videoWrapper {
   position: fixed;
   left: 0;
   top: 0;
-  visibility: hidden;
+  opacity: 0;
 }
 body#index main nav ul li .videoWrapper:before {
   content: "";
@@ -1247,11 +1249,11 @@ body#index main nav ul li .videoWrapper:before {
   right: 0;
   bottom: 0;
   left: 0;
-  mix-blend-mode: hard-light;
+  mix-blend-mode: overlay;
 }
 body#index main nav ul li .videoWrapper video {
   left: 50%;
-  transform: translateX(-50%) scale(1);
+  transform: translateX(-50%);
   min-width: 100vw;
   min-height: 100vh;
   z-index: -1;
@@ -1259,11 +1261,14 @@ body#index main nav ul li .videoWrapper video {
 body#index main nav ul li:first-of-type .videoWrapper:before {
   mix-blend-mode: lighten;
 }
-body#index main nav ul li:hover .videoWrapper {
-  visibility: visible;
+body#index main nav ul li a:hover:after {
+  width: 66%;
+  transition: opacity 0.3s ease, width 0.3s ease;
 }
-body#index main nav ul li:hover .videoWrapper video {
-  transform: translateX(-50%) scale(1.25);
+body#index main nav ul li a:hover + .videoWrapper {
+  opacity: 1;
+}
+body#index main nav ul li a:hover + .videoWrapper video {
   transition: all 0s, transform 5s linear;
 }
 @media (min-width: 700px) {
@@ -1273,6 +1278,20 @@ body#index main nav ul li:hover .videoWrapper video {
   body#index main nav ul li a {
     padding-left: 25px;
     padding-right: 25px;
+  }
+}
+body#index.fadeVideo1 main nav > ul > li:nth-of-type(1) .videoWrapper, body#index.fadeVideo2 main nav > ul > li:nth-of-type(2) .videoWrapper, body#index.fadeVideo3 main nav > ul > li:nth-of-type(3) .videoWrapper {
+  animation: fade 7s linear;
+}
+@keyframes fade {
+  0% {
+    opacity: 1;
+  }
+  10% {
+    opacity: 0.1;
+  }
+  100% {
+    opacity: 0;
   }
 }
 
