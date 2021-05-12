@@ -489,6 +489,7 @@ body {
   -ms-flex-pack: justify;
   -webkit-justify-content: space-between;
   justify-content: space-between;
+  z-index: 5;
   margin-top: 2.5rem;
   margin-bottom: 2.5rem;
 }
