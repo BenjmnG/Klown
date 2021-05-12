@@ -27,7 +27,8 @@ body#index{
 						padding: $baseline/2 $unite/2;
 						z-index: 1;
 					}
- 					
+					
+
  					.videoWrapper{
 							
 						position: fixed;
@@ -47,6 +48,7 @@ body#index{
 						}
 
 
+
 						video{
 						  left: 50%;
 						  transform: translateX(-50%) scale(1);
@@ -58,12 +60,14 @@ body#index{
 						}
 					}
 				
+					&:first-of-type .videoWrapper:before{ mix-blend-mode: lighten; }
+
 					&:hover{
 	 					.videoWrapper{
 		 					visibility: visible;
 	 						video{
 		 						transform: translateX(-50%) scale(1.25); 
-		 						transition: all 0s transform 5s linear;
+		 						transition: all 0s, transform 5s linear;
 		 					}
 		 				}
 					}
