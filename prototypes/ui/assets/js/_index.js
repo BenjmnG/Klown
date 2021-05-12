@@ -25,7 +25,7 @@ els.forEach( function(el, i){
     toggleStrobos()                     
     
     //(el.nextElementSibling).classList.add('wasActivate');
-    body.removeAttribute('style');
+    //body.removeAttribute('style');
   });
 });
 
