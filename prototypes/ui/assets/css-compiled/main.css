@@ -1250,6 +1250,8 @@ body#index main nav ul li .videoWrapper:before {
   mix-blend-mode: hard-light;
 }
 body#index main nav ul li .videoWrapper video {
+  left: 50%;
+  transform: translateX(-50%) scale(1);
   min-width: 100vw;
   min-height: 100vh;
   z-index: -1;
@@ -1259,6 +1261,10 @@ body#index main nav ul li:first-of-type .videoWrapper:before {
 }
 body#index main nav ul li:hover .videoWrapper {
   visibility: visible;
+}
+body#index main nav ul li:hover .videoWrapper video {
+  transform: translateX(-50%) scale(1.25);
+  transition: all 0s, transform 5s linear;
 }
 @media (min-width: 700px) {
   body#index main {
