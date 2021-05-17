@@ -19,6 +19,43 @@ nav#sideNav{
       }
     }
   }
+
+
+  // Sort Options
+  .sort-options{
+    height: $baseline*2;
+    z-index: 5;
+
+    *{transition: .25s ease-in-out;}
+
+    p{
+      position: absolute;
+      right: 100%;
+      
+    }
+
+    ul{
+      overflow: hidden;
+      max-height: $font-size;
+      @include flex();
+      @include flex-direction(column);
+
+      li{
+        padding: 0 $unite/4 $baseline/2 $unite/4;
+        order: 2;
+        &:first-of-type{opacity: 0;}
+        label{cursor: pointer;}
+      }
+    }
+
+    &:hover{
+      ul{
+        max-height: $baseline*10;
+        li:first-of-type{opacity: 1;}
+      }
+    }
+  }
+
 }
 
   
@@ -47,45 +84,13 @@ body#categorie{
       }
     }
 
-    input[id$="sort-0"]:checked ~ .sort-options:not(:hover) p{right: 0;}
-
-    // Sort Options
     .sort-options{
       position: absolute;
       right: $unite;
       top: 0;
-      z-index: 5;
-      background: var(--bg);
-
-      *{transition: .25s ease-in-out;}
-
-      p{
-        position: absolute;
-        right: 100%;
-        
-      }
-
-      ul{
-        overflow: hidden;
-        max-height: $font-size;
-        @include flex();
-        @include flex-direction(column);
-
-        li{
-          padding: 0 $unite/4 $baseline/2 $unite/4;
-          order: 2;
-          &:first-of-type{opacity: 0;}
-          label{cursor: pointer;}
-        }
-      }
-
-      &:hover{
-        ul{
-          max-height: $baseline*10;
-          li:first-of-type{opacity: 1;}
-        }
-      }
     }
+
+    input[id$="sort-0"]:checked ~ .sort-options:not(:hover) p{right: 0;}
 
     > ul.cat-container{
       width: auto;
@@ -96,7 +101,7 @@ body#categorie{
       //scroll-snap-type: x mandatory;   
       @include for-size(desktop){ padding: 0 #{$unite*4};}
   
-      #scrollContainer{display: none;}
+      #scrollTrigger{display: none;}
 
       li.cat{
         display: inline-block;
@@ -134,7 +139,7 @@ body#categorie{
       scrollbar-width: none;
       &::-webkit-scrollbar{display: none;}
       // Scroll Button
-      &~#scrollContainer{
+      &~#scrollTrigger{
         display: inline-block;
         position: absolute;
         bottom: $baseline*-3;
@@ -163,39 +168,39 @@ body#categorie{
 //
 //    ☰ 
 //    ↓
-body#piece{
+body#piece, body#info{
+
+  #scrollTrigger{display: none;}
 
   nav#sideNav{
     position: fixed;
-    overflow: visible scroll;
-    -ms-overflow-style: none;
-    scrollbar-width: none;
-    &::-webkit-scrollbar {display: none;}    
-    scroll-snap-type: y mandatory;
     transition:  transform .25s ease-in-out;
+
     @include for-size(phone){
       width: 90vw;
       height: 100vh;
       top: 0;
       left: calc(-90vw + #{$unite*2});
-      padding: $baseline*2 $unite $baseline*2 $unite*2;
       &:hover{
         border-right: 1px solid currentColor;
         background: white;
       }    
     }
-
     @include for-size(desktop){
       width: $unite*10;
       height: 100vh;
-      height: calc(100vh - #{$baseline*7});
+      //height: calc(100vh - #{$baseline*7});
       transform: translateX(#{$unite*-8});
       left: 0;
-      padding: 0 $unite $baseline*2 $unite; // Incluse lateral space as inside otherwise hover bug
+      top: 0;
     }
 
     // Sort Options
-    .sort-options{display: none;}
+    .sort-options{
+      position: absolute;
+      right: 0;
+      bottom: 0;
+    }
 
     // Toggle Button
     label[for="toggle-sideNav"]{
@@ -210,12 +215,22 @@ body#piece{
       border-bottom: 1px solid currentColor;
       transform: rotate(90deg);
       transition: opacity .25s ease-in-out;
+      z-index: 2;
 
-      @include for-size(desktop){top: $baseline*1.75;}
+      @include for-size(desktop){top: $baseline*3.5;}
     }
 
     // inside behavior
-    ul.cat-container{   
+    ul.cat-container{
+
+      overflow: visible scroll;
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+      &::-webkit-scrollbar {display: none;}
+      scroll-snap-type: y mandatory;
+      height: 100%;
+      padding: $baseline*3 $unite $baseline*2 $unite;
+
       li.cat{
         margin: 0 0 $baseline*2 0;
         //scroll-snap-align: start;
@@ -225,6 +240,7 @@ body#piece{
           @include flex-direction(column);
           @include align-items(flex-start);
           gap: 0;
+          margin: $baseline/2 0;
           li.item{
             margin: $baseline/6 0;
             scroll-snap-align: start;

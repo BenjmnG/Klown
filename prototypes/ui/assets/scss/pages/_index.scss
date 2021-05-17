@@ -31,6 +31,7 @@ body#index{
 						z-index: 1;
 
 			      &:after {
+			      		// underline
 			          content: "";
 			          display: block;
 			          margin: 0 auto;
@@ -39,49 +40,43 @@ body#index{
 			          left: $unite/2;
 			          background-color: var(--cc);
 			          transition: opacity .2s ease,width .2s ease;
+			          z-index: 1;
 			      }
-					}	
-				
+					}
+
+
 
  					.videoWrapper{
 							
 						position: fixed;
 						left: 0;
 						top: 	0;
-						opacity: 0;
+						z-index: -1;
+						animation: pulse 4s steps(12) infinite;
+						visibility: hidden;
 
-						&:before{
-						  content: '';
-						  position: absolute;
-							background: var(--bg);	
-						  top: 0;
-						  right: 0;
-						  bottom: 0;
-						  left: 0;
-							mix-blend-mode: overlay;
-						}
 
 						video{
 						  left: 50%;
 						  transform: translateX(-50%);
 						  min-width: 100vw;
 						  min-height: 100vh;
-							//mix-blend-mode: lighten; //hard-light; //color-dodge;//lighten;// overlay hard-light;
-							z-index: -1;
-
+							opacity: 0;
+							mix-blend-mode: luminosity;
 						}
 					}
 				
-					&:first-of-type .videoWrapper:before{ mix-blend-mode: lighten; }
 
 					a:hover{
 						&:after {width: 66%; transition: opacity .3s ease,width .3s ease;}
 						& + .videoWrapper{
-		 					opacity: 1;
-	 						video{transition: all 0s, transform 5s linear;}
-		 				}
+							visibility: visible;
+							video{ opacity: 1; }
+						}
 					}
 
+					// Specific for black
+					&:nth-of-type(1) .videoWrapper video { mix-blend-mode: hard-light }
 
 				}
 			}
@@ -94,14 +89,15 @@ body#index{
 		}
 	}
 
-	&.fadeVideo1 main nav > ul > li:nth-of-type(1),
-	&.fadeVideo2 main nav > ul > li:nth-of-type(2),
-	&.fadeVideo3 main nav > ul > li:nth-of-type(3){
-		 .videoWrapper{
+	&.fadeVideo1 main nav > ul > li:nth-of-type(1) .videoWrapper,
+	&.fadeVideo2 main nav > ul > li:nth-of-type(2) .videoWrapper,
+	&.fadeVideo3 main nav > ul > li:nth-of-type(3) .videoWrapper{
+		 visibility: visible;
+		 video{
 			animation: fade 7s linear;
 			@keyframes fade {
 				0% { opacity: 1 }
-				10% { opacity: .1 }
+				2% { opacity: .1 }
 				100% { opacity: 0; }
 			}
 		}

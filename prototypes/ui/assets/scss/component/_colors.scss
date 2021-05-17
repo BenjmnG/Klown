@@ -1,7 +1,7 @@
 :root{
 	--cR: hsl(2, 95%, 44%); // r
-	--cRR: hsl(5, 92%, 30%);
-	--cRRR: hsl(8, 88%, 17%);  	
+	--cRR: hsl(5, 92%, 34%);
+	--cRRR: hsl(8, 92%, 30%);  	
 	--cW: hsl(0, 0%, 100%); // w
 	--cWW: hsl(0, 0%, 95%);
 	--cWWW: hsl(0, 0%, 85%);
@@ -31,10 +31,10 @@ body{
 	&[data-bg="k"]{ --bg: var(--cKK); --bgg: var(--cKK); --bggg: var(--cKKK); }
 
 	&.pulse{
-		animation: pulse 2s steps(8) infinite;		
+		animation: pulse 4s steps(12) infinite;		
 		@keyframes pulse {
 			0% { background-color: var(--bg); }
-			66% { background-color: var(--bggg); }
+			33% { background-color: var(--bggg); }
 			100% { background-color: var(--bg); }
 		}
 	}

@@ -63,10 +63,29 @@
 				?>
 			</ul>
 		</li>
+		<li class="cat" data-categorie="3"  data-bg="k" data-cc="w">
+			<input id="toggle-c3" name="toggle-c" type="radio" hidden>
+			<label for="toggle-c3">Processus</label>
+			<ul class="item-container">
+				<?php
+					$img = array( 2, 3, 4, 5);
+					for ($i = 0; $i < 6; $i++){
+						shuffle($img);
+						echo '
+						<li class="item">
+							<!-- Allow href if noJs, else REPLACE main content with transition -->
+							<a href="/piece.php" data-target="/piece.php">
+								<img class="cover" src="assets/svg/example'.$img[0].'.svg">
+							</a>
+						</li>';
+					}
+				?>
+			</ul>
+		</li>
 	</ul>
 
 	<!-- Following Can be remove on Piece Pages -->
-	<button id="scrollContainer">
+	<button id="scrollTrigger">
 		<svg viewBox="0 0 60 60"><use href="#arrow-R"></svg>
 		</button>
 </nav>

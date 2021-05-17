@@ -704,8 +704,8 @@ body > footer .mentions {
 
 :root {
   --cR: hsl(2, 95%, 44%);
-  --cRR: hsl(5, 92%, 30%);
-  --cRRR: hsl(8, 88%, 17%);
+  --cRR: hsl(5, 92%, 34%);
+  --cRRR: hsl(8, 92%, 30%);
   --cW: hsl(0, 0%, 100%);
   --cWW: hsl(0, 0%, 95%);
   --cWWW: hsl(0, 0%, 85%);
@@ -763,13 +763,13 @@ body[data-bg=k] {
   --bggg: var(--cKKK);
 }
 body.pulse {
-  animation: pulse 2s steps(8) infinite;
+  animation: pulse 4s steps(12) infinite;
 }
 @keyframes pulse {
   0% {
     background-color: var(--bg);
   }
-  66% {
+  33% {
     background-color: var(--bggg);
   }
   100% {
@@ -865,6 +865,53 @@ nav#sideNav li.cat ul.item-container h1 {
 nav#sideNav li.cat ul.item-container li.item img.cover {
   transition: all 0.25s ease-in-out;
 }
+nav#sideNav .sort-options {
+  height: 2.5rem;
+  z-index: 5;
+}
+nav#sideNav .sort-options * {
+  transition: 0.25s ease-in-out;
+}
+nav#sideNav .sort-options p {
+  position: absolute;
+  right: 100%;
+}
+nav#sideNav .sort-options ul {
+  overflow: hidden;
+  max-height: 1rem;
+  display: -webkit-box;
+  /* OLD - iOS 6-, Safari 3.1-6 */
+  display: -moz-box;
+  /* OLD - Firefox 19- (buggy but mostly works) */
+  display: -ms-flexbox;
+  /* TWEENER - IE 10 */
+  display: -webkit-flex;
+  /* NEW - Chrome */
+  display: flex;
+  /* NEW, Spec - Opera 12.1, Firefox 20+ */
+  -webkit-box-direction: normal;
+  -webkit-box-orient: vertical;
+  -webkit-flex-direction: column;
+  -moz-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+nav#sideNav .sort-options ul li {
+  padding: 0 6.25px 0.625rem 6.25px;
+  order: 2;
+}
+nav#sideNav .sort-options ul li:first-of-type {
+  opacity: 0;
+}
+nav#sideNav .sort-options ul li label {
+  cursor: pointer;
+}
+nav#sideNav .sort-options:hover ul {
+  max-height: 12.5rem;
+}
+nav#sideNav .sort-options:hover ul li:first-of-type {
+  opacity: 1;
+}
 
 body#categorie nav#sideNav {
   width: 100vw;
@@ -928,58 +975,13 @@ body#categorie nav#sideNav input[id$=sort-10]:checked ~ .sort-options li[data-fo
   order: 1;
   font-weight: 400;
 }
-body#categorie nav#sideNav input[id$=sort-0]:checked ~ .sort-options:not(:hover) p {
-  right: 0;
-}
 body#categorie nav#sideNav .sort-options {
   position: absolute;
   right: 25px;
   top: 0;
-  z-index: 5;
-  background: var(--bg);
 }
-body#categorie nav#sideNav .sort-options * {
-  transition: 0.25s ease-in-out;
-}
-body#categorie nav#sideNav .sort-options p {
-  position: absolute;
-  right: 100%;
-}
-body#categorie nav#sideNav .sort-options ul {
-  overflow: hidden;
-  max-height: 1rem;
-  display: -webkit-box;
-  /* OLD - iOS 6-, Safari 3.1-6 */
-  display: -moz-box;
-  /* OLD - Firefox 19- (buggy but mostly works) */
-  display: -ms-flexbox;
-  /* TWEENER - IE 10 */
-  display: -webkit-flex;
-  /* NEW - Chrome */
-  display: flex;
-  /* NEW, Spec - Opera 12.1, Firefox 20+ */
-  -webkit-box-direction: normal;
-  -webkit-box-orient: vertical;
-  -webkit-flex-direction: column;
-  -moz-flex-direction: column;
-  -ms-flex-direction: column;
-  flex-direction: column;
-}
-body#categorie nav#sideNav .sort-options ul li {
-  padding: 0 6.25px 0.625rem 6.25px;
-  order: 2;
-}
-body#categorie nav#sideNav .sort-options ul li:first-of-type {
-  opacity: 0;
-}
-body#categorie nav#sideNav .sort-options ul li label {
-  cursor: pointer;
-}
-body#categorie nav#sideNav .sort-options:hover ul {
-  max-height: 12.5rem;
-}
-body#categorie nav#sideNav .sort-options:hover ul li:first-of-type {
-  opacity: 1;
+body#categorie nav#sideNav input[id$=sort-0]:checked ~ .sort-options:not(:hover) p {
+  right: 0;
 }
 body#categorie nav#sideNav > ul.cat-container {
   width: auto;
@@ -992,7 +994,7 @@ body#categorie nav#sideNav > ul.cat-container {
     padding: 0 100px;
   }
 }
-body#categorie nav#sideNav > ul.cat-container #scrollContainer {
+body#categorie nav#sideNav > ul.cat-container #scrollTrigger {
   display: none;
 }
 body#categorie nav#sideNav > ul.cat-container li.cat {
@@ -1046,7 +1048,7 @@ body#categorie nav#sideNav > ul.cat-container:not(.noJS) {
 body#categorie nav#sideNav > ul.cat-container:not(.noJS)::-webkit-scrollbar {
   display: none;
 }
-body#categorie nav#sideNav > ul.cat-container:not(.noJS) ~ #scrollContainer {
+body#categorie nav#sideNav > ul.cat-container:not(.noJS) ~ #scrollTrigger {
   display: inline-block;
   position: absolute;
   bottom: -3.75rem;
@@ -1057,7 +1059,7 @@ body#categorie nav#sideNav > ul.cat-container:not(.noJS) ~ #scrollContainer {
   background: transparent;
   cursor: pointer;
 }
-body#categorie nav#sideNav > ul.cat-container:not(.noJS) ~ #scrollContainer svg {
+body#categorie nav#sideNav > ul.cat-container:not(.noJS) ~ #scrollTrigger svg {
   transform: scaleY(200%);
 }
 body#categorie[data-categorie="1"] nav#sideNav li.cat:not([data-categorie="1"]) {
@@ -1070,44 +1072,40 @@ body#categorie[data-categorie="3"] nav#sideNav li.cat:not([data-categorie="3"]) 
   display: none;
 }
 
-body#piece nav#sideNav {
-  position: fixed;
-  overflow: visible scroll;
-  -ms-overflow-style: none;
-  scrollbar-width: none;
-  scroll-snap-type: y mandatory;
-  transition: transform 0.25s ease-in-out;
-}
-body#piece nav#sideNav::-webkit-scrollbar {
+body#piece #scrollTrigger, body#info #scrollTrigger {
   display: none;
 }
+body#piece nav#sideNav, body#info nav#sideNav {
+  position: fixed;
+  transition: transform 0.25s ease-in-out;
+}
 @media (max-width: 700px) {
-  body#piece nav#sideNav {
+  body#piece nav#sideNav, body#info nav#sideNav {
     width: 90vw;
     height: 100vh;
     top: 0;
     left: calc(-90vw + 50px);
-    padding: 2.5rem 25px 2.5rem 50px;
   }
-  body#piece nav#sideNav:hover {
+  body#piece nav#sideNav:hover, body#info nav#sideNav:hover {
     border-right: 1px solid currentColor;
     background: white;
   }
 }
 @media (min-width: 700px) {
-  body#piece nav#sideNav {
+  body#piece nav#sideNav, body#info nav#sideNav {
     width: 250px;
     height: 100vh;
-    height: calc(100vh - 8.75rem);
     transform: translateX(-200px);
     left: 0;
-    padding: 0 25px 2.5rem 25px;
+    top: 0;
   }
 }
-body#piece nav#sideNav .sort-options {
-  display: none;
+body#piece nav#sideNav .sort-options, body#info nav#sideNav .sort-options {
+  position: absolute;
+  right: 0;
+  bottom: 0;
 }
-body#piece nav#sideNav label[for=toggle-sideNav] {
+body#piece nav#sideNav label[for=toggle-sideNav], body#info nav#sideNav label[for=toggle-sideNav] {
   content: "Pièces";
   font-family: "GeneralSans", sans-serif;
   font-size: 0.75rem;
@@ -1123,17 +1121,29 @@ body#piece nav#sideNav label[for=toggle-sideNav] {
   border-bottom: 1px solid currentColor;
   transform: rotate(90deg);
   transition: opacity 0.25s ease-in-out;
+  z-index: 2;
 }
 @media (min-width: 700px) {
-  body#piece nav#sideNav label[for=toggle-sideNav] {
-    top: 2.1875rem;
+  body#piece nav#sideNav label[for=toggle-sideNav], body#info nav#sideNav label[for=toggle-sideNav] {
+    top: 4.375rem;
   }
 }
-body#piece nav#sideNav ul.cat-container li.cat {
+body#piece nav#sideNav ul.cat-container, body#info nav#sideNav ul.cat-container {
+  overflow: visible scroll;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  scroll-snap-type: y mandatory;
+  height: 100%;
+  padding: 3.75rem 25px 2.5rem 25px;
+}
+body#piece nav#sideNav ul.cat-container::-webkit-scrollbar, body#info nav#sideNav ul.cat-container::-webkit-scrollbar {
+  display: none;
+}
+body#piece nav#sideNav ul.cat-container li.cat, body#info nav#sideNav ul.cat-container li.cat {
   margin: 0 0 2.5rem 0;
   overflow: hidden;
 }
-body#piece nav#sideNav ul.cat-container li.cat ul.item-container {
+body#piece nav#sideNav ul.cat-container li.cat ul.item-container, body#info nav#sideNav ul.cat-container li.cat ul.item-container {
   display: -webkit-box;
   /* OLD - iOS 6-, Safari 3.1-6 */
   display: -moz-box;
@@ -1156,29 +1166,32 @@ body#piece nav#sideNav ul.cat-container li.cat ul.item-container {
   -webkit-align-items: flex-start;
   align-items: flex-start;
   gap: 0;
+  margin: 0.625rem 0;
 }
-body#piece nav#sideNav ul.cat-container li.cat ul.item-container li.item {
+body#piece nav#sideNav ul.cat-container li.cat ul.item-container li.item, body#info nav#sideNav ul.cat-container li.cat ul.item-container li.item {
   margin: 0.2083333333rem 0;
   scroll-snap-align: start;
   transition: all 0.25s ease, max-height 0.5s ease-in-out, margin 0s;
   max-height: 150px;
   cursor: pointer;
 }
-body#piece nav#sideNav ul.cat-container li.cat ul.item-container li.item img.cover {
+body#piece nav#sideNav ul.cat-container li.cat ul.item-container li.item img.cover, body#info nav#sideNav ul.cat-container li.cat ul.item-container li.item img.cover {
   height: 75px;
   max-height: 150px;
 }
-body#piece nav#sideNav ul.cat-container li.cat ul.item-container li.item img.cover:hover {
+body#piece nav#sideNav ul.cat-container li.cat ul.item-container li.item img.cover:hover, body#info nav#sideNav ul.cat-container li.cat ul.item-container li.item img.cover:hover {
   height: 150px;
 }
-body#piece nav#sideNav input[name=toggle-c]:not(:checked) ~ ul li.item {
+body#piece nav#sideNav input[name=toggle-c]:not(:checked) ~ ul li.item, body#info nav#sideNav input[name=toggle-c]:not(:checked) ~ ul li.item {
   max-height: 0;
   overflow: hidden;
   margin: 0;
 }
 body#piece nav#sideNav:hover,
 body#piece nav#sideNav:focus,
-body#piece input#toggle-sideNav:checked + nav#sideNav {
+body#piece input#toggle-sideNav:checked + nav#sideNav, body#info nav#sideNav:hover,
+body#info nav#sideNav:focus,
+body#info input#toggle-sideNav:checked + nav#sideNav {
   transform: translateX(0);
 }
 
@@ -1242,42 +1255,36 @@ body#index main nav ul li a:after {
   left: 12.5px;
   background-color: var(--cc);
   transition: opacity 0.2s ease, width 0.2s ease;
+  z-index: 1;
 }
 body#index main nav ul li .videoWrapper {
   position: fixed;
   left: 0;
   top: 0;
-  opacity: 0;
-}
-body#index main nav ul li .videoWrapper:before {
-  content: "";
-  position: absolute;
-  background: var(--bg);
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  mix-blend-mode: overlay;
+  z-index: -1;
+  animation: pulse 4s steps(12) infinite;
+  visibility: hidden;
 }
 body#index main nav ul li .videoWrapper video {
   left: 50%;
   transform: translateX(-50%);
   min-width: 100vw;
   min-height: 100vh;
-  z-index: -1;
-}
-body#index main nav ul li:first-of-type .videoWrapper:before {
-  mix-blend-mode: lighten;
+  opacity: 0;
+  mix-blend-mode: luminosity;
 }
 body#index main nav ul li a:hover:after {
   width: 66%;
   transition: opacity 0.3s ease, width 0.3s ease;
 }
 body#index main nav ul li a:hover + .videoWrapper {
-  opacity: 1;
+  visibility: visible;
 }
 body#index main nav ul li a:hover + .videoWrapper video {
-  transition: all 0s, transform 5s linear;
+  opacity: 1;
+}
+body#index main nav ul li:nth-of-type(1) .videoWrapper video {
+  mix-blend-mode: hard-light;
 }
 @media (min-width: 700px) {
   body#index main {
@@ -1289,13 +1296,16 @@ body#index main nav ul li a:hover + .videoWrapper video {
   }
 }
 body#index.fadeVideo1 main nav > ul > li:nth-of-type(1) .videoWrapper, body#index.fadeVideo2 main nav > ul > li:nth-of-type(2) .videoWrapper, body#index.fadeVideo3 main nav > ul > li:nth-of-type(3) .videoWrapper {
+  visibility: visible;
+}
+body#index.fadeVideo1 main nav > ul > li:nth-of-type(1) .videoWrapper video, body#index.fadeVideo2 main nav > ul > li:nth-of-type(2) .videoWrapper video, body#index.fadeVideo3 main nav > ul > li:nth-of-type(3) .videoWrapper video {
   animation: fade 7s linear;
 }
 @keyframes fade {
   0% {
     opacity: 1;
   }
-  10% {
+  2% {
     opacity: 0.1;
   }
   100% {
@@ -1349,7 +1359,7 @@ body#piece #carrousel {
 }
 @media (min-width: 700px) {
   body#piece #carrousel {
-    height: calc(100vh - 10rem);
+    height: calc(100vh - 12.5rem);
     padding: 2.5rem 0;
   }
 }
@@ -1417,8 +1427,8 @@ body#piece #carrousel figure {
   text-align: center;
 }
 body#piece #carrousel figure img {
-  width: 66vw;
-  max-width: 1000px;
+  width: calc(100% - 50px);
+  max-width: 1920px;
   object-fit: contain;
 }
 body#piece #carrousel a#to-details {
@@ -1499,6 +1509,14 @@ body#piece #content h1, body#piece #content h2 {
 body#piece #content figure {
   left: 50px;
   margin: 2.5rem 0;
+  max-width: inherit;
+}
+body#piece #content figure img {
+  object-fit: contain;
+  object-position: left;
+  max-height: 600px;
+  height: 100%;
+  width: 100%;
 }
 body#piece #content figure figcaption {
   font-family: "GeneralSans", sans-serif;

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="fr">
 <?php include('partials/head.php') ?>
-<body id="piece" class="bgW ccK">
+<body id="piece" data-cc="k" data-bg="w">
 	<?php include('partials/topbar.php') ?>
 	<?php include('partials/side.php') ?>
 	<main>
@@ -10,7 +10,7 @@
 
 			<div class="siema">
 				<figure id=s-1>
-					<img src="assets/svg/example.svg" loading="lazy">
+					<img src="assets/svg/example6.svg" loading="lazy">
 				</figure>
 				<figure id=s-2>
 					<img src="assets/svg/example2.svg" loading="lazy">

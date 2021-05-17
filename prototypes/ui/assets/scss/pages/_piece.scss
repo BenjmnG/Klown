@@ -5,7 +5,7 @@ body#piece{
 		height: calc(100vh - #{$baseline*5});
 		box-sizing: border-box;
 		@include for-size(desktop){ 
-			height: calc(100vh - #{$baseline*8});
+			height: calc(100vh - #{$baseline*10});
 			padding: $baseline*2 0;
 		}
 
@@ -45,7 +45,7 @@ body#piece{
 			top: 50%;
 			transform:translateY(-60%);
 			text-align: center;
-			img{ width: 66vw; max-width: 1000px; object-fit: contain;	}
+			img{ width: calc(100% - #{$unite*2}); max-width: 1920px; object-fit: contain;	}
 		}
 
 		a#to-details{
@@ -100,6 +100,14 @@ body#piece{
 		figure{
 			left: $unite*2;
 			margin: $baseline*2 0;
+			max-width: inherit;
+			img{
+				object-fit: contain;
+				object-position: left;
+				max-height: 600px;
+				height: 100%;
+				width: 100%;
+			}
 			figcaption{
 				@include f1-s0();
 				margin: $baseline 0;

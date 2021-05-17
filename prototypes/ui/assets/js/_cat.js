@@ -27,13 +27,13 @@ window.addEventListener("resize", function(){
 
 
 let scrollContainer =  document.querySelector('.cat-container'),
-    scrollTrigger = scrollContainer.querySelector('#scrollContainer'),
+    scrollTrigger = document.querySelector('#scrollTrigger'),
     step = (document.body.clientWidth)*.9,
     delta = step/4;
 
 scrollContainer.classList.remove('noJS');
 
-window.addEventListener("click", function(){
+scrollTrigger.addEventListener("click", function(){
   if (scrollContainer.offsetWidth + scrollContainer.scrollLeft + delta >= scrollContainer.scrollWidth) {
     scrollContainer.scrollLeft = 0    
   } else{
