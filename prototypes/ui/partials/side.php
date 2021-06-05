@@ -65,7 +65,7 @@
 		</li>
 		<li class="cat" data-categorie="3"  data-bg="k" data-cc="w">
 			<input id="toggle-c3" name="toggle-c" type="radio" hidden>
-			<label for="toggle-c3">Processus</label>
+			<label for="toggle-c3">Transformation</label>
 			<ul class="item-container">
 				<?php
 					$img = array( 2, 3, 4, 5);

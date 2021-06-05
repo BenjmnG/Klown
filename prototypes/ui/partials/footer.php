@@ -9,8 +9,9 @@
 			<li>
 				<!-- Catégories-->
 				<ul>
-					<li><a href="">Catégorie A</a></li>
-					<li><a href="">Catégorie B</a></li>
+					<li><a href="">Intériorisation</a></li>
+					<li><a href="">Extériorisation</a></li>
+					<li><a href="">Transformation</a></li>
 				</ul>
 			</li>
 			<li><a href="">info</a></li>

@@ -1,12 +1,8 @@
 body#index{
 	
-	#topbar nav > ul > li{
-		&:first-of-type{ visibility: hidden;}
-		&:last-of-type:before{ content: none;}
-	}
+	#topbar nav{ visibility: hidden; }
 
 	main{
-		height: calc(100vh - #{$baseline*5});
 
 		nav{
 			height: 66vh;
@@ -21,7 +17,7 @@ body#index{
 
 				li{
 					@include f1-s1();
-					font-size: $font-size*1.25;
+					//font-size: $font-size*1.25;
 					font-weight: $bold;
 					line-height: 180% !important;
 					display: inline-block;
@@ -55,14 +51,16 @@ body#index{
 						animation: pulse 4s steps(12) infinite;
 						visibility: hidden;
 
+						video, iframe{
+							opacity: 0;
+							min-width: 100vw;
+						  min-height: 100vh;
+							mix-blend-mode: luminosity;
+						}
 
 						video{
 						  left: 50%;
 						  transform: translateX(-50%);
-						  min-width: 100vw;
-						  min-height: 100vh;
-							opacity: 0;
-							mix-blend-mode: luminosity;
 						}
 					}
 				
@@ -71,7 +69,7 @@ body#index{
 						&:after {width: 66%; transition: opacity .3s ease,width .3s ease;}
 						& + .videoWrapper{
 							visibility: visible;
-							video{ opacity: 1; }
+							video, iframe{ opacity: 1; }
 						}
 					}
 
@@ -93,7 +91,7 @@ body#index{
 	&.fadeVideo2 main nav > ul > li:nth-of-type(2) .videoWrapper,
 	&.fadeVideo3 main nav > ul > li:nth-of-type(3) .videoWrapper{
 		 visibility: visible;
-		 video{
+		 video, iframe{
 			animation: fade 7s linear;
 			@keyframes fade {
 				0% { opacity: 1 }

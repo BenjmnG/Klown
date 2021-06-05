@@ -23,16 +23,18 @@
 						</video>
 					</div>
 				<li>
-					<a href="/categorie.php" data-bg="w" data-cc="r" title="Accéder à la catégorie Processus">Processus</a>
-					<div class="videoWrapper"></div>
+					<a href="/categorie.php" data-bg="w" data-cc="r" title="Accéder à la catégorie Transformation">Transformation</a>
+					<div class="videoWrapper">
+						<!--<iframe src="https://player.vimeo.com/video/170165536?autoplay=1&color=ffffff&title=0&byline=0&portrait=0&autoplay=1&background=1&muted=1" style="position:absolute;top:0;left:0;width:100%;height:100%;" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; muted" allowfullscreen></iframe>
+					</div>-->
 				</li>
 			</ul>
 		</nav>
 	</main>
-	<?php include('partials/footer.php') ?>
 	<script src="assets/js/utilities.js" type="text/javascript"></script>
 	<script src="assets/js/global.js" type="text/javascript"></script>
 	<script src="assets/js/_index.js" type="text/javascript"></script>
+	<script src="https://player.vimeo.com/api/player.js"></script>
 </body>
 </html>
 
