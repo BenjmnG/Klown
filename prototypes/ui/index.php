@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="fr">
 <?php include('partials/head.php') ?>
-<body id="index" class="" data-cc="r" data-bg="w">
+<body id="index" class="pulse" data-cc="r" data-bg="w">
 	<?php include('partials/topbar.php') ?>
 	<main>
 		<nav>

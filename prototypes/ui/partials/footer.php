@@ -6,14 +6,6 @@
 	</p>
 	<nav>
 		<ul>
-			<li>
-				<!-- Catégories-->
-				<ul>
-					<li><a href="">Intériorisation</a></li>
-					<li><a href="">Extériorisation</a></li>
-					<li><a href="">Transformation</a></li>
-				</ul>
-			</li>
 			<li><a href="">info</a></li>
 			<li><a href="">contact</a></li>
 		</ul>
