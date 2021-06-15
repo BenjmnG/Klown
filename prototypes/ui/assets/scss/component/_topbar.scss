@@ -32,16 +32,17 @@
 		@include for-size(phone){
 			position: absolute;
 			right: 0;
-			&:hover {max-height: $baseline*3;}
+			&:hover {max-height: $baseline*4;}
 		}
 		
 		span{display: inline-block;}
 		
 		> ul {
+			padding-left: $unite; // Prevent responsive overflow on Klown
 			> li{
 				display: inline-block;
 				text-transform: capitalize;
-				padding: 0 0 5px $unite/2;
+				padding: 0 0 $baseline/3 $unite/2;
 
 				&:after {
       		// underline
@@ -50,7 +51,7 @@
           margin: 0 auto;
           width: 0;
           height: 1px;
-          bottom: -5px;
+          bottom: $baseline/-3;
           background-color: var(--cc);
           transition: opacity .2s ease,width .2s ease;
           z-index: 1;

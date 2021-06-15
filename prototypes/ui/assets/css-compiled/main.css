@@ -530,16 +530,19 @@ body {
     right: 0;
   }
   #topbar nav:hover {
-    max-height: 3.75rem;
+    max-height: 5rem;
   }
 }
 #topbar nav span {
   display: inline-block;
 }
+#topbar nav > ul {
+  padding-left: 25px;
+}
 #topbar nav > ul > li {
   display: inline-block;
   text-transform: capitalize;
-  padding: 0 0 5px 12.5px;
+  padding: 0 0 0.4166666667rem 12.5px;
 }
 #topbar nav > ul > li:after {
   content: "";
@@ -547,7 +550,7 @@ body {
   margin: 0 auto;
   width: 0;
   height: 1px;
-  bottom: -5px;
+  bottom: -0.4166666667rem;
   background-color: var(--cc);
   transition: opacity 0.2s ease, width 0.2s ease;
   z-index: 1;
