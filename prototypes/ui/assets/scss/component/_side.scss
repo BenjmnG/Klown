@@ -269,5 +269,8 @@ body#piece, body#info{
   nav#sideNav:focus, 
   input#toggle-sideNav:checked + nav#sideNav{
     transform: translateX(0);
-  }  
+    @include for-size(desktop){
+      & + #topbar h1{ opacity: 0; }
+    }
+  }
 }

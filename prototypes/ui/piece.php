@@ -2,8 +2,8 @@
 <html lang="fr">
 <?php include('partials/head.php') ?>
 <body id="piece" data-cc="k" data-bg="w">
-	<?php include('partials/topbar.php') ?>
 	<?php include('partials/side.php') ?>
+	<?php include('partials/topbar.php') ?>
 	<main>
 		<section id="carrousel" class="">
 			<h2 class="sr-only">Carrousel</h2>

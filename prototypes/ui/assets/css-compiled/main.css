@@ -507,6 +507,9 @@ body {
   letter-spacing: 0px;
   font-weight: 400;
 }
+#topbar h1 {
+  transition: 0.25s ease-in-out;
+}
 #topbar nav {
   cursor: pointer;
   max-height: 1.25rem;
@@ -1201,6 +1204,15 @@ body#piece input#toggle-sideNav:checked + nav#sideNav, body#info nav#sideNav:hov
 body#info nav#sideNav:focus,
 body#info input#toggle-sideNav:checked + nav#sideNav {
   transform: translateX(0);
+}
+@media (min-width: 700px) {
+  body#piece nav#sideNav:hover + #topbar h1,
+body#piece nav#sideNav:focus + #topbar h1,
+body#piece input#toggle-sideNav:checked + nav#sideNav + #topbar h1, body#info nav#sideNav:hover + #topbar h1,
+body#info nav#sideNav:focus + #topbar h1,
+body#info input#toggle-sideNav:checked + nav#sideNav + #topbar h1 {
+    opacity: 0;
+  }
 }
 
 body#index #topbar nav {

@@ -11,6 +11,8 @@
 
 	*{ @include f1-s1(); font-weight: $bold; }
 
+	h1{ transition: .25s ease-in-out;} 
+
 	nav{
 		cursor: pointer;
 		max-height: $baseline;
