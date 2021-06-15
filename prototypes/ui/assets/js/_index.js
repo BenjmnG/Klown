@@ -10,6 +10,7 @@ els.forEach( function(el, i){
    // Video history
    removeClassByPrefix(body, 'fadeVideo')
     //speedUp();
+    updateColor()
   });
   el.addEventListener("mouseleave", function(e) {    
     body.classList.add('fadeVideo' + (i+1));

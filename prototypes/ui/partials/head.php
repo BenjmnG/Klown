@@ -20,11 +20,11 @@
   <link rel="canonical" href="{page.slug}">	
 	<!-- END block  -->
 
-	<!-- block Favicon -->
-  <link rel="icon" href="/favicon.ico">
-  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
-  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+	<!-- block Favicon // Init with data-bg -->
+  <link rel="icon" href="/favicon-w.ico"> <!-- Change w with data-bg -->
+  <link rel="icon" href="/favicon-w.svg" type="image/svg+xml"> <!-- Change w with data-bg -->
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon-w.png"> <!-- Change w with data-bg -->
   <link rel="manifest" href="/site.webmanifest">
-  <meta name="theme-color" content="#333">
+  <meta name="theme-color" content="#333"> <!-- White → #ffffff || Black → #262626 || Red → #db0d06 -->
 	<!-- END block -->
 </head>
