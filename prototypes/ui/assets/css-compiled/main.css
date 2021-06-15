@@ -1092,14 +1092,11 @@ body#piece nav#sideNav, body#info nav#sideNav {
 }
 @media (max-width: 700px) {
   body#piece nav#sideNav, body#info nav#sideNav {
-    width: 90vw;
-    height: 100vh;
+    width: 100vw;
+    height: calc(100vh - 100px);
     top: 0;
-    left: calc(-90vw + 50px);
-  }
-  body#piece nav#sideNav:hover, body#info nav#sideNav:hover {
-    border-right: 1px solid currentColor;
-    background: white;
+    left: 0;
+    transform: translateY(calc(-100vh + 100px));
   }
 }
 @media (min-width: 700px) {
@@ -1119,24 +1116,28 @@ body#piece nav#sideNav .sort-options, body#info nav#sideNav .sort-options {
 body#piece nav#sideNav label[for=toggle-sideNav], body#info nav#sideNav label[for=toggle-sideNav] {
   content: "Pièces";
   font-family: "GeneralSans", sans-serif;
-  font-size: 0.75rem;
-  line-height: 0.9375rem;
+  font-size: 1rem;
+  line-height: 1.25rem;
   font-weight: 300;
   letter-spacing: 0px;
+  font-weight: 400;
   cursor: pointer;
   position: absolute;
-  top: 6.25rem;
-  right: 0;
-  padding: 0.5rem 12.5px 0.5rem 0;
   opacity: 1;
-  border-bottom: 1px solid currentColor;
-  transform: rotate(90deg);
   transition: opacity 0.25s ease-in-out;
   z-index: 2;
+  top: 4.375rem;
+  right: 0;
+  padding: 0.5rem 12.5px 0.5rem 0;
+  border-bottom: 1px solid currentColor;
+  transform: rotate(90deg);
 }
-@media (min-width: 700px) {
+@media (max-width: 700px) {
   body#piece nav#sideNav label[for=toggle-sideNav], body#info nav#sideNav label[for=toggle-sideNav] {
-    top: 4.375rem;
+    /*bottom: $baseline*-4.5;
+    right: $unite;
+    text-align: right;*/
+    display: none;
   }
 }
 body#piece nav#sideNav ul.cat-container, body#info nav#sideNav ul.cat-container {
@@ -1145,10 +1146,16 @@ body#piece nav#sideNav ul.cat-container, body#info nav#sideNav ul.cat-container 
   scrollbar-width: none;
   scroll-snap-type: y mandatory;
   height: 100%;
-  padding: 3.75rem 25px 2.5rem 25px;
+  padding: 2.5rem 25px 2.5rem 25px;
+  box-sizing: border-box;
 }
 body#piece nav#sideNav ul.cat-container::-webkit-scrollbar, body#info nav#sideNav ul.cat-container::-webkit-scrollbar {
   display: none;
+}
+@media (min-width: 700px) {
+  body#piece nav#sideNav ul.cat-container, body#info nav#sideNav ul.cat-container {
+    padding: 2.5rem 25px 2.5rem 25px;
+  }
 }
 body#piece nav#sideNav ul.cat-container li.cat, body#info nav#sideNav ul.cat-container li.cat {
   margin: 0 0 2.5rem 0;
@@ -1204,6 +1211,23 @@ body#piece input#toggle-sideNav:checked + nav#sideNav, body#info nav#sideNav:hov
 body#info nav#sideNav:focus,
 body#info input#toggle-sideNav:checked + nav#sideNav {
   transform: translateX(0);
+}
+@media (max-width: 700px) {
+  body#piece nav#sideNav:hover,
+body#piece nav#sideNav:focus,
+body#piece input#toggle-sideNav:checked + nav#sideNav, body#info nav#sideNav:hover,
+body#info nav#sideNav:focus,
+body#info input#toggle-sideNav:checked + nav#sideNav {
+    border-bottom: 1px solid currentColor;
+    background: var(--bg);
+  }
+  body#piece nav#sideNav:hover + #topbar,
+body#piece nav#sideNav:focus + #topbar,
+body#piece input#toggle-sideNav:checked + nav#sideNav + #topbar, body#info nav#sideNav:hover + #topbar,
+body#info nav#sideNav:focus + #topbar,
+body#info input#toggle-sideNav:checked + nav#sideNav + #topbar {
+    opacity: 0;
+  }
 }
 @media (min-width: 700px) {
   body#piece nav#sideNav:hover + #topbar h1,
@@ -1467,14 +1491,21 @@ body#piece #details, body#piece #content {
   margin-right: auto;
 }
 body#piece #details {
-  padding: calc(clamp(7.5rem, 25vh, 300px)) 0 calc(clamp(5rem, 10vh, 100px)) 0;
+  margin-top: 3.75rem;
+  padding: 1.25rem 0 1.25rem 0;
+}
+@media (min-width: 700px) {
+  body#piece #details {
+    margin-top: calc(clamp(5rem, 20vh, 250px));
+    padding: 2.5rem 0 calc(clamp(5rem, 10vh, 100px)) 0;
+  }
 }
 body#piece #details h1 {
   font-family: "GeneralSans", sans-serif;
-  font-size: 3rem;
-  line-height: 3.75rem;
+  font-size: 4rem;
+  line-height: 5rem;
   font-weight: 300;
-  letter-spacing: -0.2px;
+  letter-spacing: -0.3px;
 }
 @media (min-width: 700px) {
   body#piece #details h1 {
@@ -1522,9 +1553,18 @@ body#piece #content h1, body#piece #content h2 {
   margin-bottom: 2.5rem;
 }
 body#piece #content figure {
-  left: 50px;
   margin: 2.5rem 0;
   max-width: inherit;
+}
+@media (max-width: 700px) {
+  body#piece #content figure {
+    padding-left: 50px;
+  }
+}
+@media (min-width: 700px) {
+  body#piece #content figure {
+    left: 50px;
+  }
 }
 body#piece #content figure img {
   object-fit: contain;
