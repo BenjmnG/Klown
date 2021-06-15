@@ -12,16 +12,14 @@
 	<input id="c1-sort-1" type="radio" name="c1-sort-medium" hidden>
 	<input id="c1-sort-2" type="radio" name="c1-sort-medium" hidden>
 	<input id="c1-sort-3" type="radio" name="c1-sort-medium" hidden>
-	<div class="sort-options">
-		<p>Medium&nbsp;</p>
-		<ul>
-			<li data-for="sort-0"><label for="c1-sort-0">⦰</label></li>
-			<li data-for="sort-1"><label for="c1-sort-1">Video</label></li>
-			<li data-for="sort-2"><label for="c1-sort-2">Peinture</label></li>
-			<li data-for="sort-3"><label for="c1-sort-3">Photo</label></li>
-		</ul>
-	</div>
-	
+	<input id="c1-sort-4" type="radio" name="c1-sort-medium" hidden>
+	<input id="c1-sort-5" type="radio" name="c1-sort-medium" hidden>
+	<ul  class="sort-options">
+		<li data-for="sort-0"><label for="c1-sort-0">Reset</label></li>
+		<li data-for="sort-1"><label for="c1-sort-1">Video</label></li>
+		<li data-for="sort-2"><label for="c1-sort-2">Peinture</label></li>
+		<li data-for="sort-3"><label for="c1-sort-3">Photo</label></li>
+	</ul>	
 	<!-- First Cat Container-->
 	<ul class="cat-container noJS">
 		<li class="cat" data-categorie="1" data-bg="w" data-cc="k">

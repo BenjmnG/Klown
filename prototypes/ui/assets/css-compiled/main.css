@@ -876,52 +876,26 @@ nav#sideNav li.cat ul.item-container h1 {
 nav#sideNav li.cat ul.item-container li.item img.cover {
   transition: all 0.25s ease-in-out;
 }
-nav#sideNav .sort-options {
-  height: 2.5rem;
+nav#sideNav ul.sort-options {
   z-index: 5;
 }
-nav#sideNav .sort-options * {
-  transition: 0.25s ease-in-out;
-}
-nav#sideNav .sort-options p {
-  position: absolute;
-  right: 100%;
-}
-nav#sideNav .sort-options ul {
-  overflow: hidden;
-  max-height: 1rem;
-  display: -webkit-box;
-  /* OLD - iOS 6-, Safari 3.1-6 */
-  display: -moz-box;
-  /* OLD - Firefox 19- (buggy but mostly works) */
-  display: -ms-flexbox;
-  /* TWEENER - IE 10 */
-  display: -webkit-flex;
-  /* NEW - Chrome */
-  display: flex;
-  /* NEW, Spec - Opera 12.1, Firefox 20+ */
-  -webkit-box-direction: normal;
-  -webkit-box-orient: vertical;
-  -webkit-flex-direction: column;
-  -moz-flex-direction: column;
-  -ms-flex-direction: column;
-  flex-direction: column;
-}
-nav#sideNav .sort-options ul li {
+nav#sideNav ul.sort-options li {
+  display: inline-block;
   padding: 0 6.25px 0.625rem 6.25px;
   order: 2;
+  transition: 0.25s ease-in-out;
 }
-nav#sideNav .sort-options ul li:first-of-type {
+nav#sideNav ul.sort-options li:first-of-type {
   opacity: 0;
+  border: 0.5px solid #222;
+  padding: 3px;
+  font-size: 0.75rem;
 }
-nav#sideNav .sort-options ul li label {
+nav#sideNav ul.sort-options li label {
   cursor: pointer;
 }
-nav#sideNav .sort-options:hover ul {
-  max-height: 12.5rem;
-}
-nav#sideNav .sort-options:hover ul li:first-of-type {
-  opacity: 1;
+nav#sideNav ul.sort-options:hover li:first-of-type {
+  opacity: 0.5;
 }
 
 body#categorie nav#sideNav {
@@ -990,9 +964,6 @@ body#categorie nav#sideNav .sort-options {
   position: absolute;
   right: 25px;
   top: 0;
-}
-body#categorie nav#sideNav input[id$=sort-0]:checked ~ .sort-options:not(:hover) p {
-  right: 0;
 }
 body#categorie nav#sideNav > ul.cat-container {
   width: auto;
@@ -1098,6 +1069,14 @@ body#piece nav#sideNav, body#info nav#sideNav {
     left: 0;
     transform: translateY(calc(-100vh + 100px));
   }
+  body#piece nav#sideNav ul.sort-options, body#info nav#sideNav ul.sort-options {
+    position: absolute;
+    right: 12.5px;
+    top: 50%;
+    bottom: inherit;
+    transform: rotate(-90deg) translateX(50%);
+    transform-origin: bottom right;
+  }
 }
 @media (min-width: 700px) {
   body#piece nav#sideNav, body#info nav#sideNav {
@@ -1107,11 +1086,6 @@ body#piece nav#sideNav, body#info nav#sideNav {
     left: 0;
     top: 0;
   }
-}
-body#piece nav#sideNav .sort-options, body#info nav#sideNav .sort-options {
-  position: absolute;
-  right: 0;
-  bottom: 0;
 }
 body#piece nav#sideNav label[for=toggle-sideNav], body#info nav#sideNav label[for=toggle-sideNav] {
   content: "Pièces";
