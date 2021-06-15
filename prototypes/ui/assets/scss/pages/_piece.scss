@@ -98,9 +98,11 @@ body#piece{
 			margin-bottom: $baseline * 2;
 		}
 		figure{
-			left: $unite*2;
+			
 			margin: $baseline*2 0;
 			max-width: inherit;
+			@include for-size(phone){ padding-left: $unite*2; }
+			@include for-size(desktop){ left: $unite*2; }
 			img{
 				object-fit: contain;
 				object-position: left;
