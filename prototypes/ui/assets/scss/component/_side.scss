@@ -257,15 +257,13 @@ body#piece, body#info{
   // Open / Close
   nav#sideNav:hover, 
   nav#sideNav:focus, 
-  input#toggle-sideNav:checked + nav#sideNav{
+  input#toggle-sideNav:checked + nav#sideNav,
+  input#toggle-menu:checked ~ nav#sideNav{
     transform: translateX(0);
     @include for-size(phone){
       border-bottom: 1px solid currentColor;
       background: var(--bg);
-      & + #topbar { opacity: 0; }
     }
-    @include for-size(desktop){
-      & + #topbar h1{ opacity: 0; }
-    }
+    & + #topbar h1{ opacity: 0; }
   }
 }

@@ -536,7 +536,7 @@ body {
     max-height: 5rem;
   }
 }
-#topbar nav span {
+#topbar nav .parent {
   display: inline-block;
 }
 #topbar nav > ul {
@@ -563,6 +563,11 @@ body {
   transition: opacity 0.3s ease, width 0.3s ease;
 }
 
+@media (max-width: 700px) {
+  input#toggle-menu:checked ~ #topbar nav > * {
+    transform: translateY(-1.25rem);
+  }
+}
 body > footer nav li {
   text-transform: capitalize;
 }
@@ -1181,36 +1186,33 @@ body#piece nav#sideNav input[name=toggle-c]:not(:checked) ~ ul li.item, body#inf
 }
 body#piece nav#sideNav:hover,
 body#piece nav#sideNav:focus,
-body#piece input#toggle-sideNav:checked + nav#sideNav, body#info nav#sideNav:hover,
+body#piece input#toggle-sideNav:checked + nav#sideNav,
+body#piece input#toggle-menu:checked ~ nav#sideNav, body#info nav#sideNav:hover,
 body#info nav#sideNav:focus,
-body#info input#toggle-sideNav:checked + nav#sideNav {
+body#info input#toggle-sideNav:checked + nav#sideNav,
+body#info input#toggle-menu:checked ~ nav#sideNav {
   transform: translateX(0);
 }
 @media (max-width: 700px) {
   body#piece nav#sideNav:hover,
 body#piece nav#sideNav:focus,
-body#piece input#toggle-sideNav:checked + nav#sideNav, body#info nav#sideNav:hover,
+body#piece input#toggle-sideNav:checked + nav#sideNav,
+body#piece input#toggle-menu:checked ~ nav#sideNav, body#info nav#sideNav:hover,
 body#info nav#sideNav:focus,
-body#info input#toggle-sideNav:checked + nav#sideNav {
+body#info input#toggle-sideNav:checked + nav#sideNav,
+body#info input#toggle-menu:checked ~ nav#sideNav {
     border-bottom: 1px solid currentColor;
     background: var(--bg);
   }
-  body#piece nav#sideNav:hover + #topbar,
-body#piece nav#sideNav:focus + #topbar,
-body#piece input#toggle-sideNav:checked + nav#sideNav + #topbar, body#info nav#sideNav:hover + #topbar,
-body#info nav#sideNav:focus + #topbar,
-body#info input#toggle-sideNav:checked + nav#sideNav + #topbar {
-    opacity: 0;
-  }
 }
-@media (min-width: 700px) {
-  body#piece nav#sideNav:hover + #topbar h1,
+body#piece nav#sideNav:hover + #topbar h1,
 body#piece nav#sideNav:focus + #topbar h1,
-body#piece input#toggle-sideNav:checked + nav#sideNav + #topbar h1, body#info nav#sideNav:hover + #topbar h1,
+body#piece input#toggle-sideNav:checked + nav#sideNav + #topbar h1,
+body#piece input#toggle-menu:checked ~ nav#sideNav + #topbar h1, body#info nav#sideNav:hover + #topbar h1,
 body#info nav#sideNav:focus + #topbar h1,
-body#info input#toggle-sideNav:checked + nav#sideNav + #topbar h1 {
-    opacity: 0;
-  }
+body#info input#toggle-sideNav:checked + nav#sideNav + #topbar h1,
+body#info input#toggle-menu:checked ~ nav#sideNav + #topbar h1 {
+  opacity: 0;
 }
 
 body#index #topbar nav {

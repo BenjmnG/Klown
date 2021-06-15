@@ -37,7 +37,7 @@
 			&:hover {max-height: $baseline*4;}
 		}
 		
-		span{display: inline-block;}
+		.parent{display: inline-block;}
 		
 		> ul {
 			padding-left: $unite; // Prevent responsive overflow on Klown
@@ -62,4 +62,8 @@
 			}
 		}
 	}
+}
+
+@include for-size(phone){
+	input#toggle-menu:checked ~ #topbar nav > *{transform: translateY(-$baseline);}
 }
