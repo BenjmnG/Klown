@@ -518,6 +518,9 @@ body {
   transform: translateY(0);
   transition: transform 0.25s ease;
 }
+#topbar nav:hover {
+  max-height: 1.875rem;
+}
 #topbar nav:hover > * {
   transform: translateY(-1.25rem);
 }
@@ -536,7 +539,22 @@ body {
 #topbar nav > ul > li {
   display: inline-block;
   text-transform: capitalize;
-  padding-left: 12.5px;
+  padding: 0 0 5px 12.5px;
+}
+#topbar nav > ul > li:after {
+  content: "";
+  display: block;
+  margin: 0 auto;
+  width: 0;
+  height: 1px;
+  bottom: -5px;
+  background-color: var(--cc);
+  transition: opacity 0.2s ease, width 0.2s ease;
+  z-index: 1;
+}
+#topbar nav > ul > li:hover:after {
+  width: 66%;
+  transition: opacity 0.3s ease, width 0.3s ease;
 }
 
 body > footer nav li {

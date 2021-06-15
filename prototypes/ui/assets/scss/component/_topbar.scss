@@ -26,6 +26,8 @@
 		
 		&:hover {
 			> *{transform: translateY(-$baseline);}
+			max-height: $baseline*1.5;
+
 		}
 		@include for-size(phone){
 			position: absolute;
@@ -39,7 +41,21 @@
 			> li{
 				display: inline-block;
 				text-transform: capitalize;
-				padding-left: $unite/2;
+				padding: 0 0 5px $unite/2;
+
+				&:after {
+      		// underline
+          content: "";
+          display: block;
+          margin: 0 auto;
+          width: 0;
+          height: 1px;
+          bottom: -5px;
+          background-color: var(--cc);
+          transition: opacity .2s ease,width .2s ease;
+          z-index: 1;
+	      }				
+        &:hover:after {width: 66%; transition: opacity .3s ease,width .3s ease;}
 			}
 		}
 	}
