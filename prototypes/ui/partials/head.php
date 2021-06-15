@@ -10,13 +10,13 @@
 	<!-- block SEO -->
 	<meta name="description" content="{meta.description}">
 	<meta property="og:title" content="{{title}} - {{ _meta.acronyme | upper }}">  
-	<meta property="og:description" content="{{_meta.description}}"> <!--Juste page pièce-->
+	<meta property="og:description" content="{{_meta.description}}">
 	<meta property="og:image" content="<!-- Image Oeuvre ELSE default.jpg -->">  
   <meta property="og:image:alt" content="Image description">
   <meta property="og:locale" content="fr_FR">
   <meta property="og:type" content="website">
   <meta property="og:url" content="{page.slug}">          
-  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:card" content="summary"> <!-- if Oeuvre → summary_large_image -->
   <link rel="canonical" href="{page.slug}">	
 	<!-- END block  -->
 
