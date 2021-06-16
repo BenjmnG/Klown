@@ -15,7 +15,7 @@
 
 	nav{
 		cursor: pointer;
-		max-height: $baseline;
+		max-height: $baseline*1.5;
 		text-align: right;
 		overflow: hidden;
 		transition: max-height .25s ease;
@@ -27,17 +27,16 @@
 		}
 		
 		&:hover {
-			> *{transform: translateY(-$baseline);}
-			max-height: $baseline*1.5;
-
+			> *{transform: translateY(-$baseline*2);}
 		}
+
 		@include for-size(phone){
 			position: absolute;
 			right: 0;
 			&:hover {max-height: $baseline*4;}
 		}
 		
-		.parent{display: inline-block;}
+		.parent{display: inline-block; margin-bottom: $baseline;}
 		
 		> ul {
 			padding-left: $unite; // Prevent responsive overflow on Klown
