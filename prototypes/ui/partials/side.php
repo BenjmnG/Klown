@@ -45,7 +45,7 @@
 						<li class="item" data-medium="'.$medium[0].'">
 							<!-- Allow href if noJs, else REPLACE main content with transition -->
 							<a href="/piece.php" data-target="/piece.php">
-								<img class="cover" src="assets/svg/example'.$img[0].'.svg">
+								<img class="cover" src="assets/svg/example'.$img[0].'.svg" style="filter: sepia(1);">
 							</a>
 						</li>';
 					}
@@ -65,7 +65,7 @@
 						<li class="item" data-medium="'.$medium[0].'">
 							<!-- Allow href if noJs, else REPLACE main content with transition -->
 							<a href="/piece.php" data-target="/piece.php">
-								<img class="cover" src="assets/svg/example'.$img[0].'.svg">
+								<img class="cover" src="assets/svg/example'.$img[0].'.svg" style="filter: sepia(1);">
 							</a>
 						</li>';
 					}
@@ -85,7 +85,7 @@
 						<li class="item" data-medium="'.$medium[0].'">
 							<!-- Allow href if noJs, else REPLACE main content with transition -->
 							<a href="/piece.php" data-target="/piece.php">
-								<img class="cover" src="assets/svg/example'.$img[0].'.svg">
+								<img class="cover" src="assets/svg/example'.$img[0].'.svg" style="filter: sepia(1);">
 							</a>
 						</li>';
 					}
