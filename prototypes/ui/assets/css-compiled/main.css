@@ -879,6 +879,7 @@ nav#sideNav li.cat ul.item-container h1 {
 nav#sideNav li.cat ul.item-container li.item img.cover {
   transition: all 0.25s ease-in-out;
 }
+
 nav#sideNav ul.sort-options {
   z-index: 5;
 }
@@ -904,6 +905,21 @@ nav#sideNav ul.sort-options li:first-of-type svg:first-of-type {
 nav#sideNav ul.sort-options li:first-of-type svg:last-of-type {
   opacity: 1;
 }
+nav#sideNav ul.sort-options li:not(:first-of-type):after {
+  content: "";
+  display: block;
+  margin: 0 auto;
+  width: 0;
+  height: 0.5px;
+  bottom: -0.3125rem;
+  background-color: var(--cc);
+  transition: opacity 0.2s ease, width 0.2s ease;
+  z-index: 1;
+}
+nav#sideNav ul.sort-options li:not(:first-of-type):hover:after {
+  width: 66%;
+  transition: opacity 0.3s ease, width 0.3s ease;
+}
 nav#sideNav ul.sort-options li label {
   cursor: pointer;
 }
@@ -912,6 +928,10 @@ nav#sideNav ul.sort-options:hover li:first-of-type svg:first-of-type {
 }
 nav#sideNav ul.sort-options:hover li:first-of-type svg:last-of-type {
   opacity: 0;
+}
+
+input[id$=medium-1]:checked ~ .sort-options li[data-for=medium-1]:after {
+  width: 66% !important;
 }
 
 body#categorie nav#sideNav input[id$=medium-1]:checked ~ .cat-container .item:not([data-medium="1"]) {
@@ -928,6 +948,10 @@ body#piece nav#sideNav input[id$=medium-1]:checked ~ .cat-container .item:not([d
   height: 0 !important;
 }
 
+input[id$=medium-2]:checked ~ .sort-options li[data-for=medium-2]:after {
+  width: 66% !important;
+}
+
 body#categorie nav#sideNav input[id$=medium-2]:checked ~ .cat-container .item:not([data-medium="2"]) {
   margin: 0 !important;
 }
@@ -940,6 +964,10 @@ body#piece nav#sideNav input[id$=medium-2]:checked ~ .cat-container .item:not([d
 }
 body#piece nav#sideNav input[id$=medium-2]:checked ~ .cat-container .item:not([data-medium="2"]), body#piece nav#sideNav input[id$=medium-2]:checked ~ .cat-container .item:not([data-medium="2"]) img, body#info nav#sideNav input[id$=medium-2]:checked ~ .cat-container .item:not([data-medium="2"]), body#info nav#sideNav input[id$=medium-2]:checked ~ .cat-container .item:not([data-medium="2"]) img {
   height: 0 !important;
+}
+
+input[id$=medium-3]:checked ~ .sort-options li[data-for=medium-3]:after {
+  width: 66% !important;
 }
 
 body#categorie nav#sideNav input[id$=medium-3]:checked ~ .cat-container .item:not([data-medium="3"]) {
@@ -956,6 +984,10 @@ body#piece nav#sideNav input[id$=medium-3]:checked ~ .cat-container .item:not([d
   height: 0 !important;
 }
 
+input[id$=medium-4]:checked ~ .sort-options li[data-for=medium-4]:after {
+  width: 66% !important;
+}
+
 body#categorie nav#sideNav input[id$=medium-4]:checked ~ .cat-container .item:not([data-medium="4"]) {
   margin: 0 !important;
 }
@@ -968,6 +1000,10 @@ body#piece nav#sideNav input[id$=medium-4]:checked ~ .cat-container .item:not([d
 }
 body#piece nav#sideNav input[id$=medium-4]:checked ~ .cat-container .item:not([data-medium="4"]), body#piece nav#sideNav input[id$=medium-4]:checked ~ .cat-container .item:not([data-medium="4"]) img, body#info nav#sideNav input[id$=medium-4]:checked ~ .cat-container .item:not([data-medium="4"]), body#info nav#sideNav input[id$=medium-4]:checked ~ .cat-container .item:not([data-medium="4"]) img {
   height: 0 !important;
+}
+
+input[id$=medium-5]:checked ~ .sort-options li[data-for=medium-5]:after {
+  width: 66% !important;
 }
 
 body#categorie nav#sideNav input[id$=medium-5]:checked ~ .cat-container .item:not([data-medium="5"]) {
@@ -987,9 +1023,6 @@ body#piece nav#sideNav input[id$=medium-5]:checked ~ .cat-container .item:not([d
 body#categorie nav#sideNav {
   width: 100vw;
   left: -25px;
-  /*
-    Sort
-          */
 }
 @media (min-width: 700px) {
   body#categorie nav#sideNav {
@@ -1002,26 +1035,6 @@ body#categorie nav#sideNav > label {
 }
 body#categorie nav#sideNav * {
   user-select: none;
-}
-body#categorie nav#sideNav input[id$=medium-1]:checked ~ .sort-options li[data-for=medium-1] {
-  order: 1;
-  font-weight: 400;
-}
-body#categorie nav#sideNav input[id$=medium-2]:checked ~ .sort-options li[data-for=medium-2] {
-  order: 1;
-  font-weight: 400;
-}
-body#categorie nav#sideNav input[id$=medium-3]:checked ~ .sort-options li[data-for=medium-3] {
-  order: 1;
-  font-weight: 400;
-}
-body#categorie nav#sideNav input[id$=medium-4]:checked ~ .sort-options li[data-for=medium-4] {
-  order: 1;
-  font-weight: 400;
-}
-body#categorie nav#sideNav input[id$=medium-5]:checked ~ .sort-options li[data-for=medium-5] {
-  order: 1;
-  font-weight: 400;
 }
 body#categorie nav#sideNav .sort-options {
   position: absolute;

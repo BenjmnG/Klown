@@ -19,42 +19,58 @@ nav#sideNav{
       }
     }
   }
+}
 
 
-  // Sort Options
-  ul.sort-options{
-    z-index: 5;
+//
+//    Sort Options            
+// 
+nav#sideNav ul.sort-options{
+  z-index: 5;
 
-    li{
-      display: inline-block;
-      padding: 0 $unite/4 $baseline/2 $unite/4;
-      order: 2;
-      transition: .25s ease-in-out;
-      &:first-of-type{
-        svg{
-          stroke-width : 2px;
-          transition: .5s ease-in-out;
-          position: absolute;
-          top: 5px;
-          left: 0;
-          &:first-of-type{ opacity: 0;}
-          &:last-of-type{ opacity: 1;}
-        }
-        padding: 3px $unite*.66 3px 0;
+  li{
+    display: inline-block;
+    padding: 0 $unite/4 $baseline/2 $unite/4;
+    order: 2;
+    transition: .25s ease-in-out;
+    &:first-of-type{
+      svg{
+        stroke-width : 2px;
+        transition: .5s ease-in-out;
+        position: absolute;
+        top: 5px;
+        left: 0;
+        &:first-of-type{ opacity: 0;}
+        &:last-of-type{ opacity: 1;}
       }
-      label{cursor: pointer;}
+      padding: 3px $unite*.66 3px 0;
     }
-    &:hover{
-      li:first-of-type{
-        svg{
-          &:first-of-type{ opacity: 1;}
-          &:last-of-type{ opacity: 0;}
-        }
-      }
+
+    &:not(:first-of-type){
+      &:after {
+        // underline
+        content: "";
+        display: block;
+        margin: 0 auto;
+        width: 0;
+        height: .5px;
+        bottom: $baseline/-4;
+        background-color: var(--cc);
+        transition: opacity .2s ease,width .2s ease;
+        z-index: 1;
+      }       
+      &:hover:after {width: 66%; transition: opacity .3s ease,width .3s ease;}
     }
+    label{cursor: pointer;}
+  }
+  &:hover li:first-of-type svg{
+    &:first-of-type{ opacity: 1;}
+    &:last-of-type{ opacity: 0;}
   }
 }
 @for $i from 1 through 5{
+
+  input[id$="medium-#{$i}"]:checked ~ .sort-options li[data-for="medium-#{$i}"]:after{ width: 66% !important; }
   body#categorie nav#sideNav input[id$="medium-#{$i}"]:checked ~ .cat-container {
     .item:not([data-medium="#{$i}"]){
       margin: 0 !important;
@@ -86,16 +102,6 @@ body#categorie{
     > label{ opacity: 0; position: absolute;}
 
     *{user-select: none;}
-
-    /*
-      Sort
-            */
-    @for $i from 1 through 5{
-      input[id$="medium-#{$i}"]:checked ~ .sort-options li[data-for="medium-#{$i}"]{
-        order: 1;
-        font-weight: $bold;
-      }
-    }
 
     .sort-options{
       position: absolute;
