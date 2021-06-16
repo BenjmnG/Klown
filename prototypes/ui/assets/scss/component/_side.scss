@@ -80,6 +80,7 @@ body#categorie{
   nav#sideNav{
 
     width: 100vw;
+    left: -$unite;
     @include for-size(desktop){ left: $unite*-4;}
 
     > label{ opacity: 0; position: absolute;}
@@ -99,7 +100,7 @@ body#categorie{
     .sort-options{
       position: absolute;
       top: $baseline*-1;
-      @include for-size(phone){left: 0;}
+      @include for-size(phone){left: $unite;}
       @include for-size(desktop){right: $unite;}
     }
 
@@ -109,8 +110,8 @@ body#categorie{
       
       overflow: scroll hidden;
       white-space: nowrap;
-      //scroll-snap-type: x mandatory;   
-      @include for-size(desktop){ padding: 0 #{$unite*4};}
+      padding: 0 $unite;
+      @include for-size(desktop){ padding: 0 $unite*4;}
   
       #scrollTrigger{display: none;}
 

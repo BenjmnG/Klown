@@ -986,6 +986,7 @@ body#piece nav#sideNav input[id$=medium-5]:checked ~ .cat-container .item:not([d
 
 body#categorie nav#sideNav {
   width: 100vw;
+  left: -25px;
   /*
     Sort
           */
@@ -1028,7 +1029,7 @@ body#categorie nav#sideNav .sort-options {
 }
 @media (max-width: 700px) {
   body#categorie nav#sideNav .sort-options {
-    left: 0;
+    left: 25px;
   }
 }
 @media (min-width: 700px) {
@@ -1041,6 +1042,7 @@ body#categorie nav#sideNav > ul.cat-container {
   height: 100%;
   overflow: scroll hidden;
   white-space: nowrap;
+  padding: 0 25px;
 }
 @media (min-width: 700px) {
   body#categorie nav#sideNav > ul.cat-container {
