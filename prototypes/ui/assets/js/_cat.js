@@ -41,16 +41,26 @@ scrollTrigger.addEventListener("click", function(){
   }
 });
 
-let sortOptions = [...document.querySelectorAll('.sort-options li')]
+let sortOptions = [...document.querySelectorAll('.sort-options label')]
 sortOptions.forEach( function(el, i){
   el.addEventListener("click", function(){
+
     setTimeout(function(){
       scrollContainer.scrollLeft = 0;
-      console.log(scrollContainer.scrollLeft)
-    }, 260);
+    }, 300);
     
+    // reset if double clic
+    let id = el.getAttribute('for'),
+        input = document.getElementById(id);
+    if(input.checked){ 
+      setTimeout(function(){
+        document.getElementById('medium-reset').checked = true;
+      }, 300);
+    }
   });
 });
+
+
 
 /*
   Slider
