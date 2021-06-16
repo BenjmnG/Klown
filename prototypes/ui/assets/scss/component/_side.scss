@@ -53,7 +53,7 @@ nav#sideNav ul.sort-options{
         display: block;
         margin: 0 auto;
         width: 0;
-        height: .5px;
+        height: 1px;
         bottom: $baseline/-4;
         background-color: var(--cc);
         transition: opacity .2s ease,width .2s ease;

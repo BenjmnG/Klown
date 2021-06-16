@@ -910,7 +910,7 @@ nav#sideNav ul.sort-options li:not(:first-of-type):after {
   display: block;
   margin: 0 auto;
   width: 0;
-  height: 0.5px;
+  height: 1px;
   bottom: -0.3125rem;
   background-color: var(--cc);
   transition: opacity 0.2s ease, width 0.2s ease;

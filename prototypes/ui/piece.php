@@ -64,7 +64,8 @@
 		
 	</main>
 
-	<?php include('partials/footer.php') ?>	
+	<?php include('partials/footer.php') ?>
+	<?php include('static/svg/inline.svg') ?>
 
 	<script src="static/js/siema.min.js" type="text/javascript"></script>
 	<script src="assets/js/utilities.js" type="text/javascript"></script>
