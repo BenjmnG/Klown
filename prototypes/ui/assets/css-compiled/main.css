@@ -902,6 +902,41 @@ nav#sideNav ul.sort-options li label {
 nav#sideNav ul.sort-options:hover li:first-of-type {
   opacity: 0.5;
 }
+nav#sideNav input[id$=medium-1]:checked ~ .cat-container .item:not([data-medium="1"]) {
+  margin: 0 !important;
+  height: 0 !important;
+}
+nav#sideNav input[id$=medium-1]:checked ~ .cat-container .item:not([data-medium="1"]) img {
+  width: 0 !important;
+}
+nav#sideNav input[id$=medium-2]:checked ~ .cat-container .item:not([data-medium="2"]) {
+  margin: 0 !important;
+  height: 0 !important;
+}
+nav#sideNav input[id$=medium-2]:checked ~ .cat-container .item:not([data-medium="2"]) img {
+  width: 0 !important;
+}
+nav#sideNav input[id$=medium-3]:checked ~ .cat-container .item:not([data-medium="3"]) {
+  margin: 0 !important;
+  height: 0 !important;
+}
+nav#sideNav input[id$=medium-3]:checked ~ .cat-container .item:not([data-medium="3"]) img {
+  width: 0 !important;
+}
+nav#sideNav input[id$=medium-4]:checked ~ .cat-container .item:not([data-medium="4"]) {
+  margin: 0 !important;
+  height: 0 !important;
+}
+nav#sideNav input[id$=medium-4]:checked ~ .cat-container .item:not([data-medium="4"]) img {
+  width: 0 !important;
+}
+nav#sideNav input[id$=medium-5]:checked ~ .cat-container .item:not([data-medium="5"]) {
+  margin: 0 !important;
+  height: 0 !important;
+}
+nav#sideNav input[id$=medium-5]:checked ~ .cat-container .item:not([data-medium="5"]) img {
+  width: 0 !important;
+}
 
 body#categorie nav#sideNav {
   width: 100vw;
@@ -921,47 +956,23 @@ body#categorie nav#sideNav > label {
 body#categorie nav#sideNav * {
   user-select: none;
 }
-body#categorie nav#sideNav input[id$=sort-0]:checked ~ .sort-options li[data-for=sort-0] {
+body#categorie nav#sideNav input[id$=medium-1]:checked ~ .sort-options li[data-for=medium-1] {
   order: 1;
   font-weight: 400;
 }
-body#categorie nav#sideNav input[id$=sort-1]:checked ~ .sort-options li[data-for=sort-1] {
+body#categorie nav#sideNav input[id$=medium-2]:checked ~ .sort-options li[data-for=medium-2] {
   order: 1;
   font-weight: 400;
 }
-body#categorie nav#sideNav input[id$=sort-2]:checked ~ .sort-options li[data-for=sort-2] {
+body#categorie nav#sideNav input[id$=medium-3]:checked ~ .sort-options li[data-for=medium-3] {
   order: 1;
   font-weight: 400;
 }
-body#categorie nav#sideNav input[id$=sort-3]:checked ~ .sort-options li[data-for=sort-3] {
+body#categorie nav#sideNav input[id$=medium-4]:checked ~ .sort-options li[data-for=medium-4] {
   order: 1;
   font-weight: 400;
 }
-body#categorie nav#sideNav input[id$=sort-4]:checked ~ .sort-options li[data-for=sort-4] {
-  order: 1;
-  font-weight: 400;
-}
-body#categorie nav#sideNav input[id$=sort-5]:checked ~ .sort-options li[data-for=sort-5] {
-  order: 1;
-  font-weight: 400;
-}
-body#categorie nav#sideNav input[id$=sort-6]:checked ~ .sort-options li[data-for=sort-6] {
-  order: 1;
-  font-weight: 400;
-}
-body#categorie nav#sideNav input[id$=sort-7]:checked ~ .sort-options li[data-for=sort-7] {
-  order: 1;
-  font-weight: 400;
-}
-body#categorie nav#sideNav input[id$=sort-8]:checked ~ .sort-options li[data-for=sort-8] {
-  order: 1;
-  font-weight: 400;
-}
-body#categorie nav#sideNav input[id$=sort-9]:checked ~ .sort-options li[data-for=sort-9] {
-  order: 1;
-  font-weight: 400;
-}
-body#categorie nav#sideNav input[id$=sort-10]:checked ~ .sort-options li[data-for=sort-10] {
+body#categorie nav#sideNav input[id$=medium-5]:checked ~ .sort-options li[data-for=medium-5] {
   order: 1;
   font-weight: 400;
 }
@@ -1090,6 +1101,27 @@ body#piece nav#sideNav, body#info nav#sideNav {
     transform: translateX(-200px);
     left: 0;
     top: 0;
+  }
+  body#piece nav#sideNav ul.sort-options, body#info nav#sideNav ul.sort-options {
+    display: -webkit-box;
+    /* OLD - iOS 6-, Safari 3.1-6 */
+    display: -moz-box;
+    /* OLD - Firefox 19- (buggy but mostly works) */
+    display: -ms-flexbox;
+    /* TWEENER - IE 10 */
+    display: -webkit-flex;
+    /* NEW - Chrome */
+    display: flex;
+    /* NEW, Spec - Opera 12.1, Firefox 20+ */
+    -webkit-box-direction: reverse;
+    -webkit-box-orient: horizontal;
+    -webkit-flex-direction: row-reverse;
+    -moz-flex-direction: row-reverse;
+    -ms-flex-direction: row-reverse;
+    flex-direction: row-reverse;
+    position: absolute;
+    bottom: 0;
+    background: var(--bg);
   }
 }
 body#piece nav#sideNav label[for=toggle-sideNav], body#info nav#sideNav label[for=toggle-sideNav] {

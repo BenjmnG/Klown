@@ -42,6 +42,16 @@ nav#sideNav{
       li:first-of-type{opacity: .5;}
     }
   }
+  @for $i from 1 through 5{
+    input[id$="medium-#{$i}"]:checked ~ .cat-container {
+      //.item[data-medium="#{$i}"]{ opacity: 1; order: 1}
+      .item:not([data-medium="#{$i}"]){
+        margin: 0 !important;
+        height: 0 !important;
+        img{ width: 0 !important; }
+      }
+    }
+  }
 }
 
   
@@ -63,8 +73,8 @@ body#categorie{
     /*
       Sort
             */
-    @for $i from 0 through 10{
-      input[id$="sort-#{$i}"]:checked ~ .sort-options li[data-for="sort-#{$i}"]{
+    @for $i from 1 through 5{
+      input[id$="medium-#{$i}"]:checked ~ .sort-options li[data-for="medium-#{$i}"]{
         order: 1;
         font-weight: $bold;
       }
@@ -181,6 +191,13 @@ body#piece, body#info{
       transform: translateX(#{$unite*-8});
       left: 0;
       top: 0;
+      ul.sort-options{
+        @include flex();
+        @include flex-direction(row-reverse);
+        position: absolute;
+        bottom: 0;
+        background: var(--bg);
+      }
     }
 
     // Toggle Button

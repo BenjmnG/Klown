@@ -9,17 +9,17 @@
 
 	<!-- Sort Options-->
 	<!-- Sort Options Can be remove on Piece Pages -->
-	<input id="c1-sort-0" type="radio" name="c1-sort-medium" hidden checked>
-	<input id="c1-sort-1" type="radio" name="c1-sort-medium" hidden>
-	<input id="c1-sort-2" type="radio" name="c1-sort-medium" hidden>
-	<input id="c1-sort-3" type="radio" name="c1-sort-medium" hidden>
-	<input id="c1-sort-4" type="radio" name="c1-sort-medium" hidden>
-	<input id="c1-sort-5" type="radio" name="c1-sort-medium" hidden>
+	<input id="medium-reset" type="radio" name="sort-by-medium" hidden checked>
+	<input id="medium-1" type="radio" name="sort-by-medium" hidden>
+	<input id="medium-2" type="radio" name="sort-by-medium" hidden>
+	<input id="medium-3" type="radio" name="sort-by-medium" hidden>
+	<input id="medium-4" type="radio" name="sort-by-medium" hidden>
+	<input id="medium-5" type="radio" name="sort-by-medium" hidden>
 	<ul  class="sort-options">
-		<li data-for="sort-0"><label for="c1-sort-0">Reset</label></li>
-		<li data-for="sort-1"><label for="c1-sort-1">Video</label></li>
-		<li data-for="sort-2"><label for="c1-sort-2">Peinture</label></li>
-		<li data-for="sort-3"><label for="c1-sort-3">Photo</label></li>
+		<li data-for="medium-reset"><label for="medium-reset">Reset</label></li>
+		<li data-for="medium-1"><label for="medium-1">Video</label></li>
+		<li data-for="medium-2"><label for="medium-2">Peinture</label></li>
+		<li data-for="medium-3"><label for="medium-3">Photo</label></li>
 	</ul>	
 	<!-- First Cat Container-->
 	<ul class="cat-container noJS">
@@ -29,7 +29,7 @@
 			<ul class="item-container">
 				<?php
 					$img = array( 2, 3, 4, 5);
-					$medium = array( video, Peinture, Photo);
+					$medium = array( 1, 2, 3);
 					for ($i = 0; $i < 20; $i++){
 						shuffle($img); shuffle($medium);
 						echo '
@@ -49,10 +49,11 @@
 			<ul class="item-container">
 				<?php
 					$img = array( 2, 3, 4, 5);
+					$medium = array( 1, 2, 3);
 					for ($i = 0; $i < 6; $i++){
-						shuffle($img);
+						shuffle($img); shuffle($medium);
 						echo '
-						<li class="item">
+						<li class="item" data-medium="'.$medium[0].'">
 							<!-- Allow href if noJs, else REPLACE main content with transition -->
 							<a href="/piece.php" data-target="/piece.php">
 								<img class="cover" src="assets/svg/example'.$img[0].'.svg">
@@ -68,10 +69,11 @@
 			<ul class="item-container">
 				<?php
 					$img = array( 2, 3, 4, 5);
-					for ($i = 0; $i < 6; $i++){
-						shuffle($img);
+					$medium = array( 1, 2, 3);
+					for ($i = 0; $i < 12; $i++){
+						shuffle($img); shuffle($medium);
 						echo '
-						<li class="item">
+						<li class="item" data-medium="'.$medium[0].'">
 							<!-- Allow href if noJs, else REPLACE main content with transition -->
 							<a href="/piece.php" data-target="/piece.php">
 								<img class="cover" src="assets/svg/example'.$img[0].'.svg">

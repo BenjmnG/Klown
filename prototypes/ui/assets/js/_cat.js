@@ -41,7 +41,16 @@ scrollTrigger.addEventListener("click", function(){
   }
 });
 
-
+let sortOptions = [...document.querySelectorAll('.sort-options li')]
+sortOptions.forEach( function(el, i){
+  el.addEventListener("click", function(){
+    setTimeout(function(){
+      scrollContainer.scrollLeft = 0;
+      console.log(scrollContainer.scrollLeft)
+    }, 260);
+    
+  });
+});
 
 /*
   Slider

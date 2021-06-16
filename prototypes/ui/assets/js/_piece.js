@@ -20,6 +20,12 @@ if(document.querySelector('#carrousel .siema')){
   document.querySelector('#carrousel .next').addEventListener('click', () => mySiema.next());	
 }
 
+/*
+  Sidenav
+          */
+let scrollContainer =  document.querySelector('.cat-container');
+
+scrollContainer.classList.remove('noJS');          
 
 /*
   Related 
@@ -31,3 +37,4 @@ function relatedWith(){
   
 
 openSideNav('#related', relatedWith)
+
