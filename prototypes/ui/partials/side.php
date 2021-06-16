@@ -16,7 +16,16 @@
 	<input id="medium-4" type="radio" name="sort-by-medium" hidden>
 	<input id="medium-5" type="radio" name="sort-by-medium" hidden>
 	<ul  class="sort-options">
-		<li data-for="medium-reset"><label for="medium-reset">Reset</label></li>
+		<li data-for="medium-reset">
+			<label for="medium-reset">
+				<svg width="20" height="20" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    			<use href="#i-reset" />
+    		</svg>
+				<svg width="20" height="20" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    			<use href="#i-filter" />
+    		</svg>
+			</label>
+		</li>
 		<li data-for="medium-1"><label for="medium-1">Video</label></li>
 		<li data-for="medium-2"><label for="medium-2">Peinture</label></li>
 		<li data-for="medium-3"><label for="medium-3">Photo</label></li>

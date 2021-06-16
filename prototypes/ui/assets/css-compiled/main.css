@@ -889,51 +889,99 @@ nav#sideNav ul.sort-options li {
   transition: 0.25s ease-in-out;
 }
 nav#sideNav ul.sort-options li:first-of-type {
+  padding: 3px 25px 3px 0;
+}
+nav#sideNav ul.sort-options li:first-of-type svg {
+  stroke-width: 2px;
+  transition: 0.5s ease-in-out;
+  position: absolute;
+  top: 5px;
+  left: 0;
+}
+nav#sideNav ul.sort-options li:first-of-type svg:first-of-type {
   opacity: 0;
-  border: 0.5px solid #222;
-  padding: 3px;
-  font-size: 0.75rem;
+}
+nav#sideNav ul.sort-options li:first-of-type svg:last-of-type {
+  opacity: 1;
 }
 nav#sideNav ul.sort-options li label {
   cursor: pointer;
 }
-nav#sideNav ul.sort-options:hover li:first-of-type {
-  opacity: 0.5;
+nav#sideNav ul.sort-options:hover li:first-of-type svg:first-of-type {
+  opacity: 1;
 }
-nav#sideNav input[id$=medium-1]:checked ~ .cat-container .item:not([data-medium="1"]) {
+nav#sideNav ul.sort-options:hover li:first-of-type svg:last-of-type {
+  opacity: 0;
+}
+
+body#categorie nav#sideNav input[id$=medium-1]:checked ~ .cat-container .item:not([data-medium="1"]) {
   margin: 0 !important;
-  height: 0 !important;
 }
-nav#sideNav input[id$=medium-1]:checked ~ .cat-container .item:not([data-medium="1"]) img {
+body#categorie nav#sideNav input[id$=medium-1]:checked ~ .cat-container .item:not([data-medium="1"]) img {
   width: 0 !important;
 }
-nav#sideNav input[id$=medium-2]:checked ~ .cat-container .item:not([data-medium="2"]) {
+
+body#piece nav#sideNav input[id$=medium-1]:checked ~ .cat-container .item:not([data-medium="1"]), body#info nav#sideNav input[id$=medium-1]:checked ~ .cat-container .item:not([data-medium="1"]) {
   margin: 0 !important;
+}
+body#piece nav#sideNav input[id$=medium-1]:checked ~ .cat-container .item:not([data-medium="1"]), body#piece nav#sideNav input[id$=medium-1]:checked ~ .cat-container .item:not([data-medium="1"]) img, body#info nav#sideNav input[id$=medium-1]:checked ~ .cat-container .item:not([data-medium="1"]), body#info nav#sideNav input[id$=medium-1]:checked ~ .cat-container .item:not([data-medium="1"]) img {
   height: 0 !important;
 }
-nav#sideNav input[id$=medium-2]:checked ~ .cat-container .item:not([data-medium="2"]) img {
+
+body#categorie nav#sideNav input[id$=medium-2]:checked ~ .cat-container .item:not([data-medium="2"]) {
+  margin: 0 !important;
+}
+body#categorie nav#sideNav input[id$=medium-2]:checked ~ .cat-container .item:not([data-medium="2"]) img {
   width: 0 !important;
 }
-nav#sideNav input[id$=medium-3]:checked ~ .cat-container .item:not([data-medium="3"]) {
+
+body#piece nav#sideNav input[id$=medium-2]:checked ~ .cat-container .item:not([data-medium="2"]), body#info nav#sideNav input[id$=medium-2]:checked ~ .cat-container .item:not([data-medium="2"]) {
   margin: 0 !important;
+}
+body#piece nav#sideNav input[id$=medium-2]:checked ~ .cat-container .item:not([data-medium="2"]), body#piece nav#sideNav input[id$=medium-2]:checked ~ .cat-container .item:not([data-medium="2"]) img, body#info nav#sideNav input[id$=medium-2]:checked ~ .cat-container .item:not([data-medium="2"]), body#info nav#sideNav input[id$=medium-2]:checked ~ .cat-container .item:not([data-medium="2"]) img {
   height: 0 !important;
 }
-nav#sideNav input[id$=medium-3]:checked ~ .cat-container .item:not([data-medium="3"]) img {
+
+body#categorie nav#sideNav input[id$=medium-3]:checked ~ .cat-container .item:not([data-medium="3"]) {
+  margin: 0 !important;
+}
+body#categorie nav#sideNav input[id$=medium-3]:checked ~ .cat-container .item:not([data-medium="3"]) img {
   width: 0 !important;
 }
-nav#sideNav input[id$=medium-4]:checked ~ .cat-container .item:not([data-medium="4"]) {
+
+body#piece nav#sideNav input[id$=medium-3]:checked ~ .cat-container .item:not([data-medium="3"]), body#info nav#sideNav input[id$=medium-3]:checked ~ .cat-container .item:not([data-medium="3"]) {
   margin: 0 !important;
+}
+body#piece nav#sideNav input[id$=medium-3]:checked ~ .cat-container .item:not([data-medium="3"]), body#piece nav#sideNav input[id$=medium-3]:checked ~ .cat-container .item:not([data-medium="3"]) img, body#info nav#sideNav input[id$=medium-3]:checked ~ .cat-container .item:not([data-medium="3"]), body#info nav#sideNav input[id$=medium-3]:checked ~ .cat-container .item:not([data-medium="3"]) img {
   height: 0 !important;
 }
-nav#sideNav input[id$=medium-4]:checked ~ .cat-container .item:not([data-medium="4"]) img {
+
+body#categorie nav#sideNav input[id$=medium-4]:checked ~ .cat-container .item:not([data-medium="4"]) {
+  margin: 0 !important;
+}
+body#categorie nav#sideNav input[id$=medium-4]:checked ~ .cat-container .item:not([data-medium="4"]) img {
   width: 0 !important;
 }
-nav#sideNav input[id$=medium-5]:checked ~ .cat-container .item:not([data-medium="5"]) {
+
+body#piece nav#sideNav input[id$=medium-4]:checked ~ .cat-container .item:not([data-medium="4"]), body#info nav#sideNav input[id$=medium-4]:checked ~ .cat-container .item:not([data-medium="4"]) {
   margin: 0 !important;
+}
+body#piece nav#sideNav input[id$=medium-4]:checked ~ .cat-container .item:not([data-medium="4"]), body#piece nav#sideNav input[id$=medium-4]:checked ~ .cat-container .item:not([data-medium="4"]) img, body#info nav#sideNav input[id$=medium-4]:checked ~ .cat-container .item:not([data-medium="4"]), body#info nav#sideNav input[id$=medium-4]:checked ~ .cat-container .item:not([data-medium="4"]) img {
   height: 0 !important;
 }
-nav#sideNav input[id$=medium-5]:checked ~ .cat-container .item:not([data-medium="5"]) img {
+
+body#categorie nav#sideNav input[id$=medium-5]:checked ~ .cat-container .item:not([data-medium="5"]) {
+  margin: 0 !important;
+}
+body#categorie nav#sideNav input[id$=medium-5]:checked ~ .cat-container .item:not([data-medium="5"]) img {
   width: 0 !important;
+}
+
+body#piece nav#sideNav input[id$=medium-5]:checked ~ .cat-container .item:not([data-medium="5"]), body#info nav#sideNav input[id$=medium-5]:checked ~ .cat-container .item:not([data-medium="5"]) {
+  margin: 0 !important;
+}
+body#piece nav#sideNav input[id$=medium-5]:checked ~ .cat-container .item:not([data-medium="5"]), body#piece nav#sideNav input[id$=medium-5]:checked ~ .cat-container .item:not([data-medium="5"]) img, body#info nav#sideNav input[id$=medium-5]:checked ~ .cat-container .item:not([data-medium="5"]), body#info nav#sideNav input[id$=medium-5]:checked ~ .cat-container .item:not([data-medium="5"]) img {
+  height: 0 !important;
 }
 
 body#categorie nav#sideNav {
@@ -977,7 +1025,7 @@ body#categorie nav#sideNav input[id$=medium-5]:checked ~ .sort-options li[data-f
 body#categorie nav#sideNav .sort-options {
   position: absolute;
   right: 25px;
-  top: 0;
+  top: -1.25rem;
 }
 body#categorie nav#sideNav > ul.cat-container {
   width: auto;
@@ -999,10 +1047,7 @@ body#categorie nav#sideNav > ul.cat-container li.cat {
   vertical-align: top;
 }
 body#categorie nav#sideNav > ul.cat-container li.cat label {
-  position: sticky;
-  top: 0;
-  left: 0;
-  margin: 2.5rem 0;
+  display: none;
 }
 body#categorie nav#sideNav > ul.cat-container li.cat ul.item-container {
   display: -webkit-box;
