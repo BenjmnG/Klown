@@ -18,10 +18,10 @@
 	<ul  class="sort-options">
 		<li data-for="medium-reset">
 			<label for="medium-reset">
-				<svg width="20" height="20" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+				<svg width="18" height="18" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
     			<use href="#i-reset" />
     		</svg>
-				<svg width="20" height="20" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+				<svg width="18" height="18" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
     			<use href="#i-filter" />
     		</svg>
 			</label>

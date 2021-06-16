@@ -889,7 +889,7 @@ nav#sideNav ul.sort-options li {
   transition: 0.25s ease-in-out;
 }
 nav#sideNav ul.sort-options li:first-of-type {
-  padding: 3px 25px 3px 0;
+  padding: 3px 16.5px 3px 0;
 }
 nav#sideNav ul.sort-options li:first-of-type svg {
   stroke-width: 2px;
@@ -1024,8 +1024,17 @@ body#categorie nav#sideNav input[id$=medium-5]:checked ~ .sort-options li[data-f
 }
 body#categorie nav#sideNav .sort-options {
   position: absolute;
-  right: 25px;
   top: -1.25rem;
+}
+@media (max-width: 700px) {
+  body#categorie nav#sideNav .sort-options {
+    left: 0;
+  }
+}
+@media (min-width: 700px) {
+  body#categorie nav#sideNav .sort-options {
+    right: 25px;
+  }
 }
 body#categorie nav#sideNav > ul.cat-container {
   width: auto;
@@ -1079,6 +1088,7 @@ body#categorie nav#sideNav > ul.cat-container li.cat ul.item-container li.item {
 }
 body#categorie nav#sideNav > ul.cat-container li.cat ul.item-container li.item img.cover {
   width: 20vw;
+  width: calc(clamp(200px, 20vw, 350px));
 }
 body#categorie nav#sideNav > ul.cat-container li.cat ul.item-container li.item img.cover:hover {
   transform: scale(1.5);
@@ -1092,13 +1102,14 @@ body#categorie nav#sideNav > ul.cat-container:not(.noJS)::-webkit-scrollbar {
 body#categorie nav#sideNav > ul.cat-container:not(.noJS) ~ #scrollTrigger {
   display: inline-block;
   position: absolute;
-  bottom: -3.75rem;
   right: 18.75px;
-  width: 25px;
+  width: 37.5px;
   height: 100%;
   padding: 1.25rem 0 1.25rem 12.5px;
   background: transparent;
   cursor: pointer;
+  top: 50%;
+  transform: translateY(-50%);
 }
 body#categorie nav#sideNav > ul.cat-container:not(.noJS) ~ #scrollTrigger svg {
   transform: scaleY(200%);

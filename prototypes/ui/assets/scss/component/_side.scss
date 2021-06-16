@@ -40,7 +40,7 @@ nav#sideNav{
           &:first-of-type{ opacity: 0;}
           &:last-of-type{ opacity: 1;}
         }
-        padding: 3px $unite 3px 0;
+        padding: 3px $unite*.66 3px 0;
       }
       label{cursor: pointer;}
     }
@@ -98,8 +98,9 @@ body#categorie{
 
     .sort-options{
       position: absolute;
-      right: $unite;
       top: $baseline*-1;
+      @include for-size(phone){left: 0;}
+      @include for-size(desktop){right: $unite;}
     }
 
     > ul.cat-container{
@@ -131,6 +132,7 @@ body#categorie{
 
             img.cover{
               width: 20vw;
+              width: calc(clamp(#{$unite*8}, 20vw, 350px));
               
               &:hover{ transform: scale(1.5); }           
             }
@@ -146,13 +148,14 @@ body#categorie{
       &~#scrollTrigger{
         display: inline-block;
         position: absolute;
-        bottom: $baseline*-3;
         right: $unite*.75;
-        width: $unite;
+        width: $unite*1.5;
         height: 100%;
         padding: $baseline 0 $baseline $unite/2;
         background: transparent;
         cursor: pointer;
+        top: 50%;
+        transform: translateY(-50%);        
 
         svg{transform: scaleY(200%);}
       }
