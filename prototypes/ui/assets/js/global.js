@@ -28,7 +28,7 @@ strobos.addEventListener("change", function(e) {
 									*/
 function openSideNav(zone, callOn, callOff){
   let zoneEl = document.querySelector(zone)
-  let toggleInput = document.querySelector('#toggle-menu')
+  let toggleInput = document.querySelector('#toggle-sideNav')
 
   if(!!window.IntersectionObserver){
 
