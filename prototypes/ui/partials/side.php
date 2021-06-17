@@ -38,10 +38,11 @@
 				<?php
 					$img = array( 2, 3, 4, 5);
 					$medium = array( 1, 2, 3);
+					$class = array( ' related', '', '', '', '');
 					for ($i = 0; $i < 20; $i++){
-						shuffle($img); shuffle($medium);
+						shuffle($img); shuffle($medium); shuffle($class);
 						echo '
-						<li class="item" data-medium="'.$medium[0].'">
+						<li class="item'.$class[0].'" data-medium="'.$medium[0].'">
 							<!-- Allow href if noJs, else REPLACE main content with transition -->
 							<a href="/piece.php" data-target="/piece.php">
 								<img class="cover" src="assets/svg/example'.$img[0].'.svg" style="filter: sepia(1);">
@@ -58,10 +59,11 @@
 				<?php
 					$img = array( 2, 3, 4, 5);
 					$medium = array( 1, 2, 3);
+					$class = array( ' related', '', '', '', '');
 					for ($i = 0; $i < 6; $i++){
-						shuffle($img); shuffle($medium);
+						shuffle($img); shuffle($medium); shuffle($class);
 						echo '
-						<li class="item" data-medium="'.$medium[0].'">
+						<li class="item'.$class[0].'" data-medium="'.$medium[0].'">
 							<!-- Allow href if noJs, else REPLACE main content with transition -->
 							<a href="/piece.php" data-target="/piece.php">
 								<img class="cover" src="assets/svg/example'.$img[0].'.svg" style="filter: sepia(1);">
@@ -78,10 +80,11 @@
 				<?php
 					$img = array( 2, 3, 4, 5);
 					$medium = array( 1, 2, 3);
+					$class = array( ' related', '', '', '', '');
 					for ($i = 0; $i < 12; $i++){
-						shuffle($img); shuffle($medium);
+						shuffle($img); shuffle($medium); shuffle($class);
 						echo '
-						<li class="item" data-medium="'.$medium[0].'">
+						<li class="item'.$class[0].'" data-medium="'.$medium[0].'">
 							<!-- Allow href if noJs, else REPLACE main content with transition -->
 							<a href="/piece.php" data-target="/piece.php">
 								<img class="cover" src="assets/svg/example'.$img[0].'.svg" style="filter: sepia(1);">
