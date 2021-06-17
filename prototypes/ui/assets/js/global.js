@@ -22,45 +22,6 @@ strobos.addEventListener("change", function(e) {
 	toggleStrobos();
 });
 
-
-/* 
-		Open Side Nav 
-									*/
-function openSideNav(zone, callOn, callOff){
-  let zoneEl = document.querySelector(zone)
-  let toggleInput = document.querySelector('#toggle-sideNav')
-
-  if(!!window.IntersectionObserver){
-
-    let observer = new IntersectionObserver((entries, observer) => { 
-
-      entries.forEach(entry => {
-
-        if(entry.isIntersecting){
-        	// Prevent True on small width
-        	if(window.innerWidth > 700){
-	          (entry.target).scrollIntoView(
-	          	{block: "end"}
-	          );
-	          toggleInput.checked = true;
-	          if(callOn){callOn()}        		
-        	}
-        } else{
-          toggleInput.checked = false;
-          if(callOff){callOff()}
-        }
-
-      });
-
-    }, {threshold: 0.5});
-
-    if(zoneEl){
-      observer.observe(zoneEl);
-    }
-  }
-
-}
-
 /* 
 		Change Favicon & theme color based on data-bg 
 						*/
