@@ -1,5 +1,9 @@
-let cat = body.getAttribute("data-for");
+//let cat = body.getAttribute("data-categorie");
 let Width = window.screen.width;
+
+/*
+  Carrousel
+            */
 
 let scrollContainer =  document.querySelector('.cat-container'),
     scrollTrigger = document.querySelector('#scrollTrigger'),
@@ -14,23 +18,4 @@ scrollTrigger.addEventListener("click", function(){
   } else{
     scrollContainer.scrollBy(step ,0)
   }
-});
-
-let sortOptions = [...document.querySelectorAll('.sort-options label')]
-sortOptions.forEach( function(el, i){
-  el.addEventListener("click", function(){
-
-    setTimeout(function(){
-      scrollContainer.scrollLeft = 0;
-    }, 300);
-    
-    // reset if double clic
-    let id = el.getAttribute('for'),
-        input = document.getElementById(id);
-    if(input.checked){ 
-      setTimeout(function(){
-        document.getElementById('medium-reset').checked = true;
-      }, 300);
-    }
-  });
 });

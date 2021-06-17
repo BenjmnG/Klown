@@ -1,5 +1,5 @@
 let body = document.querySelector('body'), 
-		id = body.id,
+		bodyId = body.id,
 		toggleSideNav = document.querySelector('#toggle-sideNav'),
 		sideNav = document.querySelector('#sideNav');
 
