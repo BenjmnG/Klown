@@ -5,7 +5,7 @@
 		<a href="/info.php">Klown</a>
 	</h1>
 	<nav>
-		<label for="toggle-menu" class="parent">Menu</label>
+		<span class="parent">Menu</span>
 		<ul>
 			<li><a href="categorie.php">Intériorisation</a></li>
 			<li><a href="categorie.php">Extériorisation</a></li>

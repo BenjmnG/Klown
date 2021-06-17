@@ -1,5 +1,4 @@
 <!-- Side Navigation -->
-<input id="toggle-menu" type="checkbox" hidden>
 <input id="toggle-sideNav" type="checkbox" hidden>
 <nav id="sideNav" >
 

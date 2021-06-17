@@ -192,7 +192,7 @@ body#piece, body#info{
 
     @include for-size(phone){
       width: 100vw;
-      height: calc(100vh - #{$unite*4});
+      height: 66vh;//calc(66vh - #{$unite*4});
       top: 0;
       left: 0;
       transform: translateY(calc(-100vh + #{$unite*4}));
@@ -291,11 +291,11 @@ body#piece, body#info{
       max-height: 0; overflow: hidden; margin: 0;
     }
   }
+
   // Open / Close
   nav#sideNav:hover, 
   nav#sideNav:focus, 
-  input#toggle-sideNav:checked + nav#sideNav,
-  input#toggle-menu:checked ~ nav#sideNav{
+  input#toggle-sideNav:checked + nav#sideNav{
     transform: translateX(0);
     @include for-size(phone){
       border-bottom: 1px solid currentColor;
