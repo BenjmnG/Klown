@@ -127,6 +127,7 @@ body#piece{
 		height: calc(100vh - #{$baseline*5});
 		@include for-size(desktop){ 		
 			height: calc(100vh - #{$baseline*8});
+			height: calc(clamp(300px, calc(100vh - #{$baseline*8}), 800px));
 			@include grid(repeat(8, 1fr), auto,  $baseline $unite/2, null, end);
 		}
 		@include for-size(desktop-1200){
@@ -138,13 +139,13 @@ body#piece{
 
 		h2{
 			@include f1-s2();
-			@include for-size(desktop){ 
-				@include f1-s4();
-				margin-left: calc(clamp())
-			}
 			line-height: 90% !important;
 			position: absolute;
-			bottom: $baseline*22;						
+			bottom: $baseline*22; 
+			@include for-size(desktop){ 
+				@include f1-s4();
+				bottom: $baseline*2;
+			}
 		}		
 	}
 
