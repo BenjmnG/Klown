@@ -35,8 +35,14 @@ body#categorie{
 		}
 
 		nav#sideNav{
-			/*Fallback */ margin: #{$baseline*3} 0 #{$baseline*6} 0;
-			margin: calc(clamp(#{$baseline*3}, 10vh, 150px)) 0 calc(clamp(#{$baseline*3}, 10vh, 150px)) 0;		
+			///*Fallback */ margin: #{$baseline*3} 0 #{$baseline*6} 0;
+			//margin: calc(clamp(#{$baseline*3}, 10vh, 150px)) 0 calc(clamp(#{$baseline*3}, 10vh, 150px)) 0;		
 		}
-	}	
+	}
+
+	@include sideNavHorizontal();
+ 
+  &[data-categorie="1"] nav#sideNav li.cat:not([data-categorie="1"]){display: none;}
+  &[data-categorie="2"] nav#sideNav li.cat:not([data-categorie="2"]){display: none;}
+  &[data-categorie="3"] nav#sideNav li.cat:not([data-categorie="3"]){display: none;}
 }

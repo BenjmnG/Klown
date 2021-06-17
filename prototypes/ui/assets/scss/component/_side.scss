@@ -89,10 +89,9 @@ nav#sideNav ul.sort-options{
 
   
 //
-//    ||| →            
+//    Horizontal →            
 //
-body#categorie{
-
+@mixin sideNavHorizontal(){
   nav#sideNav{
 
     width: 100vw;
@@ -168,22 +167,13 @@ body#categorie{
       }
 
     }
-    
-
   }
- 
-  &[data-categorie="1"] nav#sideNav li.cat:not([data-categorie="1"]){display: none;}
-  &[data-categorie="2"] nav#sideNav li.cat:not([data-categorie="2"]){display: none;}
-  &[data-categorie="3"] nav#sideNav li.cat:not([data-categorie="3"]){display: none;}
-
 }
 
-
 //
-//    ☰ 
-//    ↓
-body#piece, body#info{
-
+//    Vertical ↓
+//    
+@mixin sideNavVertical(){
   #scrollTrigger{display: none;}
 
   nav#sideNav{
@@ -308,5 +298,5 @@ body#piece, body#info{
       background: var(--bg);
     }
     & + #topbar h1{ opacity: 0; }
-  }
+  }  
 }

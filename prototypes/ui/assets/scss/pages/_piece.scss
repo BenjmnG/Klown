@@ -144,7 +144,20 @@ body#piece{
 			}
 			line-height: 90% !important;
 			position: absolute;
-			bottom: $baseline*2;						
+			bottom: $baseline*22;						
 		}		
+	}
+
+	// SideNav
+	@include for-size(phone){
+	  @include sideNavHorizontal();
+	  nav#sideNav{
+	  	position: absolute; bottom: $baseline*15;
+	  	.sort-options{display: none;}
+	  	.item:not(.related){display: none !important;}
+	  }
+	}
+	@include for-size(desktop){
+	  @include sideNavVertical();
 	}
 }
