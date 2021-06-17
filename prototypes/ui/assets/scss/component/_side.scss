@@ -245,6 +245,12 @@ body#piece, body#info{
 
     }
 
+    &.related{
+      ul.cat-container li.cat ul.item-container li.item:not(.related){
+        opacity: .2;
+      }
+    }
+
     // inside behavior
     ul.cat-container{
 
