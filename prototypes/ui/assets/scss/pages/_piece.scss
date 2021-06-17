@@ -51,13 +51,24 @@ body#piece{
 
 		a#to-details{
 			position: absolute;
-			bottom: $baseline;
+			bottom: $baseline*-1;
 			left: 50%;
 			transform: translateX(-50%);
 			@include f1-s0();
 			text-align: center;
 			padding: $baseline/4 2px;
-			border-bottom: .5px solid currentColor;
+			stroke-width: 1.5px;
+			transition: .5s ease;
+			transform: translateY(0);
+
+			@keyframes upDown{
+				0%{ transform: translateY(0);}
+				100%{ transform: translateY($baseline);}
+			}
+
+			&:hover svg{
+				animation: .75s ease-in-out infinite alternate upDown;
+			}
 		}
 	}
 

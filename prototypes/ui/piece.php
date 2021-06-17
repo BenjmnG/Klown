@@ -27,7 +27,11 @@
 				<source src="assets/video/example.mp4" type="video/mp4" autoplay>
 			</video>-->
 			
-			<a id="to-details" href ="#details">Plus d'information ⋁</a>
+			<a id="to-details" href ="#details" title="Plus d'informations">
+				<svg width="2rem" height="2rem" viewBox="0 -2 60 60" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    			<use href="#i-down" />
+    		</svg>
+    	</a>
 
 		</section>
 

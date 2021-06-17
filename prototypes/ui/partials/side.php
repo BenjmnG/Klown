@@ -3,7 +3,10 @@
 <nav id="sideNav" >
 
 	<label for="toggle-sideNav">
-		Pièces
+    	<h1>Pièces</h1>
+			<svg width="2rem" height="2rem" viewBox="0 -2 60 60" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden>
+    		<use href="#i-side" />
+    	</svg>
 	</label>
 
 	<!-- Sort Options-->

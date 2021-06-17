@@ -24,8 +24,12 @@
 		<polyline points="29.8,8.5 39.1,9.3 39.9,0 "/>
 	</g>
 	<g id="i-side" class="stroke">
-		<rect y="18" width="29" height="13.4"/>
-		<rect width="29" height="13.4"/>
-		<rect y="36.1" width="29" height="13.4"/>
+		<line x1="0" y1="0.5" x2="41.2" y2="0.5"/>
+		<line x1="11" y1="17.6" x2="49.2" y2="17.6"/>
+		<line x1="0" y1="34.7" x2="41.2" y2="34.7"/>
+		<polyline points="42.3,10.7 49.2,17.6 42.3,24.5"/>
+	</g>
+	<g id="i-down" class="stroke">
+		<polyline points="43.2,23.9 27.1,39.9 11.1,23.9 "/>
 	</g>
 </svg>

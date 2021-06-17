@@ -179,60 +179,41 @@ nav#sideNav ul.sort-options{
   nav#sideNav{
     position: fixed;
     transition:  transform .25s ease-in-out;
+    width: $unite*10;
+    height: 100vh;
+    transform: translateX(#{$unite*-8});
+    left: 0;
+    top: 0;
 
-    @include for-size(phone){
-      width: 100vw;
-      height: 66vh;//calc(66vh - #{$unite*4});
-      top: 0;
-      left: 0;
-      transform: translateY(calc(-100vh + #{$unite*4}));
-      ul.sort-options{
-        position: absolute;
-        right: $unite/2;
-        top: 50%;
-        bottom: inherit;
-        transform: rotate(-90deg) translateX(50%);
-        transform-origin: bottom right;
-      }
-    }
-    @include for-size(desktop){
-      width: $unite*10;
-      height: 100vh;
-      transform: translateX(#{$unite*-8});
-      left: 0;
-      top: 0;
-      ul.sort-options{
-        @include flex();
-        @include flex-direction(row-reverse);
-        position: absolute;
-        bottom: 0;
-        background: var(--bg);
-      }
+    ul.sort-options{
+      @include flex();
+      @include flex-direction(row);
+      position: relative;
+      margin: $baseline*6 0 0 $unite ;
+
+      li:first-of-type{padding-top: $font-size*.75;}
     }
 
     // Toggle Button
     label[for="toggle-sideNav"]{
-      content: "Pièces";
-      @include f1-s1();
       font-weight: $bold;
       cursor: pointer;
       position: absolute;
-      opacity: 1;
-      transition: opacity .25s ease-in-out;
       z-index: 2;
-      top: $baseline*3.5;
+      top: $baseline*3;
       right: 0;
-      padding: .5rem $unite/2 .5rem 0;
-      border-bottom: 1px solid currentColor;
-      transform: rotate(90deg);
-      @include for-size(phone){
-        /*bottom: $baseline*-4.5;
-        right: $unite;
-        text-align: right;*/
-        display: none;
-      }
-      @include for-size(desktop){}
+      padding-left: $unite/2 .5rem 0;      
+      transition: transform .5s ease-in-out;
+      transform: translateX(0);
+      >*{
 
+        transition: opacity .25s ease-in-out;
+      }
+      svg{opacity: 1; stroke-width: 1.5px; top: 0; position: absolute;}
+      h1{
+        @include f1-s1();
+        opacity: 0;
+      }
     }
 
     &.related{
@@ -249,15 +230,17 @@ nav#sideNav ul.sort-options{
       scrollbar-width: none;
       &::-webkit-scrollbar {display: none;}
       scroll-snap-type: y mandatory;
+      position: absolute;
+      top: 0;
       height: 100%;
-      padding: $baseline*2 $unite $baseline*2 $unite;
       box-sizing: border-box;
-      @include for-size(desktop){ padding: $baseline*2 $unite $baseline*2 $unite; }
+      padding: $baseline*2 $unite $baseline*2 $unite;
 
       li.cat{
         margin: 0 0 $baseline*2 0;
         //scroll-snap-align: start;
         overflow: hidden;
+        &:first-of-type{padding-top: $baseline*7;}
         ul.item-container{
           @include flex();
           @include flex-direction(column);
@@ -293,6 +276,11 @@ nav#sideNav ul.sort-options{
   nav#sideNav:focus, 
   input#toggle-sideNav:checked + nav#sideNav{
     transform: translateX(0);
+    label[for="toggle-sideNav"]{
+    transform: translateX(-184px);  
+      svg{opacity: 0;}
+      h1{opacity: 1;}
+    }
     @include for-size(phone){
       border-bottom: 1px solid currentColor;
       background: var(--bg);

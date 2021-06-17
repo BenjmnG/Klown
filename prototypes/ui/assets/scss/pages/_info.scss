@@ -46,4 +46,10 @@ body#info{
 			}
 		}
 	}
+	@include for-size(phone){
+		nav#sideNav{display: none;}
+	}
+	@include for-size(desktop){
+	  @include sideNavVertical();
+	}	
 }
