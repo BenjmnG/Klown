@@ -21,13 +21,6 @@ if(document.querySelector('#carrousel .siema')){
 }
 
 /*
-  Sidenav
-          */
-let scrollContainer =  document.querySelector('.cat-container');
-
-scrollContainer.classList.remove('noJS');          
-
-/*
   Related 
           */
 function callOn(){  
@@ -40,11 +33,13 @@ function callOff(){
 /* 
     Open Side Nav if large screen
                                     */
+                            
 let isLarge = false;
-if(window.innerWidth > 700){ isLarge = true }
+if(window.innerWidth > 700){ isLarge = true } 
+else { verticalTrigger(); }
 window.addEventListener("resize", function(){
   if(window.innerWidth > 700){ isLarge = true }
-  else{ isLarge = false }
+  else{ isLarge = false; verticalTrigger(); }
 });
 
 let zoneEl = document.querySelector('#related')

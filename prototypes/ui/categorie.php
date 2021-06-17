@@ -19,8 +19,8 @@
 	<?php include('static/svg/inline.svg') ?>
 	<script src="assets/js/utilities.js" type="text/javascript"></script>
 	<script src="assets/js/global.js" type="text/javascript"></script>
-	<script src="assets/js/_cat.js" type="text/javascript"></script>
 	<script src="assets/js/_side.js" type="text/javascript"></script>	
+	<script src="assets/js/_cat.js" type="text/javascript"></script>
 </body>
 </html>
 
