@@ -57,12 +57,16 @@
           transition: opacity .2s ease,width .2s ease;
           z-index: 1;
 	      }				
-        &:hover:after {width: 66%; transition: opacity .3s ease,width .3s ease;}
+        &:hover:after, .underline {width: 66%; transition: opacity .3s ease,width .3s ease;}
 			}
 		}
 	}
 }
 
 @include for-size(phone){
-	input#toggle-menu:checked ~ #topbar nav > *{transform: translateY(-$baseline);}
+	input#toggle-menu:checked ~ #topbar nav{
+		max-height: $baseline*4;
+		> ul > li{ display: block;}
+		> *{transform: translateY($baseline*-2);}
+	}
 }
