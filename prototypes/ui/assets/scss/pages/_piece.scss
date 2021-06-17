@@ -45,7 +45,8 @@ body#piece{
 			top: 50%;
 			transform:translateY(-60%);
 			text-align: center;
-			img{ width: calc(100% - #{$unite*4}); max-width: 1920px; object-fit: contain;	}
+			img{ width: calc(100% - #{$unite*2}); max-width: 1920px; object-fit: contain;	}
+			@include for-size(desktop){img{ width: calc(100% - #{$unite*4});}}
 		}
 
 		a#to-details{
