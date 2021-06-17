@@ -28,7 +28,7 @@ strobos.addEventListener("change", function(e) {
 									*/
 function openSideNav(zone, callOn, callOff){
   let zoneEl = document.querySelector(zone)
-  let toggle_sideNav = document.querySelector('#toggle-sideNav')
+  let toggleInput = document.querySelector('#toggle-menu')
 
   if(!!window.IntersectionObserver){
 
@@ -37,13 +37,16 @@ function openSideNav(zone, callOn, callOff){
       entries.forEach(entry => {
 
         if(entry.isIntersecting){
-          (entry.target).scrollIntoView(
-          	{block: "end"}
-          );
-          toggle_sideNav.checked = true;
-          if(callOn){callOn()}
+        	// Prevent True on small width
+        	if(window.innerWidth > 700){
+	          (entry.target).scrollIntoView(
+	          	{block: "end"}
+	          );
+	          toggleInput.checked = true;
+	          if(callOn){callOn()}        		
+        	}
         } else{
-          toggle_sideNav.checked = false;
+          toggleInput.checked = false;
           if(callOff){callOff()}
         }
 
