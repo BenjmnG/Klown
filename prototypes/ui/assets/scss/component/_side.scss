@@ -34,6 +34,12 @@ nav#sideNav ul.sort-options{
     order: 2;
     transition: .25s ease-in-out;
     &:first-of-type{
+      padding-right: 0;
+      label{
+        display: inline-block;
+        width: 18px;
+        height: 18px;
+      }
       svg{
         stroke-width : 2px;
         transition: .5s ease-in-out;
@@ -43,7 +49,7 @@ nav#sideNav ul.sort-options{
         &:first-of-type{ opacity: 0;}
         &:last-of-type{ opacity: 1;}
       }
-      padding: 3px $unite*.66 3px 0;
+      
     }
 
     &:not(:first-of-type){
@@ -58,6 +64,7 @@ nav#sideNav ul.sort-options{
         background-color: var(--cc);
         transition: opacity .2s ease,width .2s ease;
         z-index: 1;
+        @media(-webkit-min-device-pixel-ratio: 1.5){height: .5px;}
       }       
       &:hover:after {width: 66%; transition: opacity .3s ease,width .3s ease;}
     }
@@ -105,6 +112,7 @@ nav#sideNav ul.sort-options{
     .sort-options{
       position: absolute;
       top: $baseline*-1;
+      li:first-of-type{ top: 2px; }
       @include for-size(phone){left: $unite;}
       @include for-size(desktop){right: $unite;}
     }
@@ -179,9 +187,9 @@ nav#sideNav ul.sort-options{
   nav#sideNav{
     position: fixed;
     transition:  transform .25s ease-in-out;
-    width: $unite*10;
+    width: $unite*14;
     height: 100vh;
-    transform: translateX(#{$unite*-8});
+    transform: translateX(#{$unite*-12});
     left: 0;
     top: 0;
 
@@ -191,7 +199,7 @@ nav#sideNav ul.sort-options{
       position: relative;
       margin: $baseline*6 0 0 $unite ;
 
-      li:first-of-type{padding-top: $font-size*.75;}
+      li:first-of-type{ top: -3px; }
     }
 
     // Toggle Button
@@ -209,7 +217,7 @@ nav#sideNav ul.sort-options{
 
         transition: opacity .25s ease-in-out;
       }
-      svg{opacity: 1; stroke-width: 1.5px; top: 0; position: absolute;}
+      svg{opacity: 1; stroke-width: 1.5px; top: -2px; position: absolute;}
       h1{
         @include f1-s1();
         opacity: 0;
@@ -251,14 +259,14 @@ nav#sideNav ul.sort-options{
             margin: $baseline/6 0;
             scroll-snap-align: start;
             transition: all .25s ease, max-height .5s ease-in-out, margin 0s;
-            max-height: 150px;
+            max-height: 200px;
             cursor: pointer;
             
             img.cover{
               height: 75px;
-              max-height: 150px;
+              max-height: 200px;
               //transform-origin: left;
-              &:hover{height: 150px;}
+              &:hover{height: 200px;}
             }
           }
         }
@@ -277,7 +285,7 @@ nav#sideNav ul.sort-options{
   input#toggle-sideNav:checked + nav#sideNav{
     transform: translateX(0);
     label[for="toggle-sideNav"]{
-    transform: translateX(-184px);  
+    transform: translateX(-282px);  
       svg{opacity: 0;}
       h1{opacity: 1;}
     }

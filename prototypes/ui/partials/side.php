@@ -4,7 +4,7 @@
 
 	<label for="toggle-sideNav">
     	<h1>Pièces</h1>
-			<svg width="2rem" height="2rem" viewBox="0 -2 60 60" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden>
+			<svg width="24" height="24" viewBox="0 -2 60 60" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden>
     		<use href="#i-side" />
     	</svg>
 	</label>
