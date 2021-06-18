@@ -4,7 +4,7 @@
             
 input.on-off{
   position: relative;
-  width: 3em;
+  width: 2.5em;
   height: 1.25em;
   -webkit-appearance: none;
   -moz-appearance: none;
@@ -14,10 +14,46 @@ input.on-off{
   box-shadow: inset 0 0 0.5 gray;
   transition: all 0.25s ease-in-out;
   border: 1px solid currentColor;
+  overflow: hidden;
   cursor: pointer;
+
+  &:before{
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--cc);
+    opacity: 0;
+  }
+
+  & + label{
+    position: absolute;
+    top: -1px;
+    left: 46%;
+    width: 100%;
+    padding: 0;
+    cursor: pointer;
+    transition: 0.25s ease-in-out;
+
+    svg{
+      position: absolute;
+      left: 0.75px;
+      top: 1px;;
+      stroke-width : 1px;
+      transform: scale(1);
+      transition: transform 0.25s 0 ease;
+      @media(-webkit-min-device-pixel-ratio: 1.5){
+        stroke-width: .75px;
+        top: -.5px
+      }
+      .second{ opacity: 0; transition: .1s ease-in-out;}
+    }
+  }
 }
 
-input.on-off::before {
+/*input.on-off::before {
   content: "";
   position: absolute;
   width: 1.25em;
@@ -29,12 +65,36 @@ input.on-off::before {
   transition: all 0.25s ease-in-out;
   transform: scale(1.1);
   border: 1px solid currentColor;
-}
+}*/
 
 input.on-off:checked{
-  &::before{
+  /*&::before{
     left: 0;
+  }*/
+  + label{
+    left: -1px;
+    svg{
+      animation: scale 1 .5s .25s ease;
+      transition: transform .25s .25s ease;
+
+      @keyframes scale{
+        0%{transform: scale(1);}
+        80%{transform: scale(1.5);}
+        100%{transform: scale(1);}
+      }
+
+      .second{ 
+        opacity: 1;
+        &:nth-of-type(2){transition-delay: .2s;}
+        &:nth-of-type(3){transition-delay: .25s;}
+        &:nth-of-type(4){transition-delay: .3s;}
+      }
+    }
   }
+}
+input.on-off:not(:checked) {
+  &:before{ opacity: .15}
+  + label svg circle:first-of-type{ fill: var(--bg); }
 }
 
 /* 
@@ -46,6 +106,10 @@ input.on-off:checked{
   top: calc(100vh - #{$baseline*6});
   right: 0;
   z-index: 3;
+  @include for-size(phone){
+    transform: rotate(90deg);
+    transform-origin: bottom;
+  }
   @include for-size(desktop-1200){
     position: fixed;
     top: calc(100vh - #{$baseline*3});
@@ -53,5 +117,4 @@ input.on-off:checked{
   }
   font-weight: $bold;
   cursor: pointer;
-  label{top: -.25rem;  padding: 0 5px;}
 }          
