@@ -21,10 +21,15 @@
 	<!-- END block  -->
 
 	<!-- block Favicon // Init with data-bg -->
-  <link rel="icon" href="/favicon-w.ico"> <!-- Change w with data-bg -->
-  <link rel="icon" href="/favicon-w.svg" type="image/svg+xml"> <!-- Change w with data-bg -->
-  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon-w.png"> <!-- Change w with data-bg -->
-  <link rel="manifest" href="/site.webmanifest">
+  <link rel="icon" href="static/favicon-k.ico"> <!-- Change w with data-bg -->
+  <link rel="icon" type="image/png" sizes="32x32" href="static/favicon-k.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="static/favicon-192-k.png">
+  <link rel="icon" type="image/svg+xml" href="static/favicon-k.svg"> <!-- Change w with data-bg -->
+  <link rel="apple-touch-icon" sizes="120x120" href="static/apple-touch-icon-k.png"> <!-- Change w with data-bg -->
+  <link rel="manifest" href="static/site.webmanifest">
   <meta name="theme-color" content="#333"> <!-- White → #ffffff || Black → #262626 || Red → #db0d06 -->
 	<!-- END block -->
 </head>
+
+
+

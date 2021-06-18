@@ -36,9 +36,9 @@ function updateColor(){
 	//console.log('Colors Changes → ', currentBg, currentBgHex)
 	
 	document.querySelector('meta[name="theme-color"]').setAttribute("content", currentBgHex);
-	document.querySelectorAll('link[rel="icon"]')[0].setAttribute("href", '/favicon-' + currentBg + '.ico');
-	document.querySelectorAll('link[rel="icon"]')[1].setAttribute("href", '/favicon-' + currentBg + '.svg');
-	document.querySelector('link[rel="apple-touch-icon"]').setAttribute("href", '/apple-touch-icon-' + currentBg + '.png');
+	document.querySelectorAll('link[rel="icon"]')[0].setAttribute("href", 'static/favicon-' + currentBg + '.ico');
+	document.querySelectorAll('link[rel="icon"]')[1].setAttribute("href", 'static/favicon-' + currentBg + '.svg');
+	document.querySelector('link[rel="apple-touch-icon"]').setAttribute("href", 'static/apple-touch-icon-' + currentBg + '.png');
 
 }
 
