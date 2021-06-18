@@ -31,6 +31,7 @@
 			</ul>
 		</nav>
 	</main>
+	<?php @include("partials/strobos.php")?>
 	<script src="assets/js/utilities.js" type="text/javascript"></script>
 	<script src="assets/js/global.js" type="text/javascript"></script>
 	<script src="assets/js/_index.js" type="text/javascript"></script>
