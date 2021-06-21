@@ -54,12 +54,12 @@ body#index{
 						video, iframe{
 							opacity: 0;
 							min-width: 100vw;
-						  min-height: 100vh;
+						  height: 100vh;
 							mix-blend-mode: luminosity;
 						}
 
 						video{
-						  left: 50%;
+						  left: 0%;
 						  transform: translateX(-50%);
 						}
 					}
@@ -84,6 +84,10 @@ body#index{
 		@include for-size(desktop){
 			min-height: calc(100vh - #{$baseline*8});
 			nav ul li a{padding-left: $unite; padding-right: $unite;}
+			nav ul li .videoWrapper{
+				video, iframe{height: inherit; min-height: 100vh;}
+				video{left: 50%;}
+			}
 		}
 	}
 

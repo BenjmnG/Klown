@@ -5,7 +5,7 @@ body#categorie{
 	main{
 		header{
 			/*Fallback */ margin-top: calc(100vh - #{$baseline*5} - 4rem);
-			margin-top: calc(100vh - #{$baseline*3} - clamp(4rem, 15vw, 200px)  -  #{$baseline/2});
+			margin-top: calc(100vh - #{$baseline*6} - clamp(4rem, 15vw, 200px)  -  #{$baseline/2});
 			@include for-size(desktop){ 
 				/*Fallback */ margin-top: calc(100vh - #{$baseline*5} - 150px);
 				margin-top: calc(100vh - #{$baseline*4} - clamp(4rem, 15vw, 200px) -  #{$baseline/2});
