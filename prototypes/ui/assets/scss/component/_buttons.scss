@@ -31,7 +31,7 @@ input.on-off{
   & + label{
     position: absolute;
     top: -1px;
-    left: 46%;
+    left: 43%;
     width: 100%;
     padding: 0;
     cursor: pointer;
@@ -42,7 +42,7 @@ input.on-off{
       left: 0.75px;
       top: 1px;;
       stroke-width : 1px;
-      transform: scale(1);
+      transform: scale(.75);
       transition: all 0s 0s, transform 0.25s 0 ease;
       @media(-webkit-min-device-pixel-ratio: 1.5){
         stroke-width: .75px;
@@ -72,7 +72,7 @@ input.on-off:checked{
     left: 0;
   }*/
   + label{
-    left: -1px;
+    left: -1.5px;
     svg{
       animation: scale 1 .5s .25s ease;
       transition: transform .25s .25s ease;
@@ -103,10 +103,10 @@ input.on-off:not(:checked) {
 
 #strobos{
   position: absolute;
-  top: calc(100vh - #{$baseline*6});
   right: 0;
   z-index: 3;
   @include for-size(phone){
+    top: calc(100vh - #{$baseline*8});
     transform: rotate(90deg);
     transform-origin: bottom;
   }
