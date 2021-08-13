@@ -7,42 +7,47 @@ VideoExport videoExport;
 final String sketchname = getClass().getName();
 
 int space = 6; // Distance entre 2 lignes
-int crop = 100;
-int fps = 50;
+int crop = 0;
+int fps = 12;
 int fps_source = 25;
 float maxWeight = space; //1.5
 float maxDaz = space*1;
 float lim1t; // seuil de luminosité à partir duquel image restranscrite
 float unlim1ted; // seuil de luminosité jusqu'auquel image restranscrite
 float frameIndex = 0;
-float startAt = 160;
+float startAt = 0;
+int startCount = 0;
 float endAt; 
 float last;
 PImage frame;
 
-float hue = 0, 
-      sat = 80,
+float hue = 5, 
+      sat = 0,
       bri = 100, 
       var = 30;
 
 float maxN = 2;
+float f = .75;
+
 
 void setup() {
   size(1920, 1080);
   colorMode(HSB, 256, 100, 100);
   noStroke();
   frameRate(fps);
-  video = new Movie(this, "../../../../src/rogue-2.mp4");
+  video = new Movie(this, "../../../src/rogue-extract.mp4");
   video.volume(0);
   video.pause();
   
   endAt = video.duration() * fps_source;
+  //maxDaz = space*(5*2);
 
 }
 
 void draw() { 
 
-  background(#333333);
+  background(#000000);
+  fill(255);
   //println(video.time());
   //if (video.time() > 226. && video.time() < 227) {video.jump(236);}
   video.play();
@@ -55,26 +60,26 @@ void draw() {
   
   frame = video.get(0, 0, width, height);
   frame.loadPixels();
+ 
+  lim1t = 20; unlim1ted = 100;
 
-  if(frameIndex > 0 && frameIndex < 60){
-    maxDaz = space*frameIndex/2;
-  }  
-  lim1t = 20; unlim1ted = 66;
-
-  
+  if(frameIndex > 0 && frameIndex < 5){
+    maxDaz = space*(frameIndex*2);
+  }
     
   push();
+  fill(255);
   blendMode(LIGHTEST); //LIGHTEST / REPLACE
   drawdot(); filter(BLUR, 6);
   drawdot();
   pop();
   
-  push();fill(255); text("VideoTime " + video.time(), 20,40); text("Framecount " + frameCount,20,60); pop();
+  push();fill(#000000); text("VideoTime " + (video.time()/2), 20,40); text("Framecount " + frameCount,20,60); pop();
   
   if(frameIndex > endAt){frameIndex = 0;} 
   
-  //rec();
-  saveFrame("frames/####.png");
+  int hash = frameCount + startCount;
+  saveFrame("frames/00" + hash + ".png");
  }
  
  void drawdot(){
@@ -84,18 +89,30 @@ void draw() {
       color col = frame.pixels[x+y*width];
       float brightness = brightness(col);
       if(brightness > lim1t && brightness < unlim1ted){
-        float pixel = map(brightness, lim1t, unlim1ted, 0, maxWeight);
+        
+        float pixel;     
         float daz = map(brightness, lim1t, 100, maxDaz, 0); // destroy the image with dazzling param
         float n = noise(x +  frameCount, y + frameCount) * maxN;
         daz = daz - maxN + n;
+        
         // Gray to colors method
         /*if(brightness > lim1t + unlim1ted / 4 * 2 + 10){ hue = 15;
         } else if(brightness > lim1t + unlim1ted / 4){hue = 5;
         } else{ hue = 144; var = 30;}*/
 
         float _hue = map(brightness, lim1t, unlim1ted, hue - var, hue + var);
-        float _bri = bri - nfC * 30;
-        float _sat = map(brightness, lim1t, unlim1ted, sat, 0);
+        float _bri = bri - nfC * 10;
+        float _sat = map(brightness, lim1t, unlim1ted*f, sat, 0);
+        
+
+        if(brightness < unlim1ted*f){
+          pixel = map(brightness, lim1t, unlim1ted*f, 0, maxWeight*.75);
+          _sat = map(brightness, lim1t, unlim1ted*f, sat, sat*.75);
+        } else {
+          pixel = map(brightness, unlim1ted*f, unlim1ted, maxWeight*.75, maxWeight);
+          _sat = map(brightness, unlim1ted*f, unlim1ted, sat*.75, 0);
+        }           
+        
         fill(_hue, _sat, _bri);
         ellipse(x-(maxDaz + maxN)+daz, y, pixel, pixel);       
         
